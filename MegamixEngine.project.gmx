@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="2818" name="datafiles">
+  <datafiles number="2819" name="datafiles">
     <datafile>
       <name>fmodex.dll</name>
       <exists>-1</exists>
@@ -72,7 +72,7 @@
       </ConfigOptions>
       <filename>Screenshots and Savefiles.lnk</filename>
     </datafile>
-    <datafiles number="2818" name="Music">
+    <datafiles number="2819" name="Music">
       <datafile>
         <name>14 Tenguman.ini</name>
         <exists>-1</exists>
@@ -753,7 +753,7 @@
         </ConfigOptions>
         <filename>WW_Boss.vgz</filename>
       </datafile>
-      <datafiles number="2818" name="MM9">
+      <datafiles number="2819" name="MM9">
         <datafile>
           <name>01_Opening1.mid</name>
           <exists>-1</exists>
@@ -1418,7 +1418,7 @@
           <filename>MM9_OST.sf2</filename>
         </datafile>
       </datafiles>
-      <datafiles number="2818" name="MM10">
+      <datafiles number="2819" name="MM10">
         <datafile>
           <name>songinfo.ini</name>
           <exists>-1</exists>
@@ -2237,7 +2237,7 @@
         </datafile>
       </datafiles>
     </datafiles>
-    <datafiles number="2818" name="Levels">
+    <datafiles number="2819" name="Levels">
       <datafile>
         <name>lvlChillMan.room.gmx</name>
         <exists>-1</exists>
@@ -3122,8 +3122,25 @@
         </ConfigOptions>
         <filename>lvlTestHallTemp.room.gmx</filename>
       </datafile>
+      <datafile>
+        <name>lvlDredge.room.gmx</name>
+        <exists>-1</exists>
+        <size>13861</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>lvlDredge.room.gmx</filename>
+      </datafile>
     </datafiles>
-    <datafiles number="2818" name="Costumes">
+    <datafiles number="2819" name="Costumes">
       <datafile>
         <name>Custom Costumes Documentation.docx</name>
         <exists>-1</exists>
@@ -3141,7 +3158,7 @@
         </ConfigOptions>
         <filename>Custom Costumes Documentation.docx</filename>
       </datafile>
-      <datafiles number="2818" name="Sample">
+      <datafiles number="2819" name="Sample">
         <datafile>
           <name>Sample.png</name>
           <exists>-1</exists>
@@ -3161,7 +3178,7 @@
         </datafile>
       </datafiles>
     </datafiles>
-    <datafiles number="2818" name="Borders">
+    <datafiles number="2819" name="Borders">
       <datafile>
         <name>_SAMPLE SPECS_.png</name>
         <exists>-1</exists>
