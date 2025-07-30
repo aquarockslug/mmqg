@@ -20,7 +20,7 @@
   <width>38</width>
   <height>49</height>
   <frames>
-    <frame index="0">images\sprDregeMan_0.png</frame>
-    <frame index="1">images\sprDregeMan_1.png</frame>
+    <frame index="0">images\sprDredgeMan_0.png</frame>
+    <frame index="1">images\sprDredgeMan_1.png</frame>
   </frames>
 </sprite>

@@ -5626,6 +5626,9 @@
           <sprite>sprites\sprVoltShot</sprite>
         </sprites>
       </sprites>
+      <sprites name="MMQG">
+        <sprite>sprites\sprDredgeMan</sprite>
+      </sprites>
     </sprites>
     <sprites name="Gimmicks">
       <sprites name="General">
@@ -8374,6 +8377,9 @@
           <object>objects\objVoltRoofDetector</object>
         </objects>
       </objects>
+      <objects name="MMQG">
+        <object>objects\objDredgeMan</object>
+      </objects>
     </objects>
     <objects name="Gimmicks">
       <objects name="General">
@@ -9012,8 +9018,6 @@
     <room>rooms\rmInit</room>
     <room>rooms\lvlCopyThisRoom</room>
     <room>rooms\lvlShowcaseHUB</room>
-    <room>rooms\lvlCutMan</room>
-    <room>rooms\lvlPharaohMan</room>
     <rooms name="Engine">
       <room>rooms\rmDisclaimer</room>
       <room>rooms\rmExtensionCheck</room>
@@ -9031,6 +9035,7 @@
       <room>rooms\rmCastleIntro</room>
       <room>rooms\rmTypeTest</room>
     </rooms>
+    <room>rooms\lvlDredge</room>
   </rooms>
   <constants number="126">
     <constant name="DEBUG_ENABLED">1</constant>
