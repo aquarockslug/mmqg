@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://d14e8pcy6g8vx"]
+
+[ext_resource type="Texture2D" uid="uid://ir233voc7hq1" path="res://dredgeman.png" id="1_0x4v6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkq6v"]
+atlas = ExtResource("1_0x4v6")
+region = Rect2(7, 252, 98, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsb5u"]
+atlas = ExtResource("1_0x4v6")
+region = Rect2(117, 252, 98, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lmi1"]
+atlas = ExtResource("1_0x4v6")
+region = Rect2(227, 252, 98, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtqvv"]
+atlas = ExtResource("1_0x4v6")
+region = Rect2(337, 252, 98, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrs12"]
+atlas = ExtResource("1_0x4v6")
+region = Rect2(447, 252, 98, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny2p7"]
+atlas = ExtResource("1_0x4v6")
+region = Rect2(557, 252, 98, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pptbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkq6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsb5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lmi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtqvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrs12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny2p7")
+}],
+"loop": true,
+"name": &"dig",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(574, 327)
+sprite_frames = SubResource("SpriteFrames_pptbi")
+animation = &"dig"
+autoplay = "dig"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
