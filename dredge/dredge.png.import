@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ir233voc7hq1"
-path="res://.godot/imported/dredgeman.png-73ef28056d1cade9d2e6aefaf2273352.ctex"
+uid="uid://da18nh1ofmdo1"
+path="res://.godot/imported/dredge.png-a7ea8a014b7cdcce7aa08b3f9063b571.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dredgeman.png"
-dest_files=["res://.godot/imported/dredgeman.png-73ef28056d1cade9d2e6aefaf2273352.ctex"]
+source_file="res://dredge/dredge.png"
+dest_files=["res://.godot/imported/dredge.png-a7ea8a014b7cdcce7aa08b3f9063b571.ctex"]
 
 [params]
 

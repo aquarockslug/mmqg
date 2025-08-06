@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="mmqg"
-run/main_scene="res://dredge.tscn"
+run/main_scene="res://dredge/dredge.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

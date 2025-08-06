@@ -1,29 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://d14e8pcy6g8vx"]
+[gd_scene load_steps=11 format=4 uid="uid://d14e8pcy6g8vx"]
 
-[ext_resource type="Texture2D" uid="uid://ir233voc7hq1" path="res://dredgeman.png" id="1_0x4v6"]
+[ext_resource type="Texture2D" uid="uid://ir233voc7hq1" path="res://dredge/dredgeman.png" id="1_a2c5g"]
+[ext_resource type="TileSet" uid="uid://dy7mbepxae4e4" path="res://dredge/dredge.tres" id="2_espy0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkq6v"]
-atlas = ExtResource("1_0x4v6")
+atlas = ExtResource("1_a2c5g")
 region = Rect2(7, 252, 98, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsb5u"]
-atlas = ExtResource("1_0x4v6")
+atlas = ExtResource("1_a2c5g")
 region = Rect2(117, 252, 98, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lmi1"]
-atlas = ExtResource("1_0x4v6")
+atlas = ExtResource("1_a2c5g")
 region = Rect2(227, 252, 98, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtqvv"]
-atlas = ExtResource("1_0x4v6")
+atlas = ExtResource("1_a2c5g")
 region = Rect2(337, 252, 98, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrs12"]
-atlas = ExtResource("1_0x4v6")
+atlas = ExtResource("1_a2c5g")
 region = Rect2(447, 252, 98, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ny2p7"]
-atlas = ExtResource("1_0x4v6")
+atlas = ExtResource("1_a2c5g")
 region = Rect2(557, 252, 98, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pptbi"]
@@ -52,16 +53,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2c5g"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(1001, 498)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(574, 327)
+scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_pptbi")
 animation = &"dig"
 autoplay = "dig"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_a2c5g")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAlACMAAAABAAEAAAAgACgAAAABAAEAAAAqACgAAAABAAEAAAAgACMAAAABAAAAAAAqACMAAAABAAAAAAAlACgAAAABAAAAAAAbACYAAAAAAAAAAAAWACYAAAAAAAAAAAARACYAAAAAAAAAAAAvACUAAAACAAEAAAA0ACUAAAACAAEAAAA5ACUAAAACAAEAAAA+ACUAAAACAAEAAABDACUAAAACAAEAAABIACUAAAACAAEAAAAMACYAAAAAAAAAAAAHACYAAAAAAAAAAAACACYAAAAAAAAAAAA=")
+tile_set = ExtResource("2_espy0")
