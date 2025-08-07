@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cte1hov7rfwif"
-path="res://.godot/imported/absolute.png-5837167edaacd75d2fc31af9e2a4670a.ctex"
+uid="uid://id7lhpytw1js"
+path="res://.godot/imported/dredge_background.png-d8b733d61c1be01c8cf6c079492d0c0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://absolute.png"
-dest_files=["res://.godot/imported/absolute.png-5837167edaacd75d2fc31af9e2a4670a.ctex"]
+source_file="res://dredge/dredge_background.png"
+dest_files=["res://.godot/imported/dredge_background.png-d8b733d61c1be01c8cf6c079492d0c0b.ctex"]
 
 [params]
 
