@@ -59,6 +59,10 @@ animations = [{
 
 [node name="dredge" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(163, 120)
+zoom = Vector2(2, 2)
+
 [node name="dredgeman" type="CharacterBody2D" parent="."]
 position = Vector2(693, 138)
 
