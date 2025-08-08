@@ -57,7 +57,7 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2c5g"]
 
-[node name="Node2D" type="Node2D"]
+[node name="dredge" type="Node2D"]
 
 [node name="ground" type="TileMapLayer" parent="."]
 position = Vector2(0, -4)
