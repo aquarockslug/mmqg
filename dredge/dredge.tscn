@@ -82,16 +82,18 @@ tile_set = ExtResource("1_espy0")
 
 [node name="background" type="Node2D" parent="."]
 
-[node name="sky" type="ParallaxBackground" parent="background"]
-scroll_offset = Vector2(0.2, 1)
-
-[node name="sky" type="Sprite2D" parent="background/sky"]
-position = Vector2(129, 119)
-texture = ExtResource("2_or3dp")
-
-[node name="clouds" type="ParallaxBackground" parent="background"]
-scroll_offset = Vector2(0.7, 1)
+[node name="clouds" type="Parallax2D" parent="background"]
+scroll_scale = Vector2(0.7, 0.7)
 
 [node name="clouds" type="Sprite2D" parent="background/clouds"]
-position = Vector2(154, 121)
+position = Vector2(311, 237)
+scale = Vector2(2, 2)
 texture = ExtResource("3_2x5kc")
+
+[node name="sky" type="Parallax2D" parent="background"]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="sky" type="Sprite2D" parent="background/sky"]
+position = Vector2(257, 237)
+scale = Vector2(2, 2)
+texture = ExtResource("2_or3dp")
