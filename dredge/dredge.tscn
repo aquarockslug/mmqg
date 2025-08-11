@@ -1,69 +1,95 @@
-[gd_scene load_steps=14 format=4 uid="uid://d14e8pcy6g8vx"]
+[gd_scene load_steps=17 format=4 uid="uid://d14e8pcy6g8vx"]
 
 [ext_resource type="Texture2D" uid="uid://ir233voc7hq1" path="res://dredge/dredge_man.png" id="1_a2c5g"]
 [ext_resource type="TileSet" uid="uid://cdgbc78egcnmg" path="res://dredge/dredge_tiles.tres" id="1_espy0"]
 [ext_resource type="Texture2D" uid="uid://id7lhpytw1js" path="res://dredge/dredge_background.png" id="2_or3dp"]
 [ext_resource type="Texture2D" uid="uid://defxjkxb2ltyq" path="res://dredge/dredge_clouds.png" id="3_2x5kc"]
-[ext_resource type="Script" uid="uid://b03pyekjf0ear" path="res://dredge/player.gd" id="4_2x5kc"]
+[ext_resource type="Script" uid="uid://b03pyekjf0ear" path="res://player.gd" id="4_2x5kc"]
+[ext_resource type="Texture2D" uid="uid://tekytq51n2dp" path="res://rock-frames-retest.png" id="5_2x5kc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kkq6v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x5kc"]
 atlas = ExtResource("1_a2c5g")
-region = Rect2(7, 252, 98, 150)
+region = Rect2(214, 26, 50, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dsb5u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a03if"]
 atlas = ExtResource("1_a2c5g")
-region = Rect2(117, 252, 98, 150)
+region = Rect2(267, 26, 50, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5lmi1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7frq"]
 atlas = ExtResource("1_a2c5g")
-region = Rect2(227, 252, 98, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtqvv"]
-atlas = ExtResource("1_a2c5g")
-region = Rect2(337, 252, 98, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wrs12"]
-atlas = ExtResource("1_a2c5g")
-region = Rect2(447, 252, 98, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ny2p7"]
-atlas = ExtResource("1_a2c5g")
-region = Rect2(557, 252, 98, 150)
+region = Rect2(320, 26, 50, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pptbi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kkq6v")
+"texture": SubResource("AtlasTexture_2x5kc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dsb5u")
+"texture": SubResource("AtlasTexture_a03if")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5lmi1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtqvv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wrs12")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ny2p7")
+"texture": SubResource("AtlasTexture_a7frq")
 }],
 "loop": true,
 "name": &"dig",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2c5g"]
-size = Vector2(37.5, 40)
+size = Vector2(39, 47.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxxar"]
+atlas = ExtResource("5_2x5kc")
+region = Rect2(2, 20, 33, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1em7"]
+atlas = ExtResource("5_2x5kc")
+region = Rect2(38, 20, 33, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31ak4"]
+atlas = ExtResource("5_2x5kc")
+region = Rect2(74, 20, 33, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewaw6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1em7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31ak4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxar")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a03if"]
+size = Vector2(24, 27)
 
 [node name="dredge" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(172, 121)
-zoom = Vector2(2, 2)
 
 [node name="background" type="Node2D" parent="."]
 
@@ -85,17 +111,32 @@ tile_map_data = PackedByteArray("AAAAAAwAAAAEAAEAAAAAAA0AAAAEAAIAAAAAAA4AAAAEAAM
 tile_set = ExtResource("1_espy0")
 collision_visibility_mode = 1
 
+[node name="dredge" type="CharacterBody2D" parent="."]
+position = Vector2(689, 156)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="dredge"]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_pptbi")
+animation = &"dig"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dredge"]
+position = Vector2(-0.5, -7.25)
+shape = SubResource("RectangleShape2D_a2c5g")
+
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(133, 154)
+position = Vector2(142, 175)
 script = ExtResource("4_2x5kc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
-scale = Vector2(-0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_pptbi")
-animation = &"dig"
-autoplay = "dig"
-frame_progress = 0.535181
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_ewaw6")
+animation = &"idle"
+frame_progress = 0.361566
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(1, 13)
-shape = SubResource("RectangleShape2D_a2c5g")
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_a03if")
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(30, -54)
+zoom = Vector2(2, 2)
