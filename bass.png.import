@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcpwwxuta1o3l"
-path="res://.godot/imported/bass-frames-test.png-3e9a8ecfa9c6d63e926229c290af757e.ctex"
+path="res://.godot/imported/bass.png-1d08cdfae274cf02b08ac8712f07909f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bass-frames-test.png"
-dest_files=["res://.godot/imported/bass-frames-test.png-3e9a8ecfa9c6d63e926229c290af757e.ctex"]
+source_file="res://bass.png"
+dest_files=["res://.godot/imported/bass.png-1d08cdfae274cf02b08ac8712f07909f.ctex"]
 
 [params]
 
