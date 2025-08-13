@@ -1,0 +1,395 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://gui/pause.gd" type="Script" id=1]
+[ext_resource path="res://effects/ShaderEffects.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/themes/menu_theme.tres" type="Theme" id=3]
+[ext_resource path="res://fonts/PressStart2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://items/extra_life/ExtraLife.png" type="Texture" id=5]
+[ext_resource path="res://items/tanks/EnergyTank.png" type="Texture" id=6]
+[ext_resource path="res://gui/textures/FocusFrameAnimated1.png" type="Texture" id=7]
+[ext_resource path="res://gui/textures/FocusFrameAnimated2.png" type="Texture" id=8]
+[ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/textures/WeaponIconEmpty.png" type="Texture" id=10]
+[ext_resource path="res://menus/stage_select/MoveCursor.wav" type="AudioStream" id=11]
+[ext_resource path="res://gui/sounds/WeaponMenu.wav" type="AudioStream" id=12]
+[ext_resource path="res://gui/sounds/Select.wav" type="AudioStream" id=13]
+[ext_resource path="res://gui/textures/WeaponIconMegaBuster.png" type="Texture" id=14]
+[ext_resource path="res://gui/textures/WeaponIconHighlight.png" type="Texture" id=15]
+[ext_resource path="res://gui/textures/WeaponIconElectricBall.png" type="Texture" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AnimatedTexture" id=9]
+frames = 2
+fps = 0.0
+frame_0/texture = ExtResource( 7 )
+frame_0/delay_sec = 0.25
+frame_1/texture = ExtResource( 8 )
+frame_1/delay_sec = 0.25
+
+[node name="Pause" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShaderEffects" parent="." instance=ExtResource( 2 )]
+
+[node name="Tween" type="Tween" parent="ShaderEffects"]
+
+[node name="TransparentBG" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.02
+anchor_right = 0.5
+anchor_bottom = 0.93
+margin_left = -120.0
+margin_right = 120.0
+color = Color( 0, 0, 0, 0.768627 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+margin_left = -32.0
+margin_right = 32.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "- MENU -"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapons" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.125
+anchor_right = 0.5
+anchor_bottom = 0.9
+margin_left = -120.0
+margin_right = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon01" parent="Weapons" instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 6.0
+margin_right = -8.0
+margin_bottom = 14.0
+bar_name = "mega_buster"
+horizontal = true
+fill_with_sound = false
+
+[node name="WeaponButton01" type="Button" parent="Weapons/Weapon01"]
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+icon = ExtResource( 14 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon02" parent="Weapons" instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 28.0
+margin_right = -8.0
+margin_bottom = 36.0
+bar_name = "electric_ball"
+color = Color( 0.0666667, 0.352941, 0.0627451, 1 )
+horizontal = true
+fill_with_sound = false
+
+[node name="WeaponButton02" type="Button" parent="Weapons/Weapon02"]
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 16 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon03" parent="Weapons" instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 50.0
+margin_right = -8.0
+margin_bottom = 58.0
+color = Color( 0.168627, 0.215686, 0.898039, 1 )
+horizontal = true
+fill_with_sound = false
+
+[node name="WeaponButton03" type="Button" parent="Weapons/Weapon03"]
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 10 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon04" parent="Weapons" instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 72.0
+margin_right = -8.0
+margin_bottom = 80.0
+color = Color( 0.776471, 0.454902, 0, 1 )
+horizontal = true
+fill_with_sound = false
+
+[node name="WeaponButton04" type="Button" parent="Weapons/Weapon04"]
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 10 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon05" parent="Weapons" instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 94.0
+margin_right = -8.0
+margin_bottom = 102.0
+color = Color( 0, 0.85098, 0.870588, 1 )
+horizontal = true
+fill_with_sound = false
+
+[node name="WeaponButton05" type="Button" parent="Weapons/Weapon05"]
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 10 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon06" parent="Weapons" instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 116.0
+margin_right = -8.0
+margin_bottom = 124.0
+color = Color( 0.603922, 0, 0.129412, 1 )
+horizontal = true
+fill_with_sound = false
+
+[node name="WeaponButton06" type="Button" parent="Weapons/Weapon06"]
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 10 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon07" parent="Weapons" instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 30.0
+margin_top = 6.0
+margin_right = 86.0
+margin_bottom = 14.0
+color = Color( 0.933333, 0.65098, 1, 1 )
+horizontal = true
+fill_with_sound = false
+
+[node name="WeaponButton07" type="Button" parent="Weapons/Weapon07"]
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 10 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon08" parent="Weapons" instance=ExtResource( 9 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 30.0
+margin_top = 28.0
+margin_right = 86.0
+margin_bottom = 36.0
+color = Color( 0.545098, 0.945098, 0.509804, 1 )
+horizontal = true
+fill_with_sound = false
+
+[node name="WeaponButton08" type="Button" parent="Weapons/Weapon08"]
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -4.0
+margin_bottom = 12.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 7 )
+icon = ExtResource( 10 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+margin_left = -38.0
+margin_top = -42.0
+margin_right = 38.0
+theme = ExtResource( 3 )
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyTankContainer" type="HBoxContainer" parent="Menu"]
+margin_right = 76.0
+margin_bottom = 16.0
+
+[node name="EnergyTankButton" type="Button" parent="Menu/EnergyTankContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+icon = SubResource( 8 )
+align = 0
+
+[node name="EnergyTankLabel" type="Label" parent="Menu/EnergyTankContainer"]
+margin_left = 20.0
+margin_top = 4.0
+margin_right = 76.0
+margin_bottom = 12.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = " 04 /09"
+align = 1
+
+[node name="LifeContainer" type="HBoxContainer" parent="Menu"]
+margin_top = 26.0
+margin_right = 76.0
+margin_bottom = 42.0
+
+[node name="LifeIcon" type="TextureRect" parent="Menu/LifeContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 5 )
+
+[node name="LifeLabel" type="Label" parent="Menu/LifeContainer"]
+margin_left = 20.0
+margin_top = 4.0
+margin_right = 76.0
+margin_bottom = 12.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = " 03 /09"
+align = 1
+
+[node name="FocusFrame" type="Control" parent="."]
+visible = false
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="Sprite" type="Sprite" parent="FocusFrame"]
+position = Vector2( 8, 8 )
+texture = SubResource( 9 )
+
+[node name="ButtonHighlight" type="TextureRect" parent="."]
+margin_left = 108.0
+margin_top = 32.0
+margin_right = 124.0
+margin_bottom = 48.0
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveCursorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="WeaponMenuSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
