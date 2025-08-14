@@ -45,7 +45,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 6, 12 )
+extents = Vector2( 9.5, 14.5 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "power_charge_lvl1"
@@ -1136,6 +1136,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, 2.5 )
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
