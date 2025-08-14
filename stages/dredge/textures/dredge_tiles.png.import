@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dredge_tiles.png-5c51ae9373f954f3ce6206571edb42f3.stex"
+path="res://.import/dredge_tiles.png-9994905dcbadd199446453b5828e4967.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/dredge/dredge_tiles.png"
-dest_files=[ "res://.import/dredge_tiles.png-5c51ae9373f954f3ce6206571edb42f3.stex" ]
+source_file="res://stages/dredge/textures/dredge_tiles.png"
+dest_files=[ "res://.import/dredge_tiles.png-9994905dcbadd199446453b5828e4967.stex" ]
 
 [params]
 

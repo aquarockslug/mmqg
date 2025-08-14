@@ -91,6 +91,11 @@ Constants="*res://scripts/constants.gd"
 GameState="*res://scripts/game_state.gd"
 ProjectSettingsInfo="*res://scripts/project_settings.gd"
 
+[custom]
+
+startup/entry_game_scene.debug="res://stages/dredge/dredge_stage.tscn"
+startup/entry_game_scene="res://stages/dredge/dredge_stage.tscn"
+
 [debug]
 
 gdscript/warnings/unused_variable=false

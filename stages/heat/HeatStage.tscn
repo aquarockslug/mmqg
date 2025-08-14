@@ -410,8 +410,8 @@ anchor_bottom = 0.95
 
 [node name="LifeEnergyBar" parent="GUI/MarginContainer" instance=ExtResource( 4 )]
 visible = false
-margin_right = 345.0
-margin_bottom = 216.0
+margin_right = 1728.0
+margin_bottom = 972.0
 
 [node name="WeaponEnergyBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 4 )]
 visible = false
