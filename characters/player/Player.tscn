@@ -1176,7 +1176,7 @@ collision_mask = 129
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 29 )
 use_parent_material = true
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, -4 )
 hframes = 2
 
@@ -1286,7 +1286,7 @@ script = ExtResource( 27 )
 script = ExtResource( 28 )
 
 [node name="MegaBusterPos" type="Position2D" parent="."]
-position = Vector2( 8, 0 )
+position = Vector2( 0, 4 )
 
 [node name="Weapons" type="Node" parent="."]
 pause_mode = 2
