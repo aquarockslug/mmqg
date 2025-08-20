@@ -63,6 +63,10 @@ format = 1
 tile_data = PoolIntArray( 655414, 4, 0, 720926, 4, 0, 720950, 4, 131072, 786462, 4, 131072, 786480, 4, 0, 786486, 4, 131072, 786498, 4, 0, 786520, 9, 0, 851968, 0, 0, 851970, 0, 0, 851972, 0, 0, 851974, 0, 0, 851976, 0, 0, 851978, 0, 0, 851980, 0, 0, 851982, 0, 0, 851984, 0, 0, 851986, 0, 131072, 851988, 0, 131072, 851990, 0, 131072, 851992, 0, 131072, 851994, 0, 131072, 851996, 0, 131072, 851998, 4, 262144, 852000, 0, 131072, 852002, 0, 131072, 852004, 0, 131072, 852006, 0, 131072, 852008, 0, 131072, 852010, 0, 131072, 852012, 0, 131072, 852014, 0, 131072, 852016, 4, 131072, 852018, 0, 131072, 852020, 0, 131072, 852022, 4, 131072, 852034, 4, 131072, 852054, 9, 0, 852056, 9, 1, 852058, 9, 0, 852074, 9, 0, 852076, 9, 65536, 852078, 9, 65536, 917534, 4, 327680, 917552, 4, 131072, 917558, 4, 131072, 917560, 0, 131072, 917562, 0, 131072, 917564, 0, 131072, 917566, 0, 131072, 917568, 0, 131072, 917570, 4, 131072, 917572, 0, 131072, 917574, 0, 131072, 917576, 0, 131072, 917578, 0, 131072, 917580, 0, 131072, 917582, 0, 131072, 917584, 0, 131072, 917586, 0, 131072, 917588, 0, 131072, 917590, 536870941, 1, 917592, 536870941, 65537, 917594, 1073741853, 65536, 917596, 0, 131072, 917598, 0, 131072, 917600, 0, 131072, 917602, 0, 131072, 917604, 0, 131072, 917606, 0, 131072, 917608, 9, 0, 917610, 9, 1, 917612, 29, 0, 917614, 9, 131072, 983150, 9, 131072 )
 script = ExtResource( 3 )
 
+[node name="LifeEnergyBig" parent="Sections/Section01" instance=ExtResource( 16 )]
+position = Vector2( 1422, 172 )
+hit_points_healed = 10
+
 [node name="Section02" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1795, 0 )
 
@@ -85,10 +89,6 @@ script = ExtResource( 3 )
 [node name="ThunderMan" parent="Sections/Section02" instance=ExtResource( 19 )]
 position = Vector2( 232, 194 )
 
-[node name="LifeEnergyBig" parent="Sections/Section02/ThunderMan" instance=ExtResource( 16 )]
-position = Vector2( -605, -22 )
-hit_points_healed = 10
-
 [node name="Player" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1551, 138 )
 
@@ -108,6 +108,8 @@ margin_right = -2.0
 
 [node name="LifeEnergyBar" parent="GUI/MarginContainer" instance=ExtResource( 7 )]
 visible = false
+margin_left = 0.0
+margin_top = 0.0
 margin_right = 1728.0
 margin_bottom = 972.0
 
@@ -115,8 +117,6 @@ margin_bottom = 972.0
 visible = false
 margin_left = 12.0
 color = Color( 0.827451, 0.580392, 0.905882, 1 )
-
-[node name="BossBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 7 )]
 
 [node name="Ready" parent="GUI" instance=ExtResource( 1 )]
 visible = false
