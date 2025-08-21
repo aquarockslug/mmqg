@@ -54,6 +54,14 @@ width = 1792
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 16, 16 )
 format = 1
+tile_data = PoolIntArray( -262073, 32, 0 )
+script = ExtResource( 3 )
+
+[node name="cloudTiles" type="TileMap" parent="Sections/Section01"]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -393195, 32, 0, -262073, 32, 0 )
 script = ExtResource( 3 )
 
 [node name="groundTiles" type="TileMap" parent="Sections/Section01"]
@@ -90,7 +98,8 @@ script = ExtResource( 3 )
 position = Vector2( 232, 194 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1551, 138 )
+position = Vector2( 143, 190 )
+can_charge_weapon = false
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 10 )]
 visible = false
@@ -108,8 +117,6 @@ margin_right = -2.0
 
 [node name="LifeEnergyBar" parent="GUI/MarginContainer" instance=ExtResource( 7 )]
 visible = false
-margin_left = 0.0
-margin_top = 0.0
 margin_right = 1728.0
 margin_bottom = 972.0
 
