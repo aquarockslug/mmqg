@@ -98,7 +98,7 @@ script = ExtResource( 3 )
 position = Vector2( 232, 194 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 143, 190 )
+position = Vector2( 149, 190 )
 can_charge_weapon = false
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 10 )]
