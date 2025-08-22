@@ -43,9 +43,8 @@
 [ext_resource path="res://characters/player/sprites/mega_man/RunShootAlt.png" type="Texture" id=41]
 [ext_resource path="res://characters/player/weapons/electric_ball/electric_ball_state.gd" type="Script" id=42]
 
-[sub_resource type="RectangleShape2D" id=1]
-resource_local_to_scene = true
-extents = Vector2( 9.5, 13.625 )
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 6, 12 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "power_charge_lvl1"
@@ -934,8 +933,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=21]
 resource_local_to_scene = true
-length = 0.32
-step = 0.16
+length = 0.64
+step = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -967,10 +966,22 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.16 ),
+"times": PoolRealArray( 0, 0.08 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.001, 0.0843334, 0.62 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, -10 ), Vector2( 0, -10 ), Vector2( 0, -8 ), Vector2( 0, -10 ) ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -1194,15 +1205,13 @@ tracks/6/keys = {
 z_index = 1
 collision_layer = 2
 collision_mask = 65
-collision/safe_margin = 0.01
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4 )
-shape = SubResource( 1 )
+shape = SubResource( 27 )
 
 [node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
 cast_to = Vector2( 0, -14 )
@@ -1210,13 +1219,12 @@ cast_to = Vector2( 0, -14 )
 [node name="StopperRayCast" type="RayCast2D" parent="CollisionShape2D"]
 enabled = true
 cast_to = Vector2( 13, 0 )
-collision_mask = 129
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 29 )
 use_parent_material = true
-texture = ExtResource( 7 )
-offset = Vector2( 0, -4 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, -10 )
 hframes = 2
 
 [node name="SpriteMask" type="Sprite" parent="."]
