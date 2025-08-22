@@ -82,7 +82,7 @@ _global_script_class_icons={
 
 config/name="Mega Man & Bass Queen's Gambit"
 run/main_scene="res://general/Screen.tscn"
-config/icon="res://icon.png"
+config/icon="res://menus/stage_select/MugshotDredgeMan.png"
 
 [autoload]
 
