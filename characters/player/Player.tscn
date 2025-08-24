@@ -748,9 +748,9 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=17]
 resource_local_to_scene = true
-length = 0.72
+length = 0.48
 loop = true
-step = 0.12
+step = 0.08
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -782,7 +782,7 @@ tracks/2/loop_wrap = false
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.12, 0.24, 0.36, 0.48, 0.6 ),
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
@@ -1206,8 +1206,7 @@ cast_to = Vector2( 13, 0 )
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 29 )
 use_parent_material = true
-position = Vector2( 0, -256 )
-texture = ExtResource( 5 )
+texture = ExtResource( 2 )
 offset = Vector2( 0, -10 )
 hframes = 6
 
@@ -1318,7 +1317,6 @@ script = ExtResource( 27 )
 script = ExtResource( 28 )
 
 [node name="MegaBusterPos" type="Position2D" parent="."]
-position = Vector2( 0, 4 )
 
 [node name="Weapons" type="Node" parent="."]
 pause_mode = 2
