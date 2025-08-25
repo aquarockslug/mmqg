@@ -1,26 +1,26 @@
 extends Stage
 
 onready var _music: Node
+onready var _boss: Node2D
+onready var _boss_door: Node2D
 
 func _notification(what):
-    # Temporary workaround until the following engine issue will be fixed.
-    # https://github.com/godotengine/godot/issues/33620
-    # Order of onready variables in sub-classes is broken.
-    match what:
-        NOTIFICATION_INSTANCED:
-            _music = $Music
-
-func _ready() -> void:
-    if Global.lighting_vfx:
-        for tilemap in get_tree().get_nodes_in_group("TileMaps"):
-            if tilemap.name == "Lava":
-                tilemap.modulate = Color(1.7, 1, 1, 1)
+	# Temporary workaround until the following engine issue will be fixed.
+	# https://github.com/godotengine/godot/issues/33620
+	# Order of onready variables in sub-classes is broken.
+	match what:
+		NOTIFICATION_INSTANCED:
+			_boss_door = $"BossDoors/BossDoor01"
+			_boss = $"Sections/Section02/ThunderMan"
 
 func _connect_signals() -> void:
-    ._connect_signals()
+	._connect_signals()
 
-    # Music
-    _try_connect(self, "restarted", _music, "on_restarted")
-    _try_connect(_gui_pause, "game_paused", _music, "on_game_paused")
-    _try_connect(_gui_pause, "game_resumed", _music, "on_game_resumed")
-    _try_connect(player, "died", _music, "on_died")
+	# Stage Boss
+	# _try_connect(self, "restarted", _boss, "reset")
+	# _try_connect(_boss, "boss_died", self, "_on_boss_died")
+	# _try_connect(_boss, "boss_died", player, "on_boss_died")
+
+	# Stage Boss Doors
+	_try_connect(_boss_door, "closed", _boss, "on_boss_entered")
+	_try_connect(_boss_door, "closed", player, "on_boss_entered")

@@ -93,7 +93,7 @@ ProjectSettingsInfo="*res://scripts/project_settings.gd"
 
 [custom]
 
-startup/entry_game_scene.debug="res://stages/dredge/dredge_stage.tscn"
+startup/entry_game_scene.debug="res://menus/TitleScreen.tscn"
 
 [debug]
 
@@ -108,9 +108,8 @@ gdscript/warnings/integer_division=false
 window/size/width=1920
 window/size/height=1080
 window/size/always_on_top=true
-window/size/test_width=1280
-window/size/test_height=800
-window/dpi/allow_hidpi=true
+window/size/test_width=1920
+window/size/test_height=1080
 window/handheld/orientation="sensor_landscape"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
