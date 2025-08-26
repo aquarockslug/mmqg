@@ -11,7 +11,7 @@ func _notification(what):
 	match what:
 		NOTIFICATION_INSTANCED:
 			_boss_door = $"BossDoors/BossDoor01"
-			_boss = $"Sections/Section02/ThunderMan"
+			_boss = $"Sections/Section02/DredgeMan"
 
 func _connect_signals() -> void:
 	._connect_signals()
