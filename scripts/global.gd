@@ -16,7 +16,7 @@ var rng := RandomNumberGenerator.new()
 var touch_buttons: Array
 
 # Options
-var wide_screen := true setget set_wide_screen
+var wide_screen := false setget set_wide_screen
 var bar_fill_pause := false
 var lighting_vfx := false  # Requires World Environment with glow effect.
 var use_touch_controls: bool setget , _get_use_touch_controls

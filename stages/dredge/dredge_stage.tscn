@@ -221,8 +221,8 @@ anchor_right = 0.95
 anchor_bottom = 0.95
 
 [node name="LifeEnergyBar" parent="GUI/MarginContainer" instance=ExtResource( 7 )]
-margin_right = 1728.0
-margin_bottom = 972.0
+margin_right = 921.0
+margin_bottom = 540.0
 
 [node name="WeaponEnergyBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 7 )]
 margin_left = 12.0
