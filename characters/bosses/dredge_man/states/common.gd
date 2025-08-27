@@ -26,3 +26,5 @@ func jump() -> void:
 		emit_signal("finished", "jump")
 	else:
 		emit_signal("finished", "idle")
+
+

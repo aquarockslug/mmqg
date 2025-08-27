@@ -16,7 +16,7 @@
 [ext_resource path="res://characters/bosses/thunder_man/states/charge.gd" type="Script" id=14]
 [ext_resource path="res://characters/bosses/thunder_man/states/dash.gd" type="Script" id=15]
 [ext_resource path="res://characters/bosses/thunder_man/states/shoot.gd" type="Script" id=16]
-[ext_resource path="res://characters/bosses/thunder_man/states/jump.gd" type="Script" id=17]
+[ext_resource path="res://characters/bosses/dredge_man/states/jump.gd" type="Script" id=17]
 [ext_resource path="res://characters/bosses/thunder_man/states/electric_strike.gd" type="Script" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -226,21 +226,19 @@ visible = false
 shape = SubResource( 2 )
 
 [node name="AnimatedSprite" parent="CharacterSprites" index="0"]
+visible = false
 position = Vector2( 0, -256 )
 frames = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites" index="1"]
-visible = false
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 offset = Vector2( 0, -4 )
-hframes = 5
+hframes = 6
 
 [node name="DashEffect" type="Sprite" parent="." index="3"]
-visible = false
 texture = ExtResource( 9 )
 offset = Vector2( 0, -4 )
 hframes = 2
-frame = 1
 
 [node name="AnimationEffects" type="AnimationPlayer" parent="." index="7"]
 anims/dash_effect = SubResource( 4 )

@@ -95,3 +95,7 @@ func set_facing_direction(dir: Vector2) -> void:
 
 func get_facing_direction() -> Vector2:
 	return Vector2.RIGHT if _animated_sprite.flip_h else Vector2.LEFT
+
+func face_player() -> void:
+    if Global.player is Player:
+        set_facing_direction(Vector2(sign(Global.player.global_position.x - global_position.x), 0))

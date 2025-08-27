@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://characters/bosses/base/boss_base.gd" type="Script" id=1]
-[ext_resource path="res://characters/bosses/thunder_man/sprites/ThunderManIdle.png" type="Texture" id=2]
-[ext_resource path="res://characters/bosses/thunder_man/sprites/ThunderManDash.png" type="Texture" id=3]
+[ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
+[ext_resource path="res://menus/stage_select/MugshotDredgeMan.png" type="Texture" id=2]
 [ext_resource path="res://characters/player/sprites/mega_man/Hit.png" type="Texture" id=4]
 [ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=5]
 [ext_resource path="res://characters/player/sounds/Died.wav" type="AudioStream" id=6]
@@ -12,18 +11,19 @@
 [ext_resource path="res://characters/bosses/dredge_man/states/ready.gd" type="Script" id=10]
 [ext_resource path="res://effects/effect_spawner/EffectSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://characters/bosses/dredge_man/states/idle.gd" type="Script" id=12]
+[ext_resource path="res://characters/bosses/dredge_man/states/jump.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 10, 12 )
+extents = Vector2( 15, 15 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 10, 12 )
+extents = Vector2( 17, 17 )
 
 [sub_resource type="SpriteFrames" id=2]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "dash",
 "speed": 5.0
@@ -31,6 +31,11 @@ animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -89,6 +94,34 @@ tracks/2/keys = {
 "values": [ false, true, false, true, false, true, false, true, false, true, false, true, false, true ]
 }
 
+[sub_resource type="Animation" id=6]
+length = 0.16
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath("DashEffect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DashEffect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [node name="dredgeMan" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 4
@@ -107,10 +140,8 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CharacterSprites"]
-position = Vector2( 0, -256 )
 frames = SubResource( 2 )
-animation = "idle"
-offset = Vector2( 0, -4 )
+animation = "dash"
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
@@ -122,6 +153,9 @@ anims/drop_in = SubResource( 3 )
 
 [node name="AnimationHit" type="AnimationPlayer" parent="."]
 anims/hit = SubResource( 4 )
+
+[node name="AnimationEffects" type="AnimationPlayer" parent="."]
+anims/dash_effect = SubResource( 6 )
 
 [node name="SFX" type="Node" parent="."]
 
@@ -147,6 +181,10 @@ script = ExtResource( 12 )
 
 [node name="Await" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource( 13 )
+jump_speed = -380
 
 [node name="EffectSpawner" parent="." instance=ExtResource( 11 )]
 
