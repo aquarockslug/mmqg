@@ -30,7 +30,7 @@ glow_bicubic_upscale = true
 adjustment_enabled = true
 adjustment_saturation = 0.95
 
-[node name="HeatStage" type="Node"]
+[node name="DredgeStage" type="Node"]
 script = ExtResource( 2 )
 
 [node name="StageBackgroundTiles" type="TileMap" parent="."]
@@ -193,7 +193,7 @@ tile_data = PoolIntArray( 0, 65, 393216, 1, 65, 393216, 2, 65, 262146, 3, 65, 26
 script = ExtResource( 3 )
 
 [node name="DredgeMan" parent="Sections/Section07" instance=ExtResource( 8 )]
-position = Vector2( 126, 196 )
+position = Vector2( 126, 176 )
 
 [node name="BossDoors" type="Node2D" parent="."]
 

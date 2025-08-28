@@ -1,6 +1,6 @@
 extends State
 
-const COOLDOWN: float = 0.7
+const COOLDOWN: float = 2.0
 
 var velocity := Vector2()
 
