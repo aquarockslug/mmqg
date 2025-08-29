@@ -8,6 +8,7 @@ func _ready() -> void:
 		"await": $Await,
 		"idle": $Idle,
 		"jump": $Jump,
+		"dig": $Dig,
 	}
 
 func _change_state(state_name: String) -> void:

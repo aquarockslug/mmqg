@@ -19,8 +19,7 @@ func _on_timeout() -> void:
 	if _ray_cast.is_colliding():
 		if randf() < 0.66 and timer_cooldown.is_stopped() and owner.is_on_floor():
 			timer_cooldown.start(COOLDOWN + randf() * 0.6)
-			# emit_signal("finished", "dig")
-			jump()
+			emit_signal("finished", "dig")
 		else:
 			jump()
 	else:

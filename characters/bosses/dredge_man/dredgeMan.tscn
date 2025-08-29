@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_dig.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://characters/bosses/dredge_man/states/idle.gd" type="Script" id=12]
 [ext_resource path="res://characters/bosses/dredge_man/states/jump.gd" type="Script" id=13]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_jump.png" type="Texture" id=14]
+[ext_resource path="res://characters/bosses/dredge_man/states/dig.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 18.5, 22.5 )
@@ -61,7 +62,7 @@ animations = [ {
 "frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "dig",
-"speed": 3.0
+"speed": 8.0
 }, {
 "frames": [ SubResource( 16 ) ],
 "loop": true,
@@ -223,12 +224,21 @@ script = ExtResource( 8 )
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 13 )
 jump_speed = -380
+horizontal_speed = 140
+
+[node name="Dig" type="Node" parent="StateMachine"]
+script = ExtResource( 15 )
 
 [node name="EffectSpawner" parent="." instance=ExtResource( 11 )]
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.2
+one_shot = true
+
+[node name="TimerDigDuration" type="Timer" parent="."]
+process_mode = 0
+wait_time = 3.0
 one_shot = true
 
 [node name="TimerCooldown" type="Timer" parent="."]
