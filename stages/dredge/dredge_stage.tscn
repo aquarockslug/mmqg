@@ -201,7 +201,7 @@ position = Vector2( 126, 182 )
 position = Vector2( 2303, 848 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 2225, 868 )
+position = Vector2( 67, 179 )
 collision/safe_margin = 0.1
 can_charge_weapon = false
 
