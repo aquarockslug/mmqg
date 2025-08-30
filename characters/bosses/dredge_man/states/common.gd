@@ -4,8 +4,6 @@ const COOLDOWN: float = 2.0
 
 var velocity := Vector2()
 
-onready var _shoot_pos: Position2D = $"../../Position2D"
-
 onready var _ray_cast: RayCast2D = $"../../RayCast2D"
 onready var _ray_cast_length: float = _ray_cast.cast_to.length()
 onready var timer_cooldown: Timer = $"../../TimerCooldown"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_dig.png" type="Texture" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://characters/bosses/dredge_man/states/jump.gd" type="Script" id=13]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_jump.png" type="Texture" id=14]
 [ext_resource path="res://characters/bosses/dredge_man/states/dig.gd" type="Script" id=15]
+[ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_shoot.png" type="Texture" id=16]
+[ext_resource path="res://characters/bosses/dredge_man/states/shoot.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 18.5, 22.5 )
@@ -55,14 +57,21 @@ region = Rect2( 52, 0, 52, 64 )
 atlas = ExtResource( 14 )
 region = Rect2( 104, 0, 52, 64 )
 
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 52, 64 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 16 )
+region = Rect2( 104, 0, 52, 64 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 16 )
+region = Rect2( 52, 0, 52, 64 )
+
 [sub_resource type="SpriteFrames" id=2]
 resource_local_to_scene = true
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "dash",
-"speed": 2.0
-}, {
 "frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
 "loop": true,
 "name": "dig",
@@ -77,6 +86,11 @@ animations = [ {
 "loop": false,
 "name": "jump",
 "speed": 16.0
+}, {
+"frames": [ SubResource( 36 ), SubResource( 38 ), SubResource( 37 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 4.0
 } ]
 
 [sub_resource type="Animation" id=3]
@@ -183,7 +197,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CharacterSprites"]
 frames = SubResource( 2 )
-animation = "dig"
+animation = "idle"
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
@@ -232,17 +246,21 @@ jump_speed = -380
 [node name="Dig" type="Node" parent="StateMachine"]
 script = ExtResource( 15 )
 
+[node name="Shoot" type="Node" parent="StateMachine"]
+script = ExtResource( 17 )
+
 [node name="EffectSpawner" parent="." instance=ExtResource( 11 )]
+
+[node name="TimerShoot" type="Timer" parent="."]
+one_shot = true
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.2
 one_shot = true
 
-[node name="TimerDigDuration" type="Timer" parent="."]
+[node name="TimerDigSpeed" type="Timer" parent="."]
 process_mode = 0
-wait_time = 3.0
-one_shot = true
 
 [node name="TimerCooldown" type="Timer" parent="."]
 process_mode = 0
@@ -254,6 +272,9 @@ cast_to = Vector2( 96, 0 )
 collision_mask = 2
 
 [node name="PositionDig" type="Position2D" parent="."]
-position = Vector2( -12, 26 )
+position = Vector2( 18, 25 )
+
+[node name="PositionShoot" type="Position2D" parent="."]
+position = Vector2( 18, 5 )
 
 [connection signal="animation_finished" from="AnimationHit" to="StateMachine" method="_on_animation_finished"]

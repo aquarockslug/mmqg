@@ -9,6 +9,7 @@ func _ready() -> void:
 		"idle": $Idle,
 		"jump": $Jump,
 		"dig": $Dig,
+		"shoot": $Shoot
 	}
 
 func _change_state(state_name: String) -> void:
