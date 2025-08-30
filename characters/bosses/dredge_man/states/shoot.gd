@@ -24,6 +24,7 @@ func _on_shoot() -> void:
 		has_shot = true
 		_timer_shoot.start()
 	else:
+		has_shot = false
 		emit_signal("finished", "idle")
 
 func shoot() -> void:
