@@ -13,13 +13,15 @@ func _enter() -> void:
 
 func _update(delta: float) -> void:
 	owner.move_and_slide(velocity, Constants.FLOOR_NORMAL)
-	if randf() < 0.05: scatter_rubble()
+	if randf() < 0.025: scatter_rubble()
 
 func _on_timeout() -> void:
 	emit_signal("finished", "idle")
 
 func scatter_rubble() -> void:
 	var rubble := Rubble.instance()
-	owner.get_parent().add_child(rubble)
 	rubble.direction = owner.get_facing_direction()
-	rubble.global_position = owner.global_position + _dig_pos.position
+	# _dig_pos.position.x = abs(_dig_pos.position.x) * owner.get_facing_direction().x
+	if not owner.is_restarting:
+		owner.get_parent().add_child(rubble)
+		rubble.global_position = _dig_pos.global_position

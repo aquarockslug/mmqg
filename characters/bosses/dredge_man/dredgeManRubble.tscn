@@ -46,6 +46,6 @@ anims/pulse = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0
-wait_time = 1.25
+wait_time = 1.1
 one_shot = true
 autostart = true

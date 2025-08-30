@@ -12,6 +12,7 @@ onready var _area := $Area2D
 func _ready() -> void:
 	$Timer.connect("timeout", self, "_on_timeout")
 	$AnimationPlayer.play("pulse")
+	print(direction)
 	_velocity = Vector2(randf() * spread * direction.x, -height)
 
 func _physics_process(delta: float) -> void:
