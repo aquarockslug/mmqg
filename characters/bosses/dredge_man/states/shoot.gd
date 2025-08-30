@@ -28,11 +28,11 @@ func _on_shoot() -> void:
 		emit_signal("finished", "idle")
 
 func shoot() -> void:
-	var rubble := Rubble.instance()
-	rubble.direction = owner.get_facing_direction()
+	var shovel := Shovel.instance()
+	shovel.direction = owner.get_facing_direction()
 	if not owner.is_restarting:
-		owner.get_parent().add_child(rubble)
-		rubble.global_position = owner.global_position + Vector2(
+		owner.get_parent().add_child(shovel)
+		shovel.global_position = owner.global_position + Vector2(
 			_shoot_pos.position.x * owner.get_facing_direction().x,
 			_shoot_pos.position.y
 		)
