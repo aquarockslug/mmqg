@@ -1,18 +1,18 @@
 extends KinematicBody2D
 
-export(int) var speed := 200
+export(int) var height := 500
+export(int) var spread := 200
 export(int) var damage := 3
 
 var _velocity: Vector2
-var direction := Vector2.RIGHT
+var direction := Vector2.LEFT
 
 onready var _area := $Area2D
 
 func _ready() -> void:
 	$Timer.connect("timeout", self, "_on_timeout")
 	$AnimationPlayer.play("pulse")
-	_velocity = Vector2(direction.x * speed, Vector2.DOWN.y * Constants.GRAVITY)
-	_velocity = Vector2(direction.x * speed, Vector2.DOWN.y * Constants.GRAVITY)
+	_velocity = Vector2(randf() * spread * direction.x, -height)
 
 func _physics_process(delta: float) -> void:
 	_velocity.y += Constants.GRAVITY

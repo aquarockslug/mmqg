@@ -30,9 +30,3 @@ func jump() -> void:
 		emit_signal("finished", "idle")
 
 
-func shoot() -> void:
-	var rubble := Rubble.instance()
-	owner.get_parent().add_child(rubble)
-	_shoot_pos.position.x = abs(_shoot_pos.position.x) * owner.get_facing_direction().x
-	rubble.direction = owner.get_facing_direction()
-	rubble.global_position = owner.global_position
