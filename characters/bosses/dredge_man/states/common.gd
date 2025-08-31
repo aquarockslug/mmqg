@@ -12,6 +12,7 @@ onready var effects: AnimationPlayer = $"../../AnimationEffects"
 
 const Rubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManRubble.tscn")
 const Shovel: Resource = preload("res://characters/bosses/dredge_man/dredgeManShovel.tscn")
+const Bomb: Resource = preload("res://characters/bosses/dredge_man/dredgeManBomb.tscn")
 
 func _handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("action_debug_01"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_dig.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://characters/bosses/dredge_man/states/dig.gd" type="Script" id=15]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_shoot.png" type="Texture" id=16]
 [ext_resource path="res://characters/bosses/dredge_man/states/shoot.gd" type="Script" id=17]
+[ext_resource path="res://characters/bosses/dredge_man/states/bomb.gd" type="Script" id=18]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 18.5, 22.5 )
@@ -90,7 +91,7 @@ animations = [ {
 "frames": [ SubResource( 36 ), SubResource( 38 ), SubResource( 37 ) ],
 "loop": false,
 "name": "shoot",
-"speed": 4.0
+"speed": 2.0
 } ]
 
 [sub_resource type="Animation" id=3]
@@ -242,6 +243,7 @@ script = ExtResource( 8 )
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 13 )
 jump_speed = -380
+horizontal_speed = null
 
 [node name="Dig" type="Node" parent="StateMachine"]
 script = ExtResource( 15 )
@@ -249,15 +251,17 @@ script = ExtResource( 15 )
 [node name="Shoot" type="Node" parent="StateMachine"]
 script = ExtResource( 17 )
 
+[node name="Bomb" type="Node" parent="StateMachine"]
+script = ExtResource( 18 )
+
 [node name="EffectSpawner" parent="." instance=ExtResource( 11 )]
 
 [node name="TimerShoot" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0
-wait_time = 0.5
+wait_time = 0.25
 one_shot = true
 
 [node name="TimerDigSpeed" type="Timer" parent="."]
@@ -269,9 +273,13 @@ process_mode = 0
 wait_time = 3.0
 one_shot = true
 
+[node name="TimerDrop" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 0, 22 )
-cast_to = Vector2( 96, 0 )
+cast_to = Vector2( 70, 0 )
 collision_mask = 2
 
 [node name="PositionDig" type="Position2D" parent="."]

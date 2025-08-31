@@ -17,4 +17,4 @@ func _enter() -> void:
 	owner.is_restarting = false
 	get_tree().paused = false
 	owner.emit_signal("boss_ready")
-	emit_signal("finished", "dig")
+	emit_signal("finished", "idle")

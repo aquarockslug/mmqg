@@ -1,7 +1,7 @@
 extends "common.gd"
 
-export(int) var jump_speed := -285
-export(int) var horizontal_speed := 70
+export(int) var jump_speed := -400
+export(int) var horizontal_speed := 150
 
 func _enter() -> void:
     animated_sprite.play("jump")

@@ -16,8 +16,12 @@ func _update(delta: float) -> void:
 func _on_timeout() -> void:
 	_ray_cast.cast_to = owner.get_facing_direction() * _ray_cast_length
 	_ray_cast.force_raycast_update()
-	if _ray_cast.is_colliding(): # player in range
-		jump()
+	if _ray_cast.is_colliding(): # player in close range
+		if randf() < 0.33 and timer_cooldown.is_stopped() and owner.is_on_floor():
+			timer_cooldown.start(COOLDOWN + randf() * 0.6)
+			emit_signal("finished", "bomb")
+		else:
+			jump()
 	else:
 		if randf() < 0.66 and timer_cooldown.is_stopped() and owner.is_on_floor():
 			timer_cooldown.start(COOLDOWN + randf() * 0.6)

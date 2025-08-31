@@ -57,6 +57,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit(body: PhysicsBody2D) -> void:
 	if is_invincible:
+		body.queue_free()
 		return
 
 	if body and body.is_in_group("PlayerWeapons"):
