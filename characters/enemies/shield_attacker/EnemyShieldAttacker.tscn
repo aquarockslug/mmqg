@@ -88,7 +88,9 @@ shape = SubResource( 4 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
+hframes = 6
 frame = 1
 
 [node name="EnemyAnimations" type="AnimationPlayer" parent="." index="4"]
