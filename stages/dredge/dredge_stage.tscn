@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=15]
 [ext_resource path="res://characters/enemies/shield_attacker/EnemyShieldAttacker.tscn" type="PackedScene" id=16]
 [ext_resource path="res://stages/assets/BossDoor.tscn" type="PackedScene" id=17]
+[ext_resource path="res://characters/enemies/drill/EnemyDrill.tscn" type="PackedScene" id=18]
 [ext_resource path="res://characters/enemies/metall/EnemyMetall.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Environment" id=2]
@@ -177,6 +178,9 @@ script = ExtResource( 3 )
 [node name="EnemyShieldAttacker" parent="Sections/Section06" instance=ExtResource( 16 )]
 position = Vector2( 854, 98 )
 flip_direction = true
+
+[node name="EnemyDrill" parent="Sections/Section06" instance=ExtResource( 18 )]
+position = Vector2( 851, 196 )
 
 [node name="Section07" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 2304, 672 )
