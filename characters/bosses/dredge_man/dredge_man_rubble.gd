@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(int) var height := 550
-export(int) var distance := 100
+export(int) var distance := 200
 export(int) var damage := 3
 
 var _velocity: Vector2

@@ -9,7 +9,7 @@ const TILE_SIZE := Vector2(16, 16)
 
 # Common/Classic
 const GRAVITY: float = 15.0
-const FALL_SPEED_MAX: float = 420.0
+const FALL_SPEED_MAX: float = 500.0
 const WALK_SPEED: float = 82.5
 const STEP_SPEED: float = 60.0
 const FLOOR_NORMAL := Vector2.UP

@@ -1,7 +1,7 @@
 extends "common.gd"
 
 onready var _timer_drop: Timer = $"../../TimerDrop"
-export(int) var jump_speed := -400
+export(int) var jump_speed := -500
 export(int) var horizontal_speed := 150
 
 func _ready() -> void:

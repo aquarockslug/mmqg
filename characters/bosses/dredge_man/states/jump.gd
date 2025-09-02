@@ -1,6 +1,6 @@
 extends "common.gd"
 
-export(int) var jump_speed := -100
+export(int) var jump_speed := -50
 export(int) var horizontal_speed := 50
 
 func _enter() -> void:
