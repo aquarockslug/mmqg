@@ -10,7 +10,7 @@
 
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
-extents = Vector2( 19, 8 )
+extents = Vector2( 19, 7.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -44,6 +44,7 @@ spawn_count_max = 1
 spawn_timer = 4.0
 
 [node name="Collider" parent="." index="0"]
+position = Vector2( 0, 0.5 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]

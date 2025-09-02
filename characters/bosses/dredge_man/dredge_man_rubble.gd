@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(int) var height := 550
-export(int) var spread := 150
+export(int) var distance := 100
 export(int) var damage := 3
 
 var _velocity: Vector2
@@ -13,7 +13,7 @@ func _ready() -> void:
 	$Timer.connect("timeout", self, "_on_timeout")
 	var rock_type = ["rock1", "rock2", "rock3"].pick_random()
 	$AnimationPlayer.play(rock_type)
-	_velocity = Vector2(randf() * spread * direction.x, -height)
+	_velocity = Vector2(randf() * distance * direction.x, -height)
 
 func _physics_process(delta: float) -> void:
 	_velocity.y += Constants.GRAVITY

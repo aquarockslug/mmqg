@@ -17,8 +17,6 @@ func _update(delta: float) -> void:
 	velocity.y = clamp(velocity.y + Constants.GRAVITY, -Constants.FALL_SPEED_MAX, Constants.FALL_SPEED_MAX)
 	owner.move_and_slide(velocity, Constants.FLOOR_NORMAL)
 
-	print(velocity.y)
-
 	if owner.is_on_floor():
 		emit_signal("finished", "idle")
 

@@ -198,7 +198,8 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CharacterSprites"]
 frames = SubResource( 2 )
-animation = "idle"
+animation = "dig"
+flip_h = true
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
@@ -243,7 +244,6 @@ script = ExtResource( 8 )
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 13 )
 jump_speed = -380
-horizontal_speed = null
 
 [node name="Dig" type="Node" parent="StateMachine"]
 script = ExtResource( 15 )
@@ -261,7 +261,7 @@ one_shot = true
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0
-wait_time = 0.25
+wait_time = 0.33
 one_shot = true
 
 [node name="TimerDigSpeed" type="Timer" parent="."]
@@ -274,7 +274,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="TimerDrop" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.3
 one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

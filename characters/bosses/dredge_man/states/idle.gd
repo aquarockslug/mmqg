@@ -16,15 +16,17 @@ func _update(delta: float) -> void:
 func _on_timeout() -> void:
 	_ray_cast.cast_to = owner.get_facing_direction() * _ray_cast_length
 	_ray_cast.force_raycast_update()
-	if _ray_cast.is_colliding(): # player in close range
-		if randf() < 0.33 and timer_cooldown.is_stopped() and owner.is_on_floor():
-			timer_cooldown.start(COOLDOWN + randf() * 0.6)
-			emit_signal("finished", "bomb")
-		else:
-			jump()
+	if _ray_cast.is_colliding(): # player is in short range
+		emit_signal("finished", short_range_state())
 	else:
-		if randf() < 0.66 and timer_cooldown.is_stopped() and owner.is_on_floor():
-			timer_cooldown.start(COOLDOWN + randf() * 0.6)
-			emit_signal("finished", "dig")
-		else:
-			emit_signal("finished", "shoot")
+		emit_signal("finished", long_range_state())
+
+	# trigger mines?
+	#if timer_cooldown.is_stopped() and owner.is_on_floor():
+	#	timer_cooldown.start(COOLDOWN + randf() * 0.6)
+
+func short_range_state() -> String:
+	return "bomb" if randf() < 0.33 else "dig"
+
+func long_range_state() -> String:
+	return "jump" if randf() < 0.33 else "shoot"
