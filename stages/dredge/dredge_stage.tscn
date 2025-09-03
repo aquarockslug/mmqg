@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -19,6 +19,14 @@
 [ext_resource path="res://stages/assets/BossDoor.tscn" type="PackedScene" id=17]
 [ext_resource path="res://characters/enemies/drill/EnemyDrill.tscn" type="PackedScene" id=18]
 [ext_resource path="res://characters/enemies/metall/EnemyMetall.tscn" type="PackedScene" id=19]
+[ext_resource path="res://stages/assets/Checkpoint.tscn" type="PackedScene" id=20]
+[ext_resource path="res://music/MM_TT-StageClear.ogg" type="AudioStream" id=21]
+[ext_resource path="res://music/MM_TT-BossFight.ogg" type="AudioStream" id=22]
+[ext_resource path="res://stages/test_lab/MM_TT-ElectricShock.ogg" type="AudioStream" id=23]
+[ext_resource path="res://stages/test_lab/music.gd" type="Script" id=24]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 31.25, 47.75 )
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
@@ -180,8 +188,15 @@ position = Vector2( 854, 98 )
 flip_direction = true
 
 [node name="EnemyDrill" parent="Sections/Section06" instance=ExtResource( 18 )]
-position = Vector2( 884, 196 )
+position = Vector2( 811, 162 )
 can_respawn = false
+
+[node name="Checkpoint01" parent="Sections/Section06" instance=ExtResource( 20 )]
+position = Vector2( 975, 190 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/Section06/Checkpoint01"]
+position = Vector2( -4.25, -29.25 )
+shape = SubResource( 3 )
 
 [node name="Section07" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 2304, 672 )
@@ -211,7 +226,7 @@ position = Vector2( 201, 176 )
 position = Vector2( 2303, 848 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 2254, 868 )
+position = Vector2( 2165, 863 )
 collision/safe_margin = 0.1
 can_charge_weapon = false
 
@@ -259,3 +274,17 @@ color = Color( 0.588235, 0.352941, 0.929412, 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
+
+[node name="Music" type="Node" parent="."]
+script = ExtResource( 24 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="Music"]
+pause_mode = 2
+stream = ExtResource( 23 )
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="Music"]
+pause_mode = 2
+stream = ExtResource( 22 )
+
+[node name="StageClear" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 21 )
