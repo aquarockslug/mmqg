@@ -1194,7 +1194,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -1.5 )
+position = Vector2( 0, 2 )
 shape = SubResource( 27 )
 
 [node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
@@ -1208,7 +1208,6 @@ cast_to = Vector2( 13, 0 )
 material = ExtResource( 29 )
 use_parent_material = true
 texture = ExtResource( 2 )
-offset = Vector2( 0, -10 )
 hframes = 6
 
 [node name="SpriteMask" type="Sprite" parent="."]
