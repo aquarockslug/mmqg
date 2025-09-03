@@ -9,7 +9,6 @@ var direction := Vector2.LEFT
 onready var _area := $Area2D
 
 func _ready() -> void:
-	$AnimationPlayer.play("drop")
 	$Sprite.flip_h = direction == Vector2.LEFT
 	_velocity = Vector2(speed * direction.x, 0)
 

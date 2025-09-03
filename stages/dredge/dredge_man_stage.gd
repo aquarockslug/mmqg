@@ -25,8 +25,8 @@ func _connect_signals() -> void:
 
 	# Stage Boss
 	_try_connect(self, "restarted", _boss, "reset")
-	# _try_connect(_boss, "boss_ready", _music, "on_boss_ready")
-	# _try_connect(_boss, "boss_died", _music, "on_boss_died")
+	_try_connect(_boss, "boss_ready", _music, "on_boss_ready")
+	_try_connect(_boss, "boss_died", _music, "on_boss_died")
 	_try_connect(_boss, "boss_died", self, "_on_boss_died")
 	_try_connect(_boss, "boss_died", player, "on_boss_died")
 
