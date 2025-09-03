@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://stages/rag/rag_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=2]
+[ext_resource path="res://stages/Section.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/player/camera/player_camera.gd" type="Script" id=5]
+[ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=10]
+[ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=11]
+
+[node name="RagStage" type="Node2D"]
+
+[node name="StageBackgroundTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 4, 1, 0, 8, 1, 0, 12, 1, 0 )
+script = ExtResource( 2 )
+
+[node name="StageBackgroundCloudTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 2, 0, 4, 2, 0, 8, 2, 0, 12, 2, 0 )
+script = ExtResource( 2 )
+
+[node name="Sections" type="Node2D" parent="."]
+
+[node name="Section01" parent="Sections" instance=ExtResource( 3 )]
+width = 1536
+height = 224
+
+[node name="GroundTiles" type="TileMap" parent="Sections/Section01"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 851968, 0, 327682, 851969, 0, 327682, 851970, 0, 327682, 851971, 0, 327682, 851972, 0, 327682, 851973, 0, 327682, 851974, 0, 327682, 851975, 0, 327682, 851976, 0, 327682, 851977, 0, 327682, 851978, 0, 327682, 851979, 0, 327682, 851980, 0, 327682, 851981, 0, 327682, 851982, 0, 327682, 851983, 0, 327682, 851984, 0, 327682, 851985, 0, 327682, 851986, 0, 327682, 851987, 0, 327682, 851988, 0, 327682, 851989, 0, 327682, 851990, 0, 327682, 851991, 0, 327682, 851992, 0, 327682, 851993, 0, 327682, 851994, 0, 327682, 851995, 0, 327682, 851996, 0, 327682, 851997, 0, 327682, 851998, 0, 327682, 851999, 0, 327682 )
+script = ExtResource( 2 )
+
+[node name="BackgroundTiles" type="TileMap" parent="Sections/Section01"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 720914, 9, 0, 720921, 9, 0, 851968, 0, 327682, 851969, 0, 327682, 851970, 0, 327682, 851971, 0, 327682, 851972, 0, 327682, 851973, 0, 327682, 851974, 0, 327682, 851975, 0, 327682, 851976, 0, 327682, 851977, 0, 327682, 851978, 0, 327682, 851979, 0, 327682, 851980, 0, 327682, 851981, 0, 327682, 851982, 0, 327682, 851983, 0, 327682, 851984, 0, 327682, 851985, 0, 327682, 851986, 0, 327682, 851987, 0, 327682, 851988, 0, 327682, 851989, 0, 327682, 851990, 0, 327682, 851991, 0, 327682, 851992, 0, 327682, 851993, 0, 327682, 851994, 0, 327682, 851995, 0, 327682, 851996, 0, 327682, 851997, 0, 327682, 851998, 0, 327682, 851999, 0, 327682 )
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 67, 193 )
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+script = ExtResource( 5 )
+player_target_node = NodePath("../Player")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Ready" parent="GUI" instance=ExtResource( 7 )]
+visible = false
+
+[node name="Pause" parent="GUI" instance=ExtResource( 9 )]
+visible = false
+
+[node name="FadeEffects" parent="GUI" instance=ExtResource( 11 )]
+visible = false
+
+[node name="GameOver" parent="GUI" instance=ExtResource( 8 )]
+visible = false
+
+[node name="WeaponIconOverhead" parent="GUI" instance=ExtResource( 10 )]
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+
+[node name="LifeEnergyBar" parent="GUI/MarginContainer" instance=ExtResource( 6 )]
+margin_right = 921.0
+margin_bottom = 540.0
+
+[node name="WeaponEnergyBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 6 )]
+margin_left = 12.0
+color = Color( 0.827451, 0.580392, 0.905882, 1 )
+
+[node name="BossBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -8.0
+color = Color( 0.588235, 0.352941, 0.929412, 1 )
+
+[node name="BossDoors" type="Node2D" parent="."]
