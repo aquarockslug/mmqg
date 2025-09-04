@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/image.png-49edc92f07daf517f26138383c0d7733.stex"
+path="res://.import/dredge_grass1.png-45d3fd59f59afbd03298464c4ad8effa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/dredge/textures/image.png"
-dest_files=[ "res://.import/image.png-49edc92f07daf517f26138383c0d7733.stex" ]
+source_file="res://stages/dredge/textures/dredge_grass1.png"
+dest_files=[ "res://.import/dredge_grass1.png-45d3fd59f59afbd03298464c4ad8effa.stex" ]
 
 [params]
 
