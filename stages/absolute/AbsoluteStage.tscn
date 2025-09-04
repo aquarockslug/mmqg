@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://stages/absolute/absolute_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=2]
+[ext_resource path="res://stages/Section.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/player/camera/player_camera.gd" type="Script" id=5]
+[ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=10]
+[ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=11]
+
+[node name="AbsoluteStage" type="Node2D"]
+
+[node name="StageBackgroundTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 4, 1, 0, 8, 1, 0, 12, 1, 0, 16, 1, 0 )
+script = ExtResource( 2 )
+
+[node name="StageBackgroundCloudTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+script = ExtResource( 2 )
+
+[node name="Sections" type="Node2D" parent="."]
+
+[node name="Section01" parent="Sections" instance=ExtResource( 3 )]
+width = 1536
+height = 224
+
+[node name="GroundTiles" type="TileMap" parent="Sections/Section01"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 720910, 6, 0, 851968, 13, 0, 851972, 13, 0, 851976, 13, 0, 851980, 13, 0, 851984, 13, 0, 851988, 13, 0 )
+script = ExtResource( 2 )
+
+[node name="BackgroundTiles" type="TileMap" parent="Sections/Section01"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 67, 193 )
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+script = ExtResource( 5 )
+player_target_node = NodePath("../Player")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Ready" parent="GUI" instance=ExtResource( 7 )]
+visible = false
+
+[node name="Pause" parent="GUI" instance=ExtResource( 9 )]
+visible = false
+
+[node name="FadeEffects" parent="GUI" instance=ExtResource( 11 )]
+visible = false
+
+[node name="GameOver" parent="GUI" instance=ExtResource( 8 )]
+visible = false
+
+[node name="WeaponIconOverhead" parent="GUI" instance=ExtResource( 10 )]
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+
+[node name="LifeEnergyBar" parent="GUI/MarginContainer" instance=ExtResource( 6 )]
+margin_right = 921.0
+margin_bottom = 540.0
+
+[node name="WeaponEnergyBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 6 )]
+margin_left = 12.0
+color = Color( 0.827451, 0.580392, 0.905882, 1 )
+
+[node name="BossBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -8.0
+color = Color( 0.588235, 0.352941, 0.929412, 1 )
+
+[node name="BossDoors" type="Node2D" parent="."]
