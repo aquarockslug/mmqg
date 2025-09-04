@@ -16,7 +16,7 @@ func _notification(what):
 
 func _connect_signals() -> void:
 	._connect_signals()
-	
+
 	# Music
 	_try_connect(self, "restarted", _music, "on_restarted")
 	# _try_connect(_gui_pause, "game_paused", _music, "on_game_paused")
@@ -34,8 +34,13 @@ func _connect_signals() -> void:
 	_try_connect(_boss_door, "closed", _boss, "on_boss_entered")
 	_try_connect(_boss_door, "closed", player, "on_boss_entered")
 	_try_connect(_boss_door, "closed", _music, "on_boss_entered")
-	
+
 	for boss_door in get_tree().get_nodes_in_group("BossDoors"):
 		_try_connect(self, "restarted", boss_door, "on_restarted")
 		for checkpoint in get_tree().get_nodes_in_group("Checkpoints"):
 			_try_connect(checkpoint, "checkpoint_reached", boss_door, "on_checkpoint_reached")
+
+func _process(delta) -> void:
+	var screen_x = $PlayerCamera.get_camera_screen_center().x
+	if screen_x < 2000:
+		$ParallaxBackground.scroll_offset.x = -screen_x * 0.33
