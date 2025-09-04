@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dredge_grass2.png-9ead776f91599e04362681d5c965a34c.stex"
+path="res://.import/sock_blue_2.png-0193145a04fa59eaa91a48ec31bd574d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/dredge/textures/dredge_grass2.png"
-dest_files=[ "res://.import/dredge_grass2.png-9ead776f91599e04362681d5c965a34c.stex" ]
+source_file="res://stages/absolute/textures/windsock/sock_blue_2.png"
+dest_files=[ "res://.import/sock_blue_2.png-0193145a04fa59eaa91a48ec31bd574d.stex" ]
 
 [params]
 
