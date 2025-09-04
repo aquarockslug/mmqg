@@ -35,7 +35,7 @@ height = 224
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 720910, 6, 0, 851968, 13, 0, 851972, 13, 0, 851976, 13, 0, 851980, 13, 0, 851984, 13, 0, 851988, 13, 0 )
+tile_data = PoolIntArray( 458769, 5, 0, 589838, 6, 0, 655377, 5, 0, 720907, 6, 0, 720910, 6, 0, 851968, 13, 0, 851972, 13, 0, 851976, 13, 0, 851980, 13, 0, 851984, 13, 0, 851988, 13, 0 )
 script = ExtResource( 2 )
 
 [node name="BackgroundTiles" type="TileMap" parent="Sections/Section01"]
