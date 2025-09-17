@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=13]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=14]
 [ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=15]
+[ext_resource path="res://characters/enemies/drill/EnemyDrill.tscn" type="PackedScene" id=16]
 [ext_resource path="res://stages/assets/BossDoor.tscn" type="PackedScene" id=17]
 [ext_resource path="res://stages/assets/Checkpoint.tscn" type="PackedScene" id=20]
 [ext_resource path="res://music/Dredge.mp3" type="AudioStream" id=21]
@@ -83,6 +84,9 @@ script = ExtResource( 3 )
 [node name="Ladder" parent="Sections/Section01" instance=ExtResource( 4 )]
 position = Vector2( 1048, 35 )
 scale = Vector2( 0.970774, 1.29178 )
+
+[node name="EnemyDrill" parent="Sections/Section01" instance=ExtResource( 16 )]
+position = Vector2( 603, 196 )
 
 [node name="Section02" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1536, 0 )
@@ -214,7 +218,7 @@ shape = SubResource( 3 )
 position = Vector2( 2303, 848 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 14, 178 )
+position = Vector2( 741, 161 )
 collision/safe_margin = 0.1
 can_charge_weapon = false
 
