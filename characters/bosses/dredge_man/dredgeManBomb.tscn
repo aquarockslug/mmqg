@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_bomb.png" type="Texture" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man_bomb.gd" type="Script" id=2]
@@ -21,6 +21,23 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "explode"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
 [node name="DredgeManBomb" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 2 )
@@ -38,10 +55,12 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
-vframes = 2
+vframes = 4
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/drop = SubResource( 2 )
+anims/explode = SubResource( 3 )
 
 [node name="TimerBombFuse" type="Timer" parent="."]
 wait_time = 2.0
