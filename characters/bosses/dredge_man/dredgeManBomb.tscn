@@ -63,4 +63,4 @@ anims/drop = SubResource( 2 )
 anims/explode = SubResource( 3 )
 
 [node name="TimerBombFuse" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0

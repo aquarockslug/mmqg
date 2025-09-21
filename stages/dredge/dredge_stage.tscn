@@ -23,7 +23,7 @@
 [ext_resource path="res://music/Dredge.mp3" type="AudioStream" id=21]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 31.25, 47.75 )
+extents = Vector2( 77.25, 47.75 )
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
@@ -239,10 +239,10 @@ script = ExtResource( 3 )
 position = Vector2( 201, 176 )
 
 [node name="Checkpoint01" parent="Sections/Section07" instance=ExtResource( 20 )]
-position = Vector2( -49, 190 )
+position = Vector2( -143, 188 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/Section07/Checkpoint01"]
-position = Vector2( -4.25, -29.25 )
+position = Vector2( 41.75, -29.25 )
 shape = SubResource( 3 )
 
 [node name="BossDoors" type="Node2D" parent="."]
