@@ -36,3 +36,4 @@ func scatter_rubble() -> void:
 			_dig_pos.position.x * owner.get_facing_direction().x,
 			_dig_pos.position.y
 		)
+		rubble.fling()

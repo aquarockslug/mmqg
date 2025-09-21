@@ -13,7 +13,6 @@ func _ready() -> void:
 	$Timer.connect("timeout", self, "_on_timeout")
 	var rock_type = ["rock1", "rock2", "rock3"].pick_random()
 	$AnimationPlayer.play(rock_type)
-	_velocity = Vector2(randf() * distance * direction.x, -height)
 
 func _physics_process(delta: float) -> void:
 	_velocity.y += Constants.GRAVITY
@@ -25,3 +24,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_timeout() -> void:
 	queue_free()
+
+func fling() -> void:
+	_velocity = Vector2(randf() * distance * direction.x, -height)
+
