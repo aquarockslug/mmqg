@@ -132,6 +132,6 @@ anims/rock3 = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0
-wait_time = 1.1
+wait_time = 1.2
 one_shot = true
 autostart = true

@@ -21,7 +21,7 @@ func _on_timeout() -> void:
 	else:
 		emit_signal("finished", long_range_state())
 
-	# trigger mines?
+	# trigger dynamite?
 	#if timer_cooldown.is_stopped() and owner.is_on_floor():
 	#	timer_cooldown.start(COOLDOWN + randf() * 0.6)
 
