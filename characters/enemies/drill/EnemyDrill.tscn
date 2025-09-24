@@ -33,7 +33,6 @@ tracks/0/keys = {
 
 [node name="EnemyDrill" instance=ExtResource( 1 )]
 collision_mask = 0
-motion/sync_to_physics = true
 script = ExtResource( 7 )
 enemy_name = "Drill"
 hit_points_max = 1
