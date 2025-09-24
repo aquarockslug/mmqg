@@ -12,7 +12,6 @@ export(int) var rubble_y := 720
 var _velocity: Vector2
 var direction := Vector2.RIGHT
 
-
 var exploded = false
 var frames_since_exploded = 0
 var rubble_spread = 50
