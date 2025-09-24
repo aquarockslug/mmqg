@@ -27,6 +27,9 @@ func _ready() -> void:
 	_velocity = Vector2(0, 0)
 
 func _physics_process(delta: float) -> void:
+	if not exploded:
+		_velocity.y += Constants.GRAVITY
+		_velocity = move_and_slide(_velocity)
 	for body in _area.get_overlapping_bodies():
 		if body is Player:
 			body.on_hit(damage)
@@ -38,9 +41,6 @@ func _process(delta) -> void:
 		if frames_since_exploded >= explosion_frame_count:
 			drop_rubble(); drop_rubble()
 			queue_free()
-	else:
-		_velocity.y += Constants.GRAVITY
-		_velocity = move_and_slide(_velocity)
 
 func drop_rubble():
 	var rubble := Rubble.instance()
