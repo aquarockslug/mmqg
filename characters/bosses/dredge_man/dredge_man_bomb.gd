@@ -5,8 +5,8 @@ onready var _timer_fuse: Timer = $TimerBombFuse
 onready var _area := $Area2D
 
 export(int) var damage := 1
-export(int) var explosion_frame_count := 10
-export(int) var explosion_scale := 4
+export(int) var explosion_frame_count := 25
+export(int) var explosion_scale := 3
 export(int) var rubble_y := 720
 
 var _velocity: Vector2
@@ -31,9 +31,8 @@ func _physics_process(delta: float) -> void:
 		_velocity.y += Constants.GRAVITY
 		_velocity = move_and_slide(_velocity)
 	for body in _area.get_overlapping_bodies():
-		if body is Player:
-			body.on_hit(damage)
-			if not exploded: _on_explode()
+		if body is Player: body.on_hit(damage)
+		if not exploded: _on_explode()
 
 func _process(delta) -> void:
 	if exploded:
@@ -51,7 +50,8 @@ func drop_rubble():
 func _on_explode():
 	exploded = true
 	_timer_fuse.stop()
+	$Sprite.visible = false
 	$AnimationPlayer.play("explode")
-	self.scale = Vector2(explosion_scale, explosion_scale)
+	$Area2D.scale = Vector2(explosion_scale, explosion_scale)
 	#get_tree().create_timer(1.0).timeout.connect(self.drop_rubble)
 

@@ -113,9 +113,6 @@ position = Vector2( 1376, 229 )
 spawn_count_max = -1
 spawn_timer = 32.0
 
-[node name="EnemyDige" parent="Sections/Section01" instance=ExtResource( 22 )]
-position = Vector2( 1513, 79 )
-
 [node name="Section02" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1536, 0 )
 width = 256
@@ -249,13 +246,16 @@ position = Vector2( -143, 188 )
 position = Vector2( 41.75, -29.25 )
 shape = SubResource( 3 )
 
+[node name="EnemyDige" parent="Sections/Section07" instance=ExtResource( 22 )]
+position = Vector2( -202, 89 )
+
 [node name="BossDoors" type="Node2D" parent="."]
 
 [node name="BossDoor01" parent="BossDoors" instance=ExtResource( 17 )]
 position = Vector2( 2303, 848 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1466, 196 )
+position = Vector2( 2056, 837 )
 collision/safe_margin = 0.1
 can_charge_weapon = false
 

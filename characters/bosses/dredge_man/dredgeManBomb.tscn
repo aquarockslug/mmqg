@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_bomb.png" type="Texture" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man_bomb.gd" type="Script" id=2]
+[ext_resource path="res://characters/enemies/base/sprites/explosions/Explosion.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.03125, 6.51562 )
+extents = Vector2( 7.03125, 8.25781 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "drop"
@@ -23,31 +24,31 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "explode"
-length = 0.1
+length = 0.45
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Explosion:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 3 ]
+"values": [ 0, 1, 2, 4, 5, 6, 7, 8, 9 ]
 }
 
 [node name="DredgeManBomb" type="KinematicBody2D"]
-collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
@@ -55,8 +56,14 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
-vframes = 4
-frame = 2
+vframes = 2
+frame = 1
+
+[node name="Explosion" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 5
+vframes = 2
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/drop = SubResource( 2 )
