@@ -15,5 +15,5 @@ func _physics_process(delta: float) -> void:
 	_velocity.y +=  Constants.GRAVITY * delta
 	_velocity = owner.move_and_slide(_velocity)
 
-	#if _velocity.y <= 1:
-	#	emit_signal("finished", "armed")
+	if _velocity.y <= 1:
+		emit_signal("finished", "armed")
