@@ -55,8 +55,6 @@ script = ExtResource( 7 )
 enemy_name = "Dige"
 hit_points_max = 1
 contact_damage = 2
-spawn_count_max = 1
-spawn_timer = 4.0
 
 [node name="Collider" parent="." index="0"]
 position = Vector2( -0.5, -3.5 )
@@ -100,3 +98,12 @@ script = ExtResource( 5 )
 
 [node name="AI" type="Node" parent="." index="10"]
 script = ExtResource( 4 )
+
+[node name="ItemGenerator" parent="." index="11"]
+weight_life_energy_big = 0
+weight_weapon_energy_big = 0
+weight_extra_life = 0
+weight_energy_tank = 0
+
+[node name="TimerBombFuse" type="Timer" parent="." index="12"]
+wait_time = 3.0
