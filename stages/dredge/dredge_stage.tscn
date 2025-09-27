@@ -117,7 +117,6 @@ spawn_timer = 32.0
 
 [node name="EnemyDige" parent="Sections/Section01" instance=ExtResource( 22 )]
 position = Vector2( 506, 111 )
-damage = 2
 
 [node name="Section02" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1536, 0 )
@@ -224,6 +223,9 @@ script = ExtResource( 3 )
 [node name="EnemyShieldAttacker" parent="Sections/Section05" instance=ExtResource( 19 )]
 position = Vector2( 446, 172 )
 
+[node name="EnemyDige" parent="Sections/Section05" instance=ExtResource( 22 )]
+position = Vector2( 566, 108 )
+
 [node name="Section07" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 2304, 672 )
 width = 256
@@ -259,7 +261,7 @@ shape = SubResource( 3 )
 position = Vector2( 2303, 848 )
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 47, 228 )
+position = Vector2( 2086, 869 )
 collision/safe_margin = 0.1
 can_charge_weapon = false
 

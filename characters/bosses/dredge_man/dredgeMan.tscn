@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_dig.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_shoot.png" type="Texture" id=16]
 [ext_resource path="res://characters/bosses/dredge_man/states/shoot.gd" type="Script" id=17]
 [ext_resource path="res://characters/bosses/dredge_man/states/bomb.gd" type="Script" id=18]
+[ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_introanim.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 18.5, 22.5 )
@@ -96,6 +97,7 @@ animations = [ {
 
 [sub_resource type="Animation" id=3]
 length = 2.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("CharacterSprites/AnimatedSprite:position")
 tracks/0/interp = 1
@@ -103,10 +105,58 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -256 ), Vector2( 0, -150 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 1.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -256 ), Vector2( 0, -150 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 0.95, 1.15, 1.25, 1.35, 1.45, 1.55, 1.7, 1.85 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharacterSprites/Sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -256 ), Vector2( 0, 0 ) ]
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CharacterSprites/AnimatedSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -200,6 +250,15 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "dig"
 flip_h = true
+
+[node name="Sprite" type="Sprite" parent="CharacterSprites"]
+visible = false
+texture = ExtResource( 19 )
+offset = Vector2( 14, 0 )
+flip_h = true
+hframes = 10
+vframes = 2
+frame = 19
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
