@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://characters/enemies/base/EnemyBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/dig_e/dige.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://characters/enemies/dig_e/dige_state_machine.gd" type="Script" id=6]
 [ext_resource path="res://characters/enemies/dig_e/enemy_dige.gd" type="Script" id=7]
 [ext_resource path="res://characters/enemies/dig_e/armed.gd" type="Script" id=8]
+[ext_resource path="res://characters/enemies/base/sprites/explosions/Explosion.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
@@ -15,7 +16,7 @@ extents = Vector2( 6.5, 7.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 7.5, 11.5 )
+extents = Vector2( 8, 8.5 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "armed"
@@ -32,6 +33,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 2, 3 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpriteExplosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "drop"
@@ -47,6 +72,59 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpriteExplosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "explode"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpriteExplosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="EnemyDige" instance=ExtResource( 1 )]
 collision_layer = 4
@@ -55,6 +133,9 @@ script = ExtResource( 7 )
 enemy_name = "Dige"
 hit_points_max = 1
 contact_damage = 2
+spawn_timer = 12.0
+explosion_scale = 4
+damage = 2
 
 [node name="Collider" parent="." index="0"]
 position = Vector2( -0.5, -3.5 )
@@ -64,7 +145,7 @@ shape = SubResource( 3 )
 collision_mask = 3
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2( -0.5, -3.5 )
+position = Vector2( -1, -5.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
@@ -76,11 +157,19 @@ frame = 0
 region_enabled = true
 region_rect = Rect2( 36, 1, 72, 85 )
 
+[node name="SpriteExplosion" parent="." index="3"]
+texture = ExtResource( 9 )
+vframes = 2
+frame = 9
+
 [node name="EnemyAnimations" type="AnimationPlayer" parent="." index="4"]
 anims/armed = SubResource( 5 )
 anims/drop = SubResource( 4 )
+anims/explode = SubResource( 6 )
 
 [node name="PreciseVisibilityNotifier2D" parent="." index="5"]
+position = Vector2( -1, -1.5 )
+scale = Vector2( 0.875, 0.8125 )
 rect = Rect2( -8, -8, 16, 16 )
 
 [node name="StateMachine" parent="." index="8"]
@@ -100,10 +189,14 @@ script = ExtResource( 5 )
 script = ExtResource( 4 )
 
 [node name="ItemGenerator" parent="." index="11"]
+weight_no_drop = 0
+weight_life_energy_small = 0
 weight_life_energy_big = 0
+weight_weapon_energy_small = 0
 weight_weapon_energy_big = 0
 weight_extra_life = 0
 weight_energy_tank = 0
 
 [node name="TimerBombFuse" type="Timer" parent="." index="12"]
-wait_time = 3.0
+wait_time = 6.0
+one_shot = true
