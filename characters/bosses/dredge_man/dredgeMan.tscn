@@ -105,10 +105,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 1.15 ),
+"times": PoolRealArray( 0, 0.65, 1.15 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -256 ), Vector2( 0, -150 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -256 ), Vector2( 0, -140 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CharacterSprites/Sprite:position")
@@ -117,10 +117,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8, 1.15 ),
+"times": PoolRealArray( 0, 0.65, 1.15 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -256 ), Vector2( 0, -150 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -256 ), Vector2( 0, -140 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("CharacterSprites/Sprite:frame")
@@ -129,7 +129,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.8, 0.95, 1.15, 1.25, 1.35, 1.45, 1.55, 1.7, 1.85 ),
+"times": PoolRealArray( 0, 0.65, 0.8, 1.15, 1.25, 1.35, 1.45, 1.55, 1.7, 1.85 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
