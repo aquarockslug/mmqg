@@ -754,7 +754,7 @@ step = 0.08
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
@@ -772,7 +772,7 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
+"update": 1,
 "values": [ 6 ]
 }
 tracks/2/type = "value"
@@ -784,7 +784,7 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
+"update": 1,
 "values": [ ExtResource( 9 ) ]
 }
 
@@ -1207,7 +1207,7 @@ cast_to = Vector2( 13, 0 )
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 29 )
 use_parent_material = true
-texture = ExtResource( 11 )
+texture = ExtResource( 9 )
 offset = Vector2( 0, -5 )
 hframes = 3
 
