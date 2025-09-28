@@ -56,7 +56,7 @@ tracks/0/path = NodePath(".:material:shader_param/outline_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.06 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -68,7 +68,7 @@ tracks/1/path = NodePath(".:material:shader_param/primary_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -80,7 +80,7 @@ tracks/2/path = NodePath(".:material:shader_param/secondary_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -1232,7 +1232,6 @@ texture = ExtResource( 13 )
 visible = false
 texture = ExtResource( 3 )
 hframes = 3
-frame = 2
 
 [node name="AnimationDust" type="AnimationPlayer" parent="SpriteDust"]
 anims/dust = SubResource( 4 )
