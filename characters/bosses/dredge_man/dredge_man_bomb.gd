@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		_velocity.y += Constants.GRAVITY
 		_velocity = move_and_slide(_velocity)
 	for body in _area.get_overlapping_bodies():
-		if body is Player: 
+		if body is Player:
 			body.on_hit(damage)
 			_on_explode()
 		elif not exploded:
