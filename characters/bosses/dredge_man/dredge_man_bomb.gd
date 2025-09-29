@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const Rubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManRubble.tscn")
+const Rubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManRubbleBig.tscn")
 onready var _timer_fuse: Timer = $TimerBombFuse
 onready var _area := $Area2D
 
@@ -31,8 +31,12 @@ func _physics_process(delta: float) -> void:
 		_velocity.y += Constants.GRAVITY
 		_velocity = move_and_slide(_velocity)
 	for body in _area.get_overlapping_bodies():
-		if body is Player: body.on_hit(damage)
-		if not exploded: _on_explode()
+		if body is Player: 
+			body.on_hit(damage)
+			_on_explode()
+		elif not exploded:
+			body.queue_free()
+			_on_explode()
 
 func _process(delta) -> void:
 	if exploded:

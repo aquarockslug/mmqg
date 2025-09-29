@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dredge_projectile_rubble2.png-170153600870e2a4dcb5ccc40cebda08.stex"
+path="res://.import/buri-buton-sprites.png-8d8bc55d7f4508dfc60708fb291fdc40.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/bosses/dredge_man/sprites/dredge_projectile_rubble2.png"
-dest_files=[ "res://.import/dredge_projectile_rubble2.png-170153600870e2a4dcb5ccc40cebda08.stex" ]
+source_file="res://characters/enemies/drill/buri-buton-sprites.png"
+dest_files=[ "res://.import/buri-buton-sprites.png-8d8bc55d7f4508dfc60708fb291fdc40.stex" ]
 
 [params]
 

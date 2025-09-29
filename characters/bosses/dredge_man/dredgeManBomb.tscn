@@ -5,7 +5,7 @@
 [ext_resource path="res://characters/enemies/base/sprites/explosions/Explosion.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.03125, 8.25781 )
+extents = Vector2( 9.5, 8.25781 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "drop"
@@ -43,7 +43,7 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -1 )
+scale = Vector2( 0.8, 0.8 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -57,6 +57,7 @@ shape = SubResource( 1 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 vframes = 2
+frame = 1
 
 [node name="Explosion" type="Sprite" parent="."]
 texture = ExtResource( 3 )
