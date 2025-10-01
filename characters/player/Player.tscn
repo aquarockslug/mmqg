@@ -1207,7 +1207,7 @@ cast_to = Vector2( 13, 0 )
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 29 )
 use_parent_material = true
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, -5 )
 hframes = 3
 

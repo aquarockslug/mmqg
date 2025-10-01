@@ -232,7 +232,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=41]
 resource_name = "jump"
-length = 0.5
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("CharacterSprites/Sprite:frame")
 tracks/0/interp = 1
@@ -240,7 +240,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 10, 11 ]
@@ -374,6 +374,7 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="RopeSprite" type="Sprite" parent="CharacterSprites"]
+visible = false
 position = Vector2( 0, -130 )
 texture = ExtResource( 19 )
 flip_h = true
@@ -390,13 +391,12 @@ flip_h = true
 
 [node name="IntroSprite" type="Sprite" parent="CharacterSprites"]
 visible = false
-position = Vector2( 0, -221.136 )
 texture = ExtResource( 19 )
 offset = Vector2( 16, 0 )
 flip_h = true
 hframes = 10
 vframes = 2
-frame = 9
+frame = 19
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
 visible = false
