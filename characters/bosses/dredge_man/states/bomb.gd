@@ -8,7 +8,7 @@ func _ready() -> void:
 	_timer_drop.connect("timeout", self, "_on_drop")
 
 func _enter() -> void:
-	animated_sprite.play("jump")
+	owner._animation.play("jump")
 	_timer_drop.start()
 	velocity.y = jump_speed
 

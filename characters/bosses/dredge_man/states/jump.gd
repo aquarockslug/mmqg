@@ -4,7 +4,7 @@ export(int) var jump_speed := -20
 export(int) var horizontal_speed := 50
 
 func _enter() -> void:
-	animated_sprite.play("jump")
+	owner._animation.play("jump")
 	velocity.y = jump_speed
 
 func _update(delta: float) -> void:

@@ -12,7 +12,7 @@ func _enter() -> void:
 		emit_signal("finished", "idle")
 	else:
 		owner.face_player()
-		animated_sprite.play("shoot")
+		owner._animation.play("shoot")
 		_timer_shoot.start()
 
 func _update(delta: float) -> void:

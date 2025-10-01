@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func _enter() -> void:
 	owner.face_player()
-	animated_sprite.play("idle")
+	owner._animation.play("idle")
 	_timer_idle_delay.start()
 
 func _update(delta: float) -> void:
@@ -29,4 +29,4 @@ func short_range_state() -> String:
 	return "bomb" if randf() < 0.33 else "dig"
 
 func long_range_state() -> String:
-	return "jump" if randf() < 0.33 else "shoot"
+	return "jump" if randf() < 0.5 else "shoot"

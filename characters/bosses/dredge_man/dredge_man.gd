@@ -13,6 +13,8 @@ var is_restarting: bool
 
 onready var _base_width: int = Global.base_size.x
 onready var _animated_sprite: AnimatedSprite = $"CharacterSprites/AnimatedSprite"
+onready var _sprite: Sprite = $"CharacterSprites/Sprite"
+onready var _animation: AnimationPlayer = $AnimationBase
 onready var life_bar: Control = Global.get_current_stage().get_node(
 	"GUI/MarginContainer/LifeEnergyBar/BossBar")
 
@@ -92,10 +94,10 @@ func die() -> void:
 	emit_signal("boss_died")
 
 func set_facing_direction(dir: Vector2) -> void:
-	_animated_sprite.flip_h = true if dir == Vector2.RIGHT else false
+	_sprite.flip_h = true if dir == Vector2.LEFT else false
 
 func get_facing_direction() -> Vector2:
-	return Vector2.RIGHT if _animated_sprite.flip_h else Vector2.LEFT
+	return Vector2.LEFT if _sprite.flip_h else Vector2.RIGHT
 
 func face_player() -> void:
 	if Global.player is Player:

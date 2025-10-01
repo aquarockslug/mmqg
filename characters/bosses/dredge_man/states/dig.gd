@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _enter() -> void:
 	owner.face_player()
-	animated_sprite.play("dig")
+	owner._animation.play("dig")
 	scatter_rubble()
 	scatter_rubble()
 	scatter_rubble()
@@ -19,13 +19,15 @@ func _update(delta: float) -> void:
 	owner.move_and_slide(velocity, Constants.FLOOR_NORMAL)
 
 func _on_timeout() -> void:
-	scatter_rubble()
-	scatter_rubble()
-	scatter_rubble()
 	scatter_count = scatter_count + 1
 	if scatter_count >= 3:
 		_timer_duration.stop()
 		emit_signal("finished", "idle")
+	else:
+		owner._animation.play("dig")
+		scatter_rubble()
+		scatter_rubble()
+		scatter_rubble()
 
 func scatter_rubble() -> void:
 	var rubble := Rubble.instance()
