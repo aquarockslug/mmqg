@@ -9,6 +9,8 @@ func _enter() -> void:
 	get_tree().set_group("BossDoors", "locked", true)
 	_animations.play("drop_in")
 	yield(_animations, "animation_finished")
+	$"../../../DredgeRope".visible = true
+	$"../../../DredgeBag".visible = true
 	owner.emit_signal("hit_points_changed", 0)
 	owner.life_bar.visible = true
 	owner.emit_signal("hit_points_changed", Constants.HIT_POINTS_MAX)
