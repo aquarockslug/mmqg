@@ -43,6 +43,7 @@ spawn_count_max = 1
 spawn_timer = 4.0
 speed = 1000
 damage = 2
+gravity_scale = 3
 
 [node name="Collider" parent="." index="0"]
 shape = SubResource( 3 )
