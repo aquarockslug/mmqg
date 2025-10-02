@@ -1,15 +1,14 @@
 extends State
 
-onready var _animations: AnimationPlayer = $"../../EnemyAnimations"
-
 var _velocity: Vector2
 
 func _enter() -> void:
-	_animations.play("move")
-	owner.speed = owner.move_speed
+	$"../../EnemyAnimations".play("rush")
+	owner.speed = owner.move_speed * 2
 
 func _process(delta: float) -> void:
-	if owner.can_see_player(): emit_signal("finished", "rush")
+	if not owner.can_see_player():
+		emit_signal("finished", "move")
 
 func _physics_process(delta: float) -> void:
 	_velocity = owner.get_facing_direction() * owner.speed * delta
@@ -18,8 +17,3 @@ func _physics_process(delta: float) -> void:
 
 	for body in owner._player_collision_area.get_overlapping_bodies():
 		if body is Player: body.on_hit(owner.damage)
-
-	# turn around if not moving horizontally
-	if abs(_velocity.x) < 0.01:
-		owner.toggle_flip_h()
-		owner._ray.cast_to.x *= -1
