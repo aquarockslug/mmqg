@@ -12,7 +12,7 @@ func _enter() -> void:
 	_velocity.y = init_drop_velocity
 
 func _physics_process(delta: float) -> void:
-	_velocity.y +=  Constants.GRAVITY * delta
+	_velocity.y +=  Constants.GRAVITY
 	_velocity = owner.move_and_slide(_velocity)
 
 	for body in owner._player_collision_area.get_overlapping_bodies():

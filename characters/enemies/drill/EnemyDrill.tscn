@@ -10,11 +10,11 @@
 
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
-extents = Vector2( 19, 7.5 )
+extents = Vector2( 19, 11 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 19, 7.5 )
+extents = Vector2( 20, 12 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "move"
@@ -32,23 +32,25 @@ tracks/0/keys = {
 }
 
 [node name="EnemyDrill" instance=ExtResource( 1 )]
-collision_mask = 0
+collision_layer = 4
+collision_mask = 9
 script = ExtResource( 7 )
 enemy_name = "Drill"
 hit_points_max = 1
 contact_damage = 2
+despawn_on_camera_exit = true
 spawn_count_max = 1
 spawn_timer = 4.0
+speed = 1000
+damage = 2
 
 [node name="Collider" parent="." index="0"]
-position = Vector2( 0, 0.5 )
 shape = SubResource( 3 )
 
 [node name="HitBox" parent="." index="1"]
 collision_mask = 3
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
