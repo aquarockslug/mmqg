@@ -601,6 +601,7 @@ monitorable = false
 
 [node name="CollisionShapeShield" type="CollisionShape2D" parent="ShieldArea" index="0"]
 shape = SubResource( 2 )
+disabled = true
 
 [node name="Sprite" parent="." index="2"]
 material = SubResource( 4 )
