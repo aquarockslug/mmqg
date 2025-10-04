@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://characters/player/scripts/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/sprites/mega_man/Idle.png" type="Texture" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://characters/player/sprites/mega_man/JumpShootAlt.png" type="Texture" id=40]
 [ext_resource path="res://characters/player/sprites/mega_man/RunShootAlt.png" type="Texture" id=41]
 [ext_resource path="res://characters/player/weapons/electric_ball/electric_ball_state.gd" type="Script" id=42]
+[ext_resource path="res://characters/player/sprites/bass_man/bass.png" type="Texture" id=43]
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 6, 10.75 )
@@ -170,7 +171,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0 ]
+"values": [ 16 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -182,7 +183,31 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 3 ]
+"values": [ 16 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 43 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -467,31 +492,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 2 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 7 ) ]
+"values": [ 81 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -1207,9 +1208,10 @@ cast_to = Vector2( 13, 0 )
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 29 )
 use_parent_material = true
-texture = ExtResource( 6 )
+texture = ExtResource( 43 )
 offset = Vector2( 0, -5 )
-hframes = 3
+hframes = 16
+frame = 4
 
 [node name="SpriteMask" type="Sprite" parent="."]
 pause_mode = 2
