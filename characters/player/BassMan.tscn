@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 6, 12 )
+extents = Vector2( 6, 11.9091 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 11 )
@@ -182,7 +182,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 2 ]
+"values": [ 116 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ), Vector2( 0, -5 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -198,14 +210,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 112 ]
 }
 
 [sub_resource type="Animation" id=12]
 resource_local_to_scene = true
 length = 0.32
 loop = true
-step = 0.16
+step = 0.08
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -213,10 +225,10 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 112, 113, 114, 115 ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -233,7 +245,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 117 ]
 }
 
 [sub_resource type="Animation" id=26]
@@ -298,7 +310,7 @@ tracks/2/keys = {
 resource_local_to_scene = true
 length = 3.0
 loop = true
-step = 0.08
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -306,10 +318,22 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 2.8 ),
+"times": PoolRealArray( 0, 2.9, 2.95 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 16, 16, 17 ]
+"values": [ 16, 17, 18 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -5 ) ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -363,6 +387,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 80 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -5 ) ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -418,6 +454,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 33, 34, 35, 36, 37, 38 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -5 ) ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -567,21 +615,21 @@ script/source = "extends \"res://characters/player/states/jump.gd\"
 onready var _shield: Area2D = $\"../../ShieldArea\"
 
 func _enter() -> void:
-    ._enter()
-    _shield.set_deferred(\"monitoring\", true)
+	._enter()
+	_shield.set_deferred(\"monitoring\", true)
 
 func _exit() -> void:
-    _shield.set_deferred(\"monitoring\", false)
-    
+	_shield.set_deferred(\"monitoring\", false)
+	
 func _update(delta: float) -> void:
-    ._update(delta)
-    _shield.position = Vector2(
-        abs(_shield.position.x) * sign(owner.get_facing_direction().x),
-        _shield.position.y)
+	._update(delta)
+	_shield.position = Vector2(
+		abs(_shield.position.x) * sign(owner.get_facing_direction().x),
+		_shield.position.y)
 
 func on_shield_area_area_entered(area: Area2D) -> void:
-    if area.owner and area.owner.has_method(\"reflect\"):
-        area.owner.reflect(owner.get_facing_direction())
+	if area.owner and area.owner.has_method(\"reflect\"):
+		area.owner.reflect(owner.get_facing_direction())
 "
 
 [node name="BassMan" instance=ExtResource( 1 )]
@@ -590,6 +638,7 @@ knock_back_multiplier = 2
 max_on_screen_projectiles = 2
 
 [node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, -0.1 )
 shape = SubResource( 1 )
 
 [node name="ShieldArea" type="Area2D" parent="." index="1"]

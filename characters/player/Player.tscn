@@ -209,6 +209,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -5 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_local_to_scene = true
@@ -493,6 +505,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 81 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -5 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -1211,7 +1235,6 @@ use_parent_material = true
 texture = ExtResource( 43 )
 offset = Vector2( 0, -5 )
 hframes = 16
-frame = 4
 
 [node name="SpriteMask" type="Sprite" parent="."]
 pause_mode = 2
