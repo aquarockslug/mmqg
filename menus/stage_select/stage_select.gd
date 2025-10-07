@@ -21,9 +21,12 @@ func _ready() -> void:
     $"Buttons/ButtonMidCenter".grab_focus()
     $"Background/ShopButton".play()
 
+    Global.wide_screen = false
+    Global.lighting_vfx = false
+
     if not OS.is_debug_build():
         $Music.play()
-    
+
     var index: int = 0
     for button in $Buttons.get_children():
         _buttons.append(button)
@@ -51,12 +54,8 @@ func _on_pressed(index: int) -> void:
             path = stage_top_center
         2:
             path = stage_top_right
-            Global.wide_screen = false
-            Global.lighting_vfx = false
         3:
             path = stage_mid_left
-            Global.wide_screen = true
-            Global.lighting_vfx = true
         5:
             path = stage_mid_right
         6:

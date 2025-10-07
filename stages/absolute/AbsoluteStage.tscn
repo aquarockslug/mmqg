@@ -1,18 +1,21 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://stages/absolute/absolute_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=2]
 [ext_resource path="res://stages/Section.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://characters/player/camera/player_camera.gd" type="Script" id=5]
+[ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=10]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=11]
+[ext_resource path="res://stages/absolute/absolute_man_stage.gd" type="Script" id=12]
+[ext_resource path="res://stages/assets/Ladder.tscn" type="PackedScene" id=13]
 
 [node name="AbsoluteStage" type="Node2D"]
+script = ExtResource( 12 )
 
 [node name="StageBackgroundTiles" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -58,9 +61,13 @@ script = ExtResource( 2 )
 [node name="GroundTiles" type="TileMap" parent="Sections/Section02"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
+show_collision = true
 format = 1
 tile_data = PoolIntArray( 65536, 16, 458758, 65537, 16, 458759, 65548, 16, 720902, 65549, 16, 720903, 65550, 16, 720902, 65551, 16, 720903, 131072, 16, 524294, 131073, 16, 524295, 196608, 16, 393216, 196609, 16, 393217, 196618, 16, 720902, 196619, 16, 720903, 196620, 16, 720902, 196621, 16, 720903, 196622, 16, 720902, 196623, 16, 720903, 262144, 16, 65536, 262145, 16, 65537, 262146, 16, 393216, 262147, 16, 458760, 262155, 16, 524290, 262156, 16, 589830, 262157, 16, 589831, 262158, 16, 589830, 262159, 16, 589831, 327680, 16, 131072, 327681, 16, 131073, 327682, 16, 65536, 327683, 16, 458760, 327689, 16, 720902, 327690, 16, 720903, 327691, 16, 655366, 327692, 16, 524291, 327693, 16, 524291, 327694, 16, 524291, 327695, 16, 524291, 393216, 16, 327680, 393217, 16, 327681, 393218, 16, 327680, 393219, 16, 458760, 393220, 16, 393216, 393221, 16, 393217, 393222, 16, 393216, 393226, 16, 655365, 458755, 16, 458760, 458758, 16, 720896, 458762, 16, 720901, 720896, 16, 393216, 720897, 16, 393217, 720898, 16, 393216, 720899, 16, 131074, 720900, 16, 131075, 720906, 16, 655366, 720907, 16, 524291, 720908, 16, 655367, 720909, 16, 655360, 720910, 16, 655360, 720911, 16, 655366, 786432, 16, 65536, 786433, 16, 65537, 786434, 16, 327682, 786435, 16, 327683, 786436, 16, 131074, 786437, 16, 131075, 786442, 16, 655365, 786443, 16, 589826, 786444, 16, 589826, 786445, 16, 262146, 786446, 16, 262147, 786447, 16, 589826, 851968, 16, 131072, 851969, 16, 131073, 851970, 16, 262146, 851971, 16, 262147, 851972, 16, 393216, 851973, 16, 393217, 851974, 16, 393216, 851975, 16, 393217, 851976, 16, 2, 851977, 16, 3, 851978, 16, 655365, 851979, 16, 720899, 851980, 16, 720899, 851981, 16, 327682, 851982, 16, 327683, 851983, 16, 720899, 917504, 16, 196608, 917505, 16, 196609, 917506, 16, 458754, 917507, 16, 458755, 917508, 16, 65536, 917509, 16, 131074, 917510, 16, 131075, 917511, 16, 65537, 917512, 16, 65538, 917513, 16, 65539, 917514, 16, 720901, 917515, 16, 655363, 917516, 16, 655363, 917517, 16, 262146, 917518, 16, 262147, 917519, 16, 655363 )
 script = ExtResource( 2 )
+
+[node name="ladder" parent="Sections/Section02" instance=ExtResource( 13 )]
+position = Vector2( 56, 81 )
 
 [node name="Section03" parent="Sections" instance=ExtResource( 3 )]
 position = Vector2( 512, 0 )
@@ -115,12 +122,11 @@ format = 1
 tile_data = PoolIntArray( 2, 16, 720902, 3, 16, 786439, 4, 16, 720902, 5, 16, 786439, 10, 16, 720902, 11, 16, 786439, 12, 16, 720902, 13, 16, 786439, 65536, 16, 720902, 65537, 16, 786439, 65538, 16, 524290, 65541, 16, 524290, 65546, 16, 524290, 65549, 16, 524290, 65550, 16, 720902, 65551, 16, 786439, 131072, 16, 655366, 131073, 16, 655367, 131086, 16, 655366, 131087, 16, 655367, 196608, 16, 327683, 196623, 16, 327682, 262144, 16, 262147, 262159, 16, 262146, 327680, 16, 327683, 327695, 16, 327682, 393216, 16, 262147, 393231, 16, 262146, 458752, 16, 327683, 458767, 16, 327682, 524303, 16, 262146, 589839, 16, 327682, 655375, 16, 262146, 720911, 16, 327682, 786432, 16, 589826, 786439, 16, 786436, 786440, 16, 786437, 786447, 16, 589826, 851968, 16, 720898, 851969, 16, 655360, 851970, 16, 655360, 851971, 16, 524290, 851972, 16, 720903, 851973, 16, 393216, 851974, 16, 393217, 851975, 16, 262146, 851976, 16, 262147, 851977, 16, 393216, 851978, 16, 393217, 851979, 16, 720902, 851980, 16, 524290, 851981, 16, 655360, 851982, 16, 655360, 851983, 16, 720898, 917504, 16, 655362, 917505, 16, 262146, 917506, 16, 262147, 917507, 16, 589826, 917508, 16, 589826, 917509, 16, 65536, 917510, 16, 65537, 917511, 16, 458754, 917512, 16, 458755, 917513, 16, 65536, 917514, 16, 65537, 917515, 16, 589826, 917516, 16, 589826, 917517, 16, 262146, 917518, 16, 262147, 917519, 16, 655362 )
 script = ExtResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 14, 178 )
-
-[node name="PlayerCamera" type="Camera2D" parent="."]
-script = ExtResource( 5 )
+[node name="PlayerCamera" parent="." instance=ExtResource( 5 )]
 player_target_node = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 176, 148 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

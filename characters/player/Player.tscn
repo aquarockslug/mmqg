@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://characters/player/scripts/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/sprites/mega_man/Idle.png" type="Texture" id=2]
@@ -42,7 +42,6 @@
 [ext_resource path="res://characters/player/sprites/mega_man/JumpShootAlt.png" type="Texture" id=40]
 [ext_resource path="res://characters/player/sprites/mega_man/RunShootAlt.png" type="Texture" id=41]
 [ext_resource path="res://characters/player/weapons/electric_ball/electric_ball_state.gd" type="Script" id=42]
-[ext_resource path="res://characters/player/sprites/bass_man/bass.png" type="Texture" id=43]
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 6, 10.75 )
@@ -195,7 +194,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ null ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Sprite:position")
@@ -1232,7 +1231,6 @@ cast_to = Vector2( 13, 0 )
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 29 )
 use_parent_material = true
-texture = ExtResource( 43 )
 offset = Vector2( 0, -5 )
 hframes = 16
 

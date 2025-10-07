@@ -406,12 +406,12 @@ position = Vector2( 2303, 848 )
 [node name="BossDoor02" parent="BossDoors" instance=ExtResource( 17 )]
 position = Vector2( 2048, 848 )
 
-[node name="BassMan" parent="." instance=ExtResource( 12 )]
+[node name="Bass" parent="." instance=ExtResource( 12 )]
 position = Vector2( 68, 202 )
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1, 0 )
-player_target_node = NodePath("../BassMan")
+player_target_node = NodePath("../Bass")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
