@@ -1,18 +1,20 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://stages/rag/rag_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=2]
 [ext_resource path="res://stages/Section.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://characters/player/camera/player_camera.gd" type="Script" id=5]
+[ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=10]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=11]
+[ext_resource path="res://stages/rag/rag_stage.gd" type="Script" id=12]
 
 [node name="RagStage" type="Node2D"]
+script = ExtResource( 12 )
 
 [node name="StageBackgroundTiles" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -116,13 +118,6 @@ format = 1
 tile_data = PoolIntArray( 0, 0, 327682, 1, 0, 327682, 2, 0, 327682, 3, 0, 589828, 4, 0, 786436, 5, 0, 524293, 6, 0, 327683, 7, 0, 327683, 8, 0, 327683, 9, 0, 327683, 10, 0, 589829, 11, 0, 786436, 12, 0, 524292, 13, 0, 327682, 14, 0, 327682, 15, 0, 327682, 65536, 0, 589828, 65540, 0, 786436, 65547, 0, 786436, 65551, 0, 131072, 131076, 0, 786437, 131083, 0, 786437, 131087, 0, 196608, 196623, 0, 0, 262159, 0, 65536, 327695, 0, 131072, 393216, 0, 589828, 393231, 0, 196608, 458752, 0, 1, 458767, 0, 0, 524288, 0, 65537, 524303, 0, 65536, 589824, 0, 131073, 589839, 0, 131072, 655360, 0, 196609, 655375, 0, 196608, 720896, 0, 1, 720911, 0, 0, 786432, 0, 65537, 786447, 0, 65536, 851968, 0, 589828, 851969, 0, 524292, 851970, 0, 327682, 851971, 0, 589828, 851980, 0, 524292, 851981, 0, 327682, 851982, 0, 589828, 851983, 0, 524292, 917504, 0, 589828, 917505, 0, 524293, 917506, 0, 327683, 917507, 0, 589829, 917508, 0, 524292, 917509, 0, 327682, 917510, 0, 589828, 917511, 0, 2, 917512, 0, 3, 917513, 0, 524292, 917514, 0, 327682, 917515, 0, 589828, 917516, 0, 524293, 917517, 0, 327683, 917518, 0, 589829, 917519, 0, 524292 )
 script = ExtResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 20, 163 )
-
-[node name="PlayerCamera" type="Camera2D" parent="."]
-script = ExtResource( 5 )
-player_target_node = NodePath("../Player")
-
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="Ready" parent="GUI" instance=ExtResource( 7 )]
@@ -162,3 +157,9 @@ margin_left = -8.0
 color = Color( 0.588235, 0.352941, 0.929412, 1 )
 
 [node name="BossDoors" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 127, 116 )
+
+[node name="PlayerCamera" parent="." instance=ExtResource( 5 )]
+player_target_node = NodePath(".")
