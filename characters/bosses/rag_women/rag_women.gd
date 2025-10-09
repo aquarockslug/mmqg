@@ -12,6 +12,7 @@ var is_dead: bool
 var is_restarting: bool
 
 onready var _base_width: int = Global.base_size.x
+onready var _animated_sprite: AnimatedSprite = $"CharacterSprites/AnimatedSprite"
 onready var _sprite: Sprite = $"CharacterSprites/Sprite"
 onready var _animation: AnimationPlayer = $AnimationBase
 onready var life_bar: Control = Global.get_current_stage().get_node(
@@ -32,14 +33,18 @@ func reset() -> void:
 	is_restarting = true
 	emit_signal("change_state", "await")
 	$StateMachine.set_active(false)
+	_animated_sprite.play("idle")
 	visible = true
 	is_dead = false
+	_animated_sprite.visible = false
 	life_bar.visible = false
 	_hit_points = Constants.HIT_POINTS_MAX
 	global_position = _start_pos
 	is_invincible = true
 	_is_blocking = false
 	_is_collidable = true
+	_animated_sprite.flip_h = false
+	_animated_sprite.position = Vector2(0, -256)
 
 func on_boss_entered() -> void:
 	if Global.player is Player and abs(global_position.x - Global.player.global_position.x) < _base_width / 2:

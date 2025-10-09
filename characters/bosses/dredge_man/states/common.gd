@@ -10,6 +10,7 @@ onready var timer_cooldown: Timer = $"../../TimerCooldown"
 onready var animated_sprite: AnimatedSprite = $"../../CharacterSprites/AnimatedSprite"
 onready var effects: AnimationPlayer = $"../../AnimationEffects"
 
+# TODO move these into the main dredge stage script
 const Rubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManRubble.tscn")
 const Shovel: Resource = preload("res://characters/bosses/dredge_man/dredgeManShovel.tscn")
 const Bomb: Resource = preload("res://characters/bosses/dredge_man/dredgeManBomb.tscn")
