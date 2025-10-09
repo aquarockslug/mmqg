@@ -4,13 +4,15 @@ onready var _animations: AnimationPlayer = $"../../AnimationBase"
 
 func _enter() -> void:
 	owner.set_facing_direction(Vector2.LEFT)
-	$"../../CharacterSprites/AnimatedSprite".visible = true
+	$"../../CharacterSprites/AnimatedSprite".visible = false
+	$"../../CharacterSprites/Sprite".visible = false
 	get_tree().paused = true
 	get_tree().set_group("BossDoors", "locked", true)
 	_animations.play("drop_in")
 	yield(_animations, "animation_finished")
 	$"../../../DredgeRope".visible = true
 	$"../../../DredgeBag".visible = true
+	$"../../CharacterSprites/Sprite".visible = true
 	owner.emit_signal("hit_points_changed", 0)
 	owner.life_bar.visible = true
 	owner.emit_signal("hit_points_changed", Constants.HIT_POINTS_MAX)

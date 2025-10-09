@@ -199,6 +199,7 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
+visible = false
 texture = ExtResource( 14 )
 offset = Vector2( 0, -10 )
 hframes = 2

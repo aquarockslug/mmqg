@@ -20,7 +20,7 @@ func _update(delta: float) -> void:
 
 func _on_timeout() -> void:
 	scatter_count = scatter_count + 1
-	if scatter_count >= 3:
+	if scatter_count >= 2:
 		_timer_duration.stop()
 		emit_signal("finished", "idle")
 	else:
