@@ -14,7 +14,6 @@ var direction := Vector2.RIGHT
 
 var exploded = false
 var frames_since_exploded = 0
-var rubble_spread = 50
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -48,8 +47,7 @@ func _process(delta) -> void:
 func drop_rubble():
 	var rubble := Rubble.instance()
 	self.get_parent().add_child(rubble)
-	var rubble_x = self.global_position.x + rng.randi_range(-rubble_spread, rubble_spread)
-	rubble.global_position = Vector2(rubble_x, rubble_y)
+	rubble.drop(self.global_position.x, 50)
 
 func _on_explode():
 	exploded = true

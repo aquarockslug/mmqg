@@ -20,6 +20,7 @@ func _update(delta: float) -> void:
 	if owner.is_on_floor():
 		emit_signal("finished", "idle")
 
+# dredge man lets go of the bomb while jumping
 func _on_drop() -> void:
 	_timer_drop.stop()
 	var bomb := Bomb.instance()

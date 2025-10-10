@@ -20,7 +20,7 @@ func _update(delta: float) -> void:
 	owner.move_and_slide(velocity, Constants.FLOOR_NORMAL)
 
 func _on_shoot() -> void:
-	if shot_count >= 3:
+	if shot_count >= 2:
 		shot_count = 0
 		emit_signal("finished", "idle")
 	else:

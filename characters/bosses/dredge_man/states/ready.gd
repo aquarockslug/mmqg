@@ -1,4 +1,4 @@
-extends State
+extends "common.gd"
 
 onready var _animations: AnimationPlayer = $"../../AnimationBase"
 

@@ -6,11 +6,11 @@ var velocity := Vector2()
 
 onready var _ray_cast: RayCast2D = $"../../RayCast2D"
 onready var _ray_cast_length: float = _ray_cast.cast_to.length()
+onready var _dig_pos: Position2D = $"../../PositionDig"
 onready var timer_cooldown: Timer = $"../../TimerCooldown"
 onready var animated_sprite: AnimatedSprite = $"../../CharacterSprites/AnimatedSprite"
 onready var effects: AnimationPlayer = $"../../AnimationEffects"
 
-# TODO move these into the main dredge stage script
 const Rubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManRubble.tscn")
 const Shovel: Resource = preload("res://characters/bosses/dredge_man/dredgeManShovel.tscn")
 const Bomb: Resource = preload("res://characters/bosses/dredge_man/dredgeManBomb.tscn")
@@ -30,4 +30,16 @@ func jump() -> void:
 	else:
 		emit_signal("finished", "idle")
 
+func scatter_rubble(power = 1) -> void:
+	var rubble := Rubble.instance()
+	rubble.direction = owner.get_facing_direction()
+	owner.get_parent().add_child(rubble)
+	rubble.global_position = owner.global_position + Vector2(
+		_dig_pos.position.x * owner.get_facing_direction().x,
+		_dig_pos.position.y
+	)
+	rubble.fling(power)
 
+func drop_rubble() -> void:
+	var rubble := Rubble.instance()
+	rubble.drop()
