@@ -4,14 +4,14 @@
 [ext_resource path="res://characters/player/sounds/Died.wav" type="AudioStream" id=2]
 [ext_resource path="res://characters/player/sprites/mega_man/Hit.png" type="Texture" id=3]
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=4]
-[ext_resource path="res://characters/bosses/rag_women/scripts/rag_state_machine.gd" type="Script" id=5]
-[ext_resource path="res://characters/bosses/rag_women/states/await.gd" type="Script" id=6]
-[ext_resource path="res://characters/bosses/rag_women/states/idle.gd" type="Script" id=7]
-[ext_resource path="res://characters/bosses/rag_women/states/death.gd" type="Script" id=8]
-[ext_resource path="res://characters/bosses/rag_women/states/ready.gd" type="Script" id=9]
-[ext_resource path="res://characters/bosses/rag_women/states/jump.gd" type="Script" id=10]
+[ext_resource path="res://characters/bosses/rag_woman/scripts/rag_state_machine.gd" type="Script" id=5]
+[ext_resource path="res://characters/bosses/encrypt_man/states/await.gd" type="Script" id=6]
+[ext_resource path="res://characters/bosses/encrypt_man/states/idle.gd" type="Script" id=7]
+[ext_resource path="res://characters/bosses/encrypt_man/states/death.gd" type="Script" id=8]
+[ext_resource path="res://characters/bosses/encrypt_man/states/ready.gd" type="Script" id=9]
+[ext_resource path="res://characters/bosses/encrypt_man/states/jump.gd" type="Script" id=10]
 [ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=12]
-[ext_resource path="res://characters/bosses/rag_women/rag_women.png" type="Texture" id=14]
+[ext_resource path="res://characters/bosses/encrypt_man/encrypt_man.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 9, 14.375 )
@@ -177,8 +177,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="RagWomen" type="KinematicBody2D"]
-position = Vector2( 215, 0 )
+[node name="EncryptMan" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 4
 script = ExtResource( 4 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rag_women.png-005f32185960fb302ea88a64f8ac803c.stex"
+path="res://.import/dredge_toss.png-af2934d2d9ef4bbe92734dc2601f5e13.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/bosses/rag_women/rag_women.png"
-dest_files=[ "res://.import/rag_women.png-005f32185960fb302ea88a64f8ac803c.stex" ]
+source_file="res://characters/bosses/dredge_man/sprites/dredge_toss.png"
+dest_files=[ "res://.import/dredge_toss.png-af2934d2d9ef4bbe92734dc2601f5e13.stex" ]
 
 [params]
 

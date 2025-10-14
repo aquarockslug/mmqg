@@ -12,7 +12,7 @@
 [ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=10]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=11]
 [ext_resource path="res://stages/rag/rag_stage.gd" type="Script" id=12]
-[ext_resource path="res://characters/bosses/rag_women/RagWomen.tscn" type="PackedScene" id=13]
+[ext_resource path="res://characters/bosses/rag_woman/RagWoman.tscn" type="PackedScene" id=13]
 [ext_resource path="res://stages/assets/BossDoor.tscn" type="PackedScene" id=14]
 
 [node name="RagStage" type="Node2D"]
@@ -122,7 +122,7 @@ tile_data = PoolIntArray( 0, 0, 327682, 1, 0, 327682, 2, 0, 327682, 3, 0, 589828
 script = ExtResource( 2 )
 
 [node name="RagWomen" parent="Sections/Section06" instance=ExtResource( 13 )]
-position = Vector2( 215, 186 )
+position = Vector2( 214, 186 )
 
 [node name="BossDoors" type="Node2D" parent="."]
 
@@ -168,7 +168,7 @@ margin_left = -8.0
 color = Color( 0.588235, 0.352941, 0.929412, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 986, 84 )
+position = Vector2( 128, 116 )
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 5 )]
 player_target_node = NodePath("../Player")
