@@ -177,6 +177,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource( 5 )
 stage_top_center = "res://stages/dredge/dredge_stage.tscn"
+stage_top_right = "res://stages/encrypt/EncryptStage.tscn"
 stage_mid_left = "res://stages/absolute/AbsoluteStage.tscn"
 stage_bottom_center = "res://stages/rag/RagStage.tscn"
 
@@ -472,7 +473,7 @@ texture = ExtResource( 10 )
 
 [node name="MugshotTopRight" type="Sprite" parent="Mugshots"]
 position = Vector2( 80, -80 )
-texture = ExtResource( 14 )
+texture = ExtResource( 10 )
 
 [node name="MugshotMidLeft" type="Sprite" parent="Mugshots"]
 position = Vector2( -80, -13 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=1]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=2]
@@ -12,8 +12,11 @@
 [ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=10]
 [ext_resource path="res://stages/encrypt/EncryptTiles.tres" type="TileSet" id=11]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=13]
+[ext_resource path="res://stages/encrypt/encrypt_stage.gd" type="Script" id=14]
 
 [node name="EncryptStage" type="Node2D"]
+script = ExtResource( 14 )
 
 [node name="Sections" type="Node2D" parent="."]
 
@@ -21,7 +24,6 @@
 width = 256
 
 [node name="BackgroundTiles" type="TileMap" parent="Sections/Section01"]
-position = Vector2( 0, 17 )
 tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -257,3 +259,6 @@ horizontal = true
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
 position = Vector2( 109, 195 )
+
+[node name="PlayerCamera" parent="." instance=ExtResource( 13 )]
+player_target_node = NodePath("../Player")

@@ -93,7 +93,7 @@ ProjectSettingsInfo="*res://scripts/project_settings.gd"
 
 [custom]
 
-startup/entry_game_scene.debug="res://stages/rag/RagStage.tscn"
+startup/entry_game_scene.debug="res://menus/TitleScreen.tscn"
 
 [debug]
 
