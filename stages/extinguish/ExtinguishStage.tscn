@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=1]
+[ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://stages/Section.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://stages/assets/BossDoor.tscn" type="PackedScene" id=5]
@@ -10,8 +11,11 @@
 [ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=10]
 [ext_resource path="res://stages/extinguish/ExtinguishTiles.tres" type="TileSet" id=11]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://stages/extinguish/extinguish_stage.gd" type="Script" id=13]
 
 [node name="ExtinguishStage" type="Node2D"]
+script = ExtResource( 13 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -167,3 +171,9 @@ margin_left = 100.0
 margin_top = 16.0
 color = Color( 0.952941, 0.596078, 0.239216, 1 )
 horizontal = true
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+position = Vector2( 17, 164 )
+
+[node name="PlayerCamera" parent="." instance=ExtResource( 2 )]
+player_target_node = NodePath("../Player")
