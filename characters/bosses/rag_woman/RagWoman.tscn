@@ -177,7 +177,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="RagWomen" type="KinematicBody2D"]
+[node name="RagWoman" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 4
 script = ExtResource( 4 )
