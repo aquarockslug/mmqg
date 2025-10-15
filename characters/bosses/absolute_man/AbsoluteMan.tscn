@@ -4,17 +4,17 @@
 [ext_resource path="res://characters/player/sprites/mega_man/Hit.png" type="Texture" id=2]
 [ext_resource path="res://characters/player/sounds/Died.wav" type="AudioStream" id=3]
 [ext_resource path="res://effects/effect_spawner/EffectSpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://characters/bosses/rag_woman/states/await.gd" type="Script" id=5]
-[ext_resource path="res://characters/bosses/rag_woman/states/death.gd" type="Script" id=6]
-[ext_resource path="res://characters/bosses/rag_woman/states/jump.gd" type="Script" id=7]
-[ext_resource path="res://characters/bosses/rag_woman/states/ready.gd" type="Script" id=8]
-[ext_resource path="res://characters/bosses/rag_woman/states/idle.gd" type="Script" id=9]
+[ext_resource path="res://characters/bosses/absolute_man/states/idle.gd" type="Script" id=5]
+[ext_resource path="res://characters/bosses/absolute_man/states/ready.gd" type="Script" id=6]
+[ext_resource path="res://characters/bosses/absolute_man/absolute_man.gd" type="Script" id=7]
+[ext_resource path="res://characters/bosses/absolute_man/states/jump.gd" type="Script" id=8]
+[ext_resource path="res://characters/bosses/absolute_man/states/await.gd" type="Script" id=9]
 [ext_resource path="res://characters/bosses/absolute_man/absolute_shoot.png" type="Texture" id=10]
 [ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=11]
-[ext_resource path="res://characters/bosses/rag_woman/rag_woman.gd" type="Script" id=12]
+[ext_resource path="res://characters/bosses/absolute_man/states/death.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 9, 14.375 )
+extents = Vector2( 9, 17.1875 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -86,10 +86,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
 [sub_resource type="Animation" id=41]
@@ -180,9 +180,10 @@ tracks/1/keys = {
 [node name="AbsoluteMan" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 4
-script = ExtResource( 12 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2.8125 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -196,8 +197,11 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
+position = Vector2( 0, -240 )
 texture = ExtResource( 10 )
-hframes = 10
+flip_h = true
+hframes = 8
+frame = 7
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
@@ -230,26 +234,26 @@ script = ExtResource( 1 )
 start_state = NodePath("Await")
 
 [node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource( 6 )
+script = ExtResource( 12 )
 
 [node name="Ready" type="Node" parent="StateMachine"]
 pause_mode = 2
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource( 9 )
-
-[node name="Await" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
 
+[node name="Await" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
 [node name="Jump" type="Node" parent="StateMachine"]
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="EffectSpawner" parent="." instance=ExtResource( 4 )]
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0
-wait_time = 0.5
+wait_time = 60.0
 one_shot = true
 
 [node name="TimerCooldown" type="Timer" parent="."]

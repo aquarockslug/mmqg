@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://stages/absolute/absolute_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=2]
@@ -11,9 +11,10 @@
 [ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=10]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=11]
-[ext_resource path="res://stages/absolute/absolute_man_stage.gd" type="Script" id=12]
+[ext_resource path="res://stages/absolute/absolute_stage.gd" type="Script" id=12]
 [ext_resource path="res://stages/assets/Ladder.tscn" type="PackedScene" id=13]
 [ext_resource path="res://characters/bosses/absolute_man/AbsoluteMan.tscn" type="PackedScene" id=14]
+[ext_resource path="res://stages/assets/BossDoor.tscn" type="PackedScene" id=15]
 
 [node name="AbsoluteStage" type="Node2D"]
 script = ExtResource( 12 )
@@ -124,13 +125,13 @@ tile_data = PoolIntArray( 2, 16, 720902, 3, 16, 786439, 4, 16, 720902, 5, 16, 78
 script = ExtResource( 2 )
 
 [node name="AbsoluteMan" parent="Sections/Section05" instance=ExtResource( 14 )]
-position = Vector2( 127, 170 )
+position = Vector2( 125, 172 )
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 5 )]
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 176, 148 )
+position = Vector2( 969, 166 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -165,9 +166,13 @@ margin_left = 12.0
 color = Color( 0.827451, 0.580392, 0.905882, 1 )
 
 [node name="BossBar" parent="GUI/MarginContainer/LifeEnergyBar" instance=ExtResource( 6 )]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -8.0
 color = Color( 0.588235, 0.352941, 0.929412, 1 )
 
 [node name="BossDoors" type="Node2D" parent="."]
+
+[node name="BossDoor01" parent="BossDoors" instance=ExtResource( 15 )]
+position = Vector2( 1024, 160 )
