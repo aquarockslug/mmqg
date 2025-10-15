@@ -14,7 +14,7 @@
 [ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 9, 14.375 )
+extents = Vector2( 9, 16.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -86,10 +86,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
 [sub_resource type="Animation" id=41]
@@ -183,7 +183,7 @@ collision_layer = 4
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 7.375 )
+position = Vector2( 1, 9.5 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -198,8 +198,11 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
+position = Vector2( 0, -240 )
 texture = ExtResource( 11 )
+flip_h = true
 hframes = 6
+frame = 1
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
@@ -251,7 +254,7 @@ script = ExtResource( 10 )
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0
-wait_time = 0.5
+wait_time = 60.0
 one_shot = true
 
 [node name="TimerCooldown" type="Timer" parent="."]
