@@ -1,17 +1,17 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://effects/effect_spawner/EffectSpawner.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/player/sounds/Died.wav" type="AudioStream" id=2]
-[ext_resource path="res://characters/player/sprites/mega_man/Hit.png" type="Texture" id=3]
-[ext_resource path="res://characters/bosses/rag_woman/rag_woman.gd" type="Script" id=4]
-[ext_resource path="res://characters/bosses/rag_woman/scripts/rag_state_machine.gd" type="Script" id=5]
-[ext_resource path="res://characters/bosses/rag_woman/states/await.gd" type="Script" id=6]
-[ext_resource path="res://characters/bosses/rag_woman/states/idle.gd" type="Script" id=7]
-[ext_resource path="res://characters/bosses/rag_woman/states/death.gd" type="Script" id=8]
-[ext_resource path="res://characters/bosses/rag_woman/states/ready.gd" type="Script" id=9]
-[ext_resource path="res://characters/bosses/rag_woman/states/jump.gd" type="Script" id=10]
-[ext_resource path="res://characters/bosses/extinguish_woman/extinguish_woman.png" type="Texture" id=11]
-[ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=12]
+[ext_resource path="res://characters/bosses/rag_woman/scripts/rag_state_machine.gd" type="Script" id=1]
+[ext_resource path="res://characters/player/sprites/mega_man/Hit.png" type="Texture" id=2]
+[ext_resource path="res://characters/player/sounds/Died.wav" type="AudioStream" id=3]
+[ext_resource path="res://effects/effect_spawner/EffectSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/bosses/rag_woman/states/await.gd" type="Script" id=5]
+[ext_resource path="res://characters/bosses/rag_woman/states/death.gd" type="Script" id=6]
+[ext_resource path="res://characters/bosses/rag_woman/states/jump.gd" type="Script" id=7]
+[ext_resource path="res://characters/bosses/rag_woman/states/ready.gd" type="Script" id=8]
+[ext_resource path="res://characters/bosses/rag_woman/states/idle.gd" type="Script" id=9]
+[ext_resource path="res://characters/bosses/absolute_man/absolute_shoot.png" type="Texture" id=10]
+[ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=11]
+[ext_resource path="res://characters/bosses/rag_woman/rag_woman.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 9, 14.375 )
@@ -122,7 +122,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.48 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 2 ), ExtResource( 2 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("SpriteEffect:visible")
@@ -177,13 +177,12 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="ExtinguishWoman" type="KinematicBody2D"]
+[node name="AbsoluteMan" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 4
-script = ExtResource( 4 )
+script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 7.375 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -192,20 +191,18 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
-position = Vector2( 0.5, 6.5 )
 shape = SubResource( 1 )
 
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
-texture = ExtResource( 11 )
-offset = Vector2( 0, -10 )
-hframes = 2
+texture = ExtResource( 10 )
+hframes = 10
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="AnimationBase" type="AnimationPlayer" parent="."]
 pause_mode = 2
@@ -223,32 +220,32 @@ anims/dash_effect = SubResource( 6 )
 [node name="SFX" type="Node" parent="."]
 
 [node name="Hit" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 12 )
+stream = ExtResource( 11 )
 
 [node name="Death" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 start_state = NodePath("Await")
 
 [node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Ready" type="Node" parent="StateMachine"]
 pause_mode = 2
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource( 7 )
+script = ExtResource( 9 )
 
 [node name="Await" type="Node" parent="StateMachine"]
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="Jump" type="Node" parent="StateMachine"]
-script = ExtResource( 10 )
+script = ExtResource( 7 )
 
-[node name="EffectSpawner" parent="." instance=ExtResource( 1 )]
+[node name="EffectSpawner" parent="." instance=ExtResource( 4 )]
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0

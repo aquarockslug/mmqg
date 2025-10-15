@@ -10,8 +10,8 @@
 [ext_resource path="res://characters/bosses/rag_woman/states/death.gd" type="Script" id=8]
 [ext_resource path="res://characters/bosses/rag_woman/states/ready.gd" type="Script" id=9]
 [ext_resource path="res://characters/bosses/rag_woman/states/jump.gd" type="Script" id=10]
+[ext_resource path="res://characters/bosses/nimbus_man/nimbus_man.png" type="Texture" id=11]
 [ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=12]
-[ext_resource path="res://characters/bosses/rag_woman/rag_woman.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 9, 14.375 )
@@ -198,9 +198,8 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
-texture = ExtResource( 14 )
-offset = Vector2( 0, -10 )
-hframes = 2
+texture = ExtResource( 11 )
+hframes = 6
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false

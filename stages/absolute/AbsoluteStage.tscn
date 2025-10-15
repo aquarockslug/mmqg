@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://stages/absolute/absolute_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=11]
 [ext_resource path="res://stages/absolute/absolute_man_stage.gd" type="Script" id=12]
 [ext_resource path="res://stages/assets/Ladder.tscn" type="PackedScene" id=13]
+[ext_resource path="res://characters/bosses/absolute_man/AbsoluteMan.tscn" type="PackedScene" id=14]
 
 [node name="AbsoluteStage" type="Node2D"]
 script = ExtResource( 12 )
@@ -121,6 +122,9 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 2, 16, 720902, 3, 16, 786439, 4, 16, 720902, 5, 16, 786439, 10, 16, 720902, 11, 16, 786439, 12, 16, 720902, 13, 16, 786439, 65536, 16, 720902, 65537, 16, 786439, 65538, 16, 524290, 65541, 16, 524290, 65546, 16, 524290, 65549, 16, 524290, 65550, 16, 720902, 65551, 16, 786439, 131072, 16, 655366, 131073, 16, 655367, 131086, 16, 655366, 131087, 16, 655367, 196608, 16, 327683, 196623, 16, 327682, 262144, 16, 262147, 262159, 16, 262146, 327680, 16, 327683, 327695, 16, 327682, 393216, 16, 262147, 393231, 16, 262146, 458752, 16, 327683, 458767, 16, 327682, 524303, 16, 262146, 589839, 16, 327682, 655375, 16, 262146, 720911, 16, 327682, 786432, 16, 589826, 786439, 16, 786436, 786440, 16, 786437, 786447, 16, 589826, 851968, 16, 720898, 851969, 16, 655360, 851970, 16, 655360, 851971, 16, 524290, 851972, 16, 720903, 851973, 16, 393216, 851974, 16, 393217, 851975, 16, 262146, 851976, 16, 262147, 851977, 16, 393216, 851978, 16, 393217, 851979, 16, 720902, 851980, 16, 524290, 851981, 16, 655360, 851982, 16, 655360, 851983, 16, 720898, 917504, 16, 655362, 917505, 16, 262146, 917506, 16, 262147, 917507, 16, 589826, 917508, 16, 589826, 917509, 16, 65536, 917510, 16, 65537, 917511, 16, 458754, 917512, 16, 458755, 917513, 16, 65536, 917514, 16, 65537, 917515, 16, 589826, 917516, 16, 589826, 917517, 16, 262146, 917518, 16, 262147, 917519, 16, 655362 )
 script = ExtResource( 2 )
+
+[node name="AbsoluteMan" parent="Sections/Section05" instance=ExtResource( 14 )]
+position = Vector2( 127, 170 )
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 5 )]
 player_target_node = NodePath("../Player")

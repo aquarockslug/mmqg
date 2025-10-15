@@ -199,7 +199,6 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
 texture = ExtResource( 14 )
-offset = Vector2( 0, -10 )
 hframes = 2
 
 [node name="SpriteEffect" type="Sprite" parent="."]
