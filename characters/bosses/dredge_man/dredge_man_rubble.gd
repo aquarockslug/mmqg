@@ -13,9 +13,10 @@ onready var _area := $Area2D
 
 func _ready() -> void:
 	$Timer.connect("timeout", self, "_on_timeout")
-	var rock_type = ["rock1", "rock2", "rock3", "rock4"].pick_random()
+
+	rng.randomize()	
+	var rock_type = ["rock1", "rock2", "rock3", "rock4"][rng.randi_range(0, 3)]
 	$AnimationPlayer.play(rock_type)
-	rng.randomize()
 
 func _physics_process(delta: float) -> void:
 	_velocity.y += Constants.GRAVITY
