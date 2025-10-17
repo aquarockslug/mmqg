@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_man.png" type="Texture" id=2]
+[ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_toss.png" type="Texture" id=3]
 [ext_resource path="res://characters/player/sprites/mega_man/Hit.png" type="Texture" id=4]
 [ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=5]
 [ext_resource path="res://characters/player/sounds/Died.wav" type="AudioStream" id=6]
@@ -23,6 +24,58 @@ extents = Vector2( 18.5, 21.75 )
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 22, 25.5 )
+
+[sub_resource type="Animation" id=43]
+resource_name = "bomb"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/DredgeToss:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/DredgeToss:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharacterSprites/Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
 
 [sub_resource type="Animation" id=42]
 resource_name = "dig"
@@ -270,7 +323,7 @@ offset = Vector2( 6, -2 )
 flip_h = true
 hframes = 10
 vframes = 2
-frame = 19
+frame = 15
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
 visible = false
@@ -281,6 +334,12 @@ vframes = 4
 region_enabled = true
 region_rect = Rect2( 0.5, 24.5, 371, 252 )
 region_filter_clip = true
+
+[node name="DredgeToss" type="Sprite" parent="CharacterSprites"]
+visible = false
+texture = ExtResource( 3 )
+hframes = 3
+frame = 2
 
 [node name="HitSprite" type="Sprite" parent="CharacterSprites"]
 visible = false
@@ -299,6 +358,7 @@ texture = ExtResource( 4 )
 
 [node name="AnimationBase" type="AnimationPlayer" parent="."]
 pause_mode = 2
+anims/bomb = SubResource( 43 )
 anims/dig = SubResource( 42 )
 anims/drop_in = SubResource( 3 )
 anims/idle = SubResource( 39 )
@@ -369,7 +429,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="TimerDrop" type="Timer" parent="."]
-wait_time = 0.33
+wait_time = 0.3
 one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
