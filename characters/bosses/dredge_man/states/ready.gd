@@ -4,7 +4,6 @@ onready var _animations: AnimationPlayer = $"../../AnimationBase"
 
 func _enter() -> void:
 	owner.set_facing_direction(Vector2.LEFT)
-	$"../../CharacterSprites/AnimatedSprite".visible = false
 	$"../../CharacterSprites/Sprite".visible = false
 	get_tree().paused = true
 	get_tree().set_group("BossDoors", "locked", true)

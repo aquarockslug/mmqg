@@ -1,8 +1,7 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_man.png" type="Texture" id=2]
-[ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_idle.png" type="Texture" id=3]
 [ext_resource path="res://characters/player/sprites/mega_man/Hit.png" type="Texture" id=4]
 [ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=5]
 [ext_resource path="res://characters/player/sounds/Died.wav" type="AudioStream" id=6]
@@ -13,12 +12,10 @@
 [ext_resource path="res://effects/effect_spawner/EffectSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://characters/bosses/dredge_man/states/idle.gd" type="Script" id=12]
 [ext_resource path="res://characters/bosses/dredge_man/states/jump.gd" type="Script" id=13]
-[ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_jump.png" type="Texture" id=14]
 [ext_resource path="res://characters/bosses/dredge_man/states/dig.gd" type="Script" id=15]
 [ext_resource path="res://characters/bosses/dredge_man/states/shoot.gd" type="Script" id=17]
 [ext_resource path="res://characters/bosses/dredge_man/states/bomb.gd" type="Script" id=18]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_introanim.png" type="Texture" id=19]
-[ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_dig.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 18.5, 21.75 )
@@ -26,57 +23,6 @@ extents = Vector2( 18.5, 21.75 )
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 22, 25.5 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 20 )
-region = Rect2( 0, 0, 53, 64 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 20 )
-region = Rect2( 53, 0, 53, 64 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 20 )
-region = Rect2( 106, 0, 53, 64 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 54, 64 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 14 )
-region = Rect2( 156, 0, 52, 64 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 52, 64 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 14 )
-region = Rect2( 52, 0, 52, 64 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 14 )
-region = Rect2( 104, 0, 52, 64 )
-
-[sub_resource type="SpriteFrames" id=2]
-resource_local_to_scene = true
-animations = [ {
-"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
-"loop": true,
-"name": "dig",
-"speed": 6.0
-}, {
-"frames": [ SubResource( 28 ) ],
-"loop": true,
-"name": "idle",
-"speed": 2.0
-}, {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
-"loop": false,
-"name": "jump",
-"speed": 16.0
-} ]
 
 [sub_resource type="Animation" id=42]
 resource_name = "dig"
@@ -105,7 +51,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.6, 1.9, 2.1, 2.4, 2.55, 2.8, 2.95, 3.1 ),
+"times": PoolRealArray( 0, 1, 1.6, 1.9, 2.1, 2.4, 2.55, 2.8, 2.95, 3.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 19 ]
@@ -144,7 +90,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -190 ), Vector2( 0, -130 ) ]
+"values": [ Vector2( -10, -190 ), Vector2( -10, -130 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("CharacterSprites/RopeSprite:visible")
@@ -169,18 +115,6 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("CharacterSprites/AnimatedSprite:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -321,34 +255,29 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="RopeSprite" type="Sprite" parent="CharacterSprites"]
-position = Vector2( 0, -190 )
+visible = false
+position = Vector2( -10, -130 )
 texture = ExtResource( 19 )
 flip_h = true
 hframes = 10
 vframes = 2
-frame = 4
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="CharacterSprites"]
-visible = false
-frames = SubResource( 2 )
-animation = "dig"
-flip_h = true
+frame = 1
 
 [node name="IntroSprite" type="Sprite" parent="CharacterSprites"]
-position = Vector2( 0, -256 )
+visible = false
 texture = ExtResource( 19 )
-offset = Vector2( 16, 0 )
+offset = Vector2( 6, -2 )
 flip_h = true
 hframes = 10
 vframes = 2
-frame = 9
+frame = 19
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
 visible = false
 texture = ExtResource( 2 )
+flip_h = true
 hframes = 7
 vframes = 4
-frame = 15
 region_enabled = true
 region_rect = Rect2( 0.5, 24.5, 371, 252 )
 region_filter_clip = true
