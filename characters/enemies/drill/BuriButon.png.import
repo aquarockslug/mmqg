@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chalice.png-fd17290cb7e4a2cccadf938253cb0957.stex"
+path="res://.import/BuriButon.png-f0a6d64969cf8c08739a629766939ed2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/chalice.png"
-dest_files=[ "res://.import/chalice.png-fd17290cb7e4a2cccadf938253cb0957.stex" ]
+source_file="res://characters/enemies/drill/BuriButon.png"
+dest_files=[ "res://.import/BuriButon.png-f0a6d64969cf8c08739a629766939ed2.stex" ]
 
 [params]
 

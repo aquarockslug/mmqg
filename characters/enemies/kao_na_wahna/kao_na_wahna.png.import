@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Drill.png-4759d0b423c6c7e426dc70ae4ea3a51a.stex"
+path="res://.import/kao_na_wahna.png-2897aeb5cc63b6a85893419f529f09db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/drill/Drill.png"
-dest_files=[ "res://.import/Drill.png-4759d0b423c6c7e426dc70ae4ea3a51a.stex" ]
+source_file="res://characters/enemies/kao_na_wahna/kao_na_wahna.png"
+dest_files=[ "res://.import/kao_na_wahna.png-2897aeb5cc63b6a85893419f529f09db.stex" ]
 
 [params]
 

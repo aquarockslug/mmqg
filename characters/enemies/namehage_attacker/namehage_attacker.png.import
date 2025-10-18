@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ShieldAttacker.png-03af15eb9949bf23f1eea6741f0079e2.stex"
+path="res://.import/namehage_attacker.png-379a00573ae1b70f93edad891f0d7574.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/shield_attacker/ShieldAttacker.png"
-dest_files=[ "res://.import/ShieldAttacker.png-03af15eb9949bf23f1eea6741f0079e2.stex" ]
+source_file="res://characters/enemies/namehage_attacker/namehage_attacker.png"
+dest_files=[ "res://.import/namehage_attacker.png-379a00573ae1b70f93edad891f0d7574.stex" ]
 
 [params]
 
