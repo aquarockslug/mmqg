@@ -11,17 +11,15 @@
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
-extents = Vector2( 11, 15 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 5.5, 15 )
+extents = Vector2( 4, 15 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.5, 16 )
 
 [sub_resource type="Animation" id=7]
 resource_name = "break"
-length = 0.4
+length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -35,16 +33,28 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("Mask:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 240 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mask:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true, false, true, false ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -112,6 +122,37 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "turn_broken"
+length = 0.36
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 10, 9 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "toggle_flip_h"
+} ]
+}
+
 [node name="EnemyNamehageAttacker" instance=ExtResource( 1 )]
 position = Vector2( 2, 0 )
 script = ExtResource( 2 )
@@ -119,37 +160,38 @@ enemy_name = "Shield Attacker"
 hit_points_max = 4
 contact_damage = 4
 max_distance = 192
-broken = false
+is_broken = false
 
 [node name="Collider" parent="." index="0"]
+position = Vector2( -2, 0 )
 shape = SubResource( 4 )
-
-[node name="Backside" type="Area2D" parent="." index="1"]
-position = Vector2( 9, 0 )
-collision_layer = 4
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Backside" index="0"]
-shape = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2( -0.5, 0 )
 shape = SubResource( 1 )
 
-[node name="Sprite" parent="." index="3"]
+[node name="Sprite" parent="." index="2"]
 texture = ExtResource( 9 )
 hframes = 3
 vframes = 5
-frame = 1
+frame = 9
 region_enabled = true
 region_rect = Rect2( 41, 1, 107, 214 )
 region_filter_clip = true
+
+[node name="Mask" type="Sprite" parent="." index="4"]
+visible = false
+position = Vector2( -4, 1 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 45.514, 176.904, 23.4988, 36.7807 )
 
 [node name="EnemyAnimations" type="AnimationPlayer" parent="." index="5"]
 anims/break = SubResource( 7 )
 anims/move = SubResource( 2 )
 anims/move_broken = SubResource( 8 )
 anims/turn = SubResource( 3 )
+anims/turn_broken = SubResource( 9 )
 
 [node name="PreciseVisibilityNotifier2D" parent="." index="6"]
 rect = Rect2( -16, -16, 32, 32 )

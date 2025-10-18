@@ -7,7 +7,11 @@ var distance_traveled: float
 onready var _inputs: InputHandler = $"../../Inputs"
 
 func _enter() -> void:
-	$"../../EnemyAnimations".play("move")
+	if owner.is_broken:
+		$"../../EnemyAnimations".play("move_broken")
+	else:
+		$"../../EnemyAnimations".play("move")
+		
 	distance_traveled = 0
 
 func _update(delta: float) -> void:

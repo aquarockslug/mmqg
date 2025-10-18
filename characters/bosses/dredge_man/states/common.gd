@@ -8,7 +8,7 @@ onready var _ray_cast: RayCast2D = $"../../RayCast2D"
 onready var _ray_cast_length: float = _ray_cast.cast_to.length()
 onready var _dig_pos: Position2D = $"../../PositionDig"
 onready var timer_cooldown: Timer = $"../../TimerCooldown"
-onready var animated_sprite: AnimatedSprite = $"../../CharacterSprites/AnimatedSprite"
+
 onready var effects: AnimationPlayer = $"../../AnimationEffects"
 
 const Rubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManRubble.tscn")

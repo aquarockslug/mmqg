@@ -1,10 +1,8 @@
 tool
 extends "res://characters/enemies/base/enemy_base.gd"
 
-onready var _backside: Area2D = $"../../Backside"
-
 export(int) var max_distance := 192
-export(bool) var broken := false
+export(bool) var is_broken := false
 
 func _ready() -> void:
 	$Inputs.controller = InputHandler.Controller.AI
@@ -16,5 +14,14 @@ func _replace_with_spawner() -> void:
 
 func _on_hit(body: PhysicsBody2D) -> void:
 	if body and body.is_in_group("PlayerWeapons"):
-		is_blocking = get_facing_direction().x != body.direction.x
-	._on_hit(body)
+		if is_broken: 
+			is_blocking = false
+		else:
+			is_blocking = get_facing_direction().x != body.direction.x
+		
+	if is_blocking: break_mask()
+	else: ._on_hit(body)
+
+func break_mask():
+	is_broken = true
+	$"EnemyAnimations".play("break")

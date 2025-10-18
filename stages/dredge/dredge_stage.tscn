@@ -277,7 +277,7 @@ script = ExtResource( 3 )
 position = Vector2( 161, 41 )
 
 [node name="EnemyShieldAttacker" parent="Sections/SandPit" instance=ExtResource( 19 )]
-position = Vector2( 235, 156 )
+position = Vector2( 140, 125 )
 
 [node name="DigePillers1" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1792, 720 )
