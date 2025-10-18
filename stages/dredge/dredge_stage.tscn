@@ -6,7 +6,7 @@
 [ext_resource path="res://stages/assets/Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=5]
 [ext_resource path="res://stages/dredge/dredge_music.gd" type="Script" id=6]
-[ext_resource path="res://characters/enemies/drill/EnemyBuriButon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/enemies/BuriButon/EnemyBuriButon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/bosses/dredge_man/dredgeMan.tscn" type="PackedScene" id=8]
 [ext_resource path="res://stages/dredge/dredge_tiles.tres" type="TileSet" id=9]
 [ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=10]
@@ -497,7 +497,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 3218, 1130 )
+position = Vector2( 1820, 904 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
