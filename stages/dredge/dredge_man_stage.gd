@@ -12,7 +12,7 @@ func _notification(what):
 		NOTIFICATION_INSTANCED:
 			_music = $Music
 			_boss_door = $"BossDoors/BossDoor01"
-			_boss = $"Sections/Section07/DredgeMan"
+			_boss = $"Sections/BossRoom/DredgeMan"
 
 func _connect_signals() -> void:
 	._connect_signals()
