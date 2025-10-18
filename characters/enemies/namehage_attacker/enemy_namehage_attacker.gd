@@ -1,7 +1,10 @@
 tool
 extends "res://characters/enemies/base/enemy_base.gd"
 
+onready var _backside: Area2D = $"../../Backside"
+
 export(int) var max_distance := 192
+export(bool) var broken := false
 
 func _ready() -> void:
 	$Inputs.controller = InputHandler.Controller.AI
