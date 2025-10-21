@@ -1,16 +1,9 @@
 extends "res://characters/enemies/base/enemy_base.gd"
 
+# Similar to the Kao Na Gahna from mm8, but these totems spew water from the top instead to push the player
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass
