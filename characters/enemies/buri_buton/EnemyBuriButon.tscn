@@ -59,10 +59,12 @@ damage = 2
 gravity_scale = 3
 
 [node name="Collider" parent="." index="0"]
+visible = false
 position = Vector2( 1.5, 5 )
 shape = SubResource( 3 )
 
 [node name="LineOfSite" type="RayCast2D" parent="Collider" index="0"]
+visible = false
 position = Vector2( 0, 5 )
 enabled = true
 cast_to = Vector2( -100, 0 )
@@ -70,6 +72,7 @@ collision_mask = 2
 collide_with_areas = true
 
 [node name="HitBox" parent="." index="1"]
+visible = false
 collision_mask = 3
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
@@ -90,6 +93,9 @@ anims/move = SubResource( 4 )
 anims/rush = SubResource( 5 )
 
 [node name="PreciseVisibilityNotifier2D" parent="." index="5"]
+visible = false
+position = Vector2( -1, 4.76837e-07 )
+scale = Vector2( 2.5, 1.5 )
 rect = Rect2( -8, -8, 16, 16 )
 
 [node name="StateMachine" parent="." index="8"]
