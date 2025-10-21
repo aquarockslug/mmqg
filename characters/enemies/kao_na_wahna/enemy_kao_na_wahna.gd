@@ -4,6 +4,7 @@ extends "res://characters/enemies/base/enemy_base.gd"
 
 func _ready():
 	pass
+	# $"WaterSprite".play()
 
 func _process(delta):
 	pass
