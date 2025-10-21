@@ -1,5 +1,5 @@
 extends "res://characters/enemies/base/scripts/enemy_state_machine.gd"
 
 func _ready() -> void:
-    states_map["move"] = $Move
-    states_map["rush"] = $Rush
+	states_map["move"] = $Move
+	states_map["rush"] = $Rush

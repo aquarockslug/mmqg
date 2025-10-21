@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BuriButon.png-f03976708a99b4c340dd5d9c1f74cdb1.stex"
+path="res://.import/BuriButon.png-73b34490261e43d774ec5b4b438e69f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/BuriButon/BuriButon.png"
-dest_files=[ "res://.import/BuriButon.png-f03976708a99b4c340dd5d9c1f74cdb1.stex" ]
+source_file="res://characters/enemies/buri_buton/BuriButon.png"
+dest_files=[ "res://.import/BuriButon.png-73b34490261e43d774ec5b4b438e69f9.stex" ]
 
 [params]
 
