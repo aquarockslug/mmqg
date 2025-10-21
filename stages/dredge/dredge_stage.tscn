@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://stages/assets/Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=5]
 [ext_resource path="res://stages/dredge/dredge_music.gd" type="Script" id=6]
-[ext_resource path="res://characters/enemies/BuriButon/EnemyBuriButon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/enemies/buri_buton/EnemyBuriButon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/bosses/dredge_man/dredgeMan.tscn" type="PackedScene" id=8]
 [ext_resource path="res://stages/dredge/dredge_tiles.tres" type="TileSet" id=9]
 [ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=10]
@@ -22,6 +22,7 @@
 [ext_resource path="res://stages/assets/Checkpoint.tscn" type="PackedScene" id=20]
 [ext_resource path="res://music/Dredge.mp3" type="AudioStream" id=21]
 [ext_resource path="res://characters/enemies/dig_e/EnemyDige.tscn" type="PackedScene" id=22]
+[ext_resource path="res://characters/enemies/kao_na_wahna/EnemyKaoNaWahna.tscn" type="PackedScene" id=23]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_introanim.png" type="Texture" id=24]
 [ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=25]
 
@@ -366,7 +367,7 @@ script = ExtResource( 3 )
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 65, 458753, 1, 65, 589826, 2, 65, 589827, 11, 65, 327690, 65536, 65, 458753, 65537, 65, 589826, 65538, 65, 589827, 65547, 65, 327690, 131072, 65, 458753, 131073, 65, 589826, 131074, 65, 589827, 131083, 65, 327690, 196608, 65, 458753, 196609, 65, 589826, 196610, 65, 589827, 196619, 65, 327690, 262144, 65, 458753, 262145, 65, 589826, 262146, 65, 589827, 262155, 65, 327690, 327680, 65, 458753, 327681, 65, 589826, 327682, 65, 589827, 327691, 65, 327690, 393216, 65, 458753, 393217, 65, 589826, 393218, 65, 589827, 393227, 65, 327690, 458752, 65, 458753, 458753, 65, 589826, 458754, 65, 589827, 458763, 65, 327690, 524288, 65, 458753, 524289, 65, 589826, 524290, 65, 589827, 524299, 65, 327690, 589824, 65, 458753, 589825, 65, 589826, 589826, 65, 589827, 589835, 65, 327690, 655360, 65, 458753, 655361, 65, 589826, 655362, 65, 589827, 655371, 65, 327690, 720896, 65, 458753, 720897, 65, 589826, 720898, 65, 589827, 786432, 65, 458753, 786433, 65, 589826, 786434, 65, 589827, 851968, 65, 458753, 851969, 65, 589826, 851970, 65, 589827, 917504, 65, 458753, 917505, 65, 589826, 917506, 65, 589827, 917507, 65, 131074, 917508, 65, 131075, 917509, 65, 131074, 917510, 65, 131075, 917511, 65, 131074, 917512, 65, 131075, 917513, 65, 131074, 917514, 65, 131075, 917515, 65, 131074, 917516, 65, 131075, 917517, 65, 131074, 917518, 65, 131075, 917519, 65, 131074 )
+tile_data = PoolIntArray( 0, 65, 458753, 1, 65, 589826, 2, 65, 589827, 11, 65, 327690, 65536, 65, 458753, 65537, 65, 589826, 65538, 65, 589827, 65547, 65, 327690, 131072, 65, 458753, 131073, 65, 589826, 131074, 65, 589827, 131083, 65, 327690, 196608, 65, 458753, 196609, 65, 589826, 196610, 65, 589827, 196619, 65, 327690, 262144, 65, 458753, 262145, 65, 589826, 262146, 65, 589827, 262155, 65, 327690, 327680, 65, 458753, 327681, 65, 589826, 327682, 65, 589827, 327691, 65, 327690, 393216, 65, 458753, 393217, 65, 589826, 393218, 65, 589827, 393227, 65, 327690, 458752, 65, 458753, 458753, 65, 589826, 458754, 65, 589827, 458763, 65, 327690, 524288, 65, 458753, 524289, 65, 589826, 524290, 65, 589827, 524299, 65, 327690, 589824, 65, 458753, 589825, 65, 589826, 589826, 65, 589827, 589835, 65, 327690, 655360, 65, 458753, 655361, 65, 589826, 655362, 65, 589827, 655371, 65, 327690, 720896, 65, 458753, 720897, 65, 589826, 720898, 65, 589827, 786432, 65, 458753, 786433, 65, 589826, 786434, 65, 589827, 851968, 65, 458753, 851969, 65, 589826, 851970, 65, 589827, 851981, 65, 131074, 851982, 65, 131075, 851983, 65, 131074, 917504, 65, 458753, 917505, 65, 589826, 917506, 65, 589827, 917507, 65, 131074, 917508, 65, 131075, 917509, 65, 131074, 917510, 65, 131075, 917511, 65, 131074, 917512, 65, 131075, 917513, 65, 131074, 917514, 65, 131075, 917515, 65, 131074, 917516, 65, 131075, 917517, 65, 196610, 917518, 65, 196611, 917519, 65, 196610 )
 script = ExtResource( 3 )
 
 [node name="Top" parent="Sections/DarkPitBottom" instance=ExtResource( 4 )]
@@ -374,7 +375,7 @@ position = Vector2( 184, -193 )
 size_in_tiles = 23
 
 [node name="EnemyBuriBaton" parent="Sections/DarkPitBottom" instance=ExtResource( 7 )]
-position = Vector2( 234, 212 )
+position = Vector2( 235, 196 )
 
 [node name="DarkStairs" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 2560, 960 )
@@ -391,8 +392,11 @@ script = ExtResource( 3 )
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 655371, 65, 393218, 655372, 65, 393219, 655373, 65, 327681, 655374, 65, 327681, 655375, 65, 327681, 720907, 65, 524290, 720908, 65, 524291, 720909, 65, 393217, 720910, 65, 393217, 720911, 65, 393217, 786441, 65, 2, 786442, 65, 3, 786443, 65, 524290, 786444, 65, 524291, 786445, 65, 393217, 786446, 65, 393217, 786447, 65, 393217, 851977, 65, 65538, 851978, 65, 65539, 851979, 65, 524290, 851980, 65, 524291, 851981, 65, 393217, 851982, 65, 393217, 851983, 65, 393217, 917504, 65, 131075, 917505, 65, 131074, 917506, 65, 131075, 917507, 65, 131074, 917508, 65, 131075, 917509, 65, 131074, 917510, 65, 131075, 917511, 65, 131074, 917512, 65, 131075, 917513, 65, 131074, 917514, 65, 131075, 917515, 65, 524290, 917516, 65, 524291, 917517, 65, 393217, 917518, 65, 393217, 917519, 65, 393217 )
+tile_data = PoolIntArray( 655371, 65, 393218, 655372, 65, 393219, 655373, 65, 327681, 655374, 65, 327681, 655375, 65, 327681, 720907, 65, 524290, 720908, 65, 524291, 720909, 65, 393217, 720910, 65, 393217, 720911, 65, 393217, 786441, 65, 2, 786442, 65, 3, 786443, 65, 524290, 786444, 65, 524291, 786445, 65, 393217, 786446, 65, 393217, 786447, 65, 393217, 851968, 65, 131075, 851969, 65, 131074, 851970, 65, 131075, 851977, 65, 65538, 851978, 65, 65539, 851979, 65, 524290, 851980, 65, 524291, 851981, 65, 393217, 851982, 65, 393217, 851983, 65, 393217, 917504, 65, 196611, 917505, 65, 196610, 917506, 65, 196611, 917507, 65, 131074, 917508, 65, 131075, 917509, 65, 131074, 917510, 65, 131075, 917511, 65, 131074, 917512, 65, 131075, 917513, 65, 131074, 917514, 65, 131075, 917515, 65, 524290, 917516, 65, 524291, 917517, 65, 393217, 917518, 65, 393217, 917519, 65, 393217 )
 script = ExtResource( 3 )
+
+[node name="EnemyKaoNaWahna" parent="Sections/DarkStairs" instance=ExtResource( 23 )]
+position = Vector2( 128, 204 )
 
 [node name="MetHideout2" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 2816, 960 )
@@ -497,7 +501,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1582, 913 )
+position = Vector2( 2592, 1155 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -556,3 +560,6 @@ stream = ExtResource( 21 )
 
 [node name="StageClear" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 21 )
+
+[node name="EnemyDige" parent="." instance=ExtResource( 22 )]
+position = Vector2( 2640, 1089 )

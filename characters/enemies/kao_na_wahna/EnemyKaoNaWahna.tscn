@@ -1,0 +1,168 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://characters/enemies/kao_na_wahna/enemy_kao_na_wahna.gd" type="Script" id=1]
+[ext_resource path="res://characters/enemies/kao_na_wahna/kao_na_wahna.png" type="Texture" id=2]
+[ext_resource path="res://stages/assets/precise_visibility_notifier_2D.gd" type="Script" id=3]
+[ext_resource path="res://characters/enemies/base/states/idle.gd" type="Script" id=4]
+[ext_resource path="res://scripts/state.gd" type="Script" id=5]
+[ext_resource path="res://items/ItemGenerator.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=8]
+[ext_resource path="res://characters/enemies/base/states/death.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.25, 19.75 )
+
+[sub_resource type="RectangleShape2D" id=7]
+resource_local_to_scene = true
+extents = Vector2( 10.5, 18.6875 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "spray"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 4 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.08
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0.160235 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.2
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpriteExplosion:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpriteExplosion:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="EnemyKaoNaWahna" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 4
+region_enabled = true
+region_rect = Rect2( 65.4442, 0.513817, 108.072, 171.991 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.25, 0.25 )
+shape = SubResource( 1 )
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="HurtBox" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( -0.5, 0.3125 )
+shape = SubResource( 7 )
+
+[node name="PreciseVisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+position = Vector2( -0.500001, 0.5 )
+scale = Vector2( 1.8125, 2.4375 )
+rect = Rect2( -8, -8, 16, 16 )
+script = ExtResource( 3 )
+
+[node name="EnemyAnimations" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 8 )
+anims/spray = SubResource( 9 )
+
+[node name="BaseAnimations" type="AnimationPlayer" parent="."]
+anims/blink = SubResource( 5 )
+anims/death = SubResource( 6 )
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Hit" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 8 )
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="Spray" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="ItemGenerator" parent="." instance=ExtResource( 7 )]
+weight_no_drop = 0
+weight_life_energy_small = 0
+weight_life_energy_big = 0
+weight_weapon_energy_small = 0
+weight_weapon_energy_big = 0
+weight_extra_life = 0
+weight_energy_tank = 0
