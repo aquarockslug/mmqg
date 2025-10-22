@@ -158,7 +158,7 @@ shape = SubResource( 17 )
 [node name="Top" type="AnimatedSprite" parent="Water"]
 frames = SubResource( 13 )
 animation = "top"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
