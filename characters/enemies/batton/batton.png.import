@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/reclassic-joe-sprites.png-1827e46f1e238c8894e4370dfa7c5588.stex"
+path="res://.import/batton.png-87316e4bc0ce5b2da95e5d26780cda2b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/reclassic-joe-sprites.png"
-dest_files=[ "res://.import/reclassic-joe-sprites.png-1827e46f1e238c8894e4370dfa7c5588.stex" ]
+source_file="res://characters/enemies/batton/batton.png"
+dest_files=[ "res://.import/batton.png-87316e4bc0ce5b2da95e5d26780cda2b.stex" ]
 
 [params]
 

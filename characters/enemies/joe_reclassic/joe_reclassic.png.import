@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/metall-sv-sprites.png-67faf1452add0a5e34c32fe9129168e7.stex"
+path="res://.import/joe_reclassic.png-c15b2bc8ec64a5e860ffe703236396dd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/metall-sv-sprites.png"
-dest_files=[ "res://.import/metall-sv-sprites.png-67faf1452add0a5e34c32fe9129168e7.stex" ]
+source_file="res://characters/enemies/joe_reclassic/joe_reclassic.png"
+dest_files=[ "res://.import/joe_reclassic.png-c15b2bc8ec64a5e860ffe703236396dd.stex" ]
 
 [params]
 

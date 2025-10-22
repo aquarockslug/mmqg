@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	# Reset double jump if enabled.
 	if can_double_jump and is_on_floor():
 		has_in_air_jump = true
-
+		
 func on_restarted() -> void:
 	visible = false
 

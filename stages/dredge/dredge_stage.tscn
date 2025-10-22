@@ -560,6 +560,3 @@ stream = ExtResource( 21 )
 
 [node name="StageClear" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 21 )
-
-[node name="EnemyDige" parent="." instance=ExtResource( 22 )]
-position = Vector2( 2640, 1089 )

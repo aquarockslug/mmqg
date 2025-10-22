@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/batton-m64-sprites.png-5d8b89c585cba1902221a5d60c9ff9c3.stex"
+path="res://.import/bricky.png-b3f0606f8e36019f974634a1ef2d05d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/batton-m64-sprites.png"
-dest_files=[ "res://.import/batton-m64-sprites.png-5d8b89c585cba1902221a5d60c9ff9c3.stex" ]
+source_file="res://characters/enemies/bricky/bricky.png"
+dest_files=[ "res://.import/bricky.png-b3f0606f8e36019f974634a1ef2d05d7.stex" ]
 
 [params]
 
