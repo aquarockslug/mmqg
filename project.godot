@@ -84,7 +84,6 @@ config/name="Mega Man & Bass Queen's Gambit"
 run/main_scene="res://general/Screen.tscn"
 boot_splash/show_image=false
 boot_splash/fullsize=false
-config/icon="res://menus/stage_select/MugshotDredgeMan.png"
 
 [autoload]
 
@@ -95,7 +94,7 @@ ProjectSettingsInfo="*res://scripts/project_settings.gd"
 
 [custom]
 
-startup/entry_game_scene.debug="res://stages/dredge/dredge_stage.tscn"
+startup/entry_game_scene.debug="res://menus/stage_select/StageSelect.tscn"
 
 [debug]
 

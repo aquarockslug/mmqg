@@ -27,9 +27,9 @@ anchor_bottom = 0.9
 theme = ExtResource( 2 )
 
 [node name="Logo" type="TextureRect" parent="VBoxContainer"]
-margin_left = 318.0
-margin_right = 500.0
-margin_bottom = 56.0
+margin_left = 309.0
+margin_right = 509.0
+margin_bottom = 121.0
 size_flags_horizontal = 4
 size_flags_vertical = 2
 size_flags_stretch_ratio = 1.8
