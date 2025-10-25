@@ -8,10 +8,6 @@ export(int) var damage := 2
 export(int) var gravity_scale := 4
 
 var speed := 1000
-
-func can_see_player() -> bool:
-	return _ray.is_colliding()
-	
 func _physics_process(delta: float) -> void:
 	_velocity = get_facing_direction() * speed * delta
 	_velocity.y += Constants.GRAVITY * gravity_scale
@@ -32,3 +28,7 @@ func stuck() -> bool: return abs(_velocity.x) < 1 && speed != 0
 func turn_around() -> void:
 	toggle_flip_h()
 	_ray.cast_to.x *= -1
+
+func can_see_player() -> bool:
+	return _ray.is_colliding()
+	
