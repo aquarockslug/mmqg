@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=147 format=2]
+[gd_resource type="TileSet" load_steps=149 format=2]
 
 [ext_resource path="res://stages/dredge/textures/dredge_tiles.png" type="Texture" id=1]
 [ext_resource path="res://stages/dredge/textures/dredge_background.png" type="Texture" id=2]
@@ -404,6 +404,12 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=151]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=152]
+points = PoolVector2Array( 16, 8.69377, 0, 8.77167, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=153]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8.46011, 0, 8.46011 )
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
 points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
@@ -815,6 +821,7 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 22/autotile/navpoly_map = [  ]
 22/autotile/priority_map = [  ]
 22/autotile/z_index_map = [  ]
+22/autotile/fallback_mode = 0
 22/occluder_offset = Vector2( 0, 0 )
 22/navigation_offset = Vector2( 0, 0 )
 22/shape_offset = Vector2( 0, 0 )
@@ -879,20 +886,6 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 26/shape_one_way_margin = 0.0
 26/shapes = [  ]
 26/z_index = 0
-27/name = "dredge_tiles.png 27"
-27/texture = ExtResource( 1 )
-27/tex_offset = Vector2( 0, 0 )
-27/modulate = Color( 1, 1, 1, 1 )
-27/region = Rect2( 0, 176, 32, 32 )
-27/tile_mode = 0
-27/occluder_offset = Vector2( 0, 0 )
-27/navigation_offset = Vector2( 0, 0 )
-27/shape_offset = Vector2( 0, 0 )
-27/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-27/shape_one_way = false
-27/shape_one_way_margin = 0.0
-27/shapes = [  ]
-27/z_index = 0
 28/name = "dredge_tiles.png 28"
 28/texture = ExtResource( 1 )
 28/tex_offset = Vector2( 0, 0 )
@@ -1247,6 +1240,7 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 47/autotile/navpoly_map = [  ]
 47/autotile/priority_map = [  ]
 47/autotile/z_index_map = [  ]
+47/autotile/fallback_mode = 0
 47/occluder_offset = Vector2( 0, 0 )
 47/navigation_offset = Vector2( 0, 0 )
 47/shape_offset = Vector2( 0, 0 )
@@ -1464,6 +1458,7 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 59/autotile/navpoly_map = [  ]
 59/autotile/priority_map = [  ]
 59/autotile/z_index_map = [  ]
+59/autotile/fallback_mode = 0
 59/occluder_offset = Vector2( 0, 0 )
 59/navigation_offset = Vector2( 0, 0 )
 59/shape_offset = Vector2( 0, 0 )
@@ -1494,6 +1489,7 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 60/autotile/navpoly_map = [  ]
 60/autotile/priority_map = [  ]
 60/autotile/z_index_map = [  ]
+60/autotile/fallback_mode = 0
 60/occluder_offset = Vector2( 0, 0 )
 60/navigation_offset = Vector2( 0, 0 )
 60/shape_offset = Vector2( 0, 0 )
@@ -2136,6 +2132,18 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 151 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 12 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 152 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 12 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 153 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 65/z_index = 0
