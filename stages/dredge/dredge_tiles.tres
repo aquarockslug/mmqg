@@ -1,8 +1,10 @@
-[gd_resource type="TileSet" load_steps=145 format=2]
+[gd_resource type="TileSet" load_steps=147 format=2]
 
 [ext_resource path="res://stages/dredge/textures/dredge_tiles.png" type="Texture" id=1]
 [ext_resource path="res://stages/dredge/textures/dredge_background.png" type="Texture" id=2]
 [ext_resource path="res://stages/dredge/textures/grass/dredge_grass.tres" type="Texture" id=3]
+[ext_resource path="res://stages/dredge/textures/waterfall_background/waterfall_background.tres" type="Texture" id=4]
+[ext_resource path="res://stages/dredge/textures/waterfall_foreground/waterfall_foreground.tres" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=22]
 points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
@@ -2151,3 +2153,31 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 66/shape_one_way_margin = 0.0
 66/shapes = [  ]
 66/z_index = 0
+67/name = "waterfall_foreground.tres 67"
+67/texture = ExtResource( 5 )
+67/tex_offset = Vector2( 0, 0 )
+67/modulate = Color( 1, 1, 1, 1 )
+67/region = Rect2( 0, 0, 32, 32 )
+67/tile_mode = 0
+67/occluder_offset = Vector2( 0, 0 )
+67/navigation_offset = Vector2( 0, 0 )
+67/shape_offset = Vector2( 0, 0 )
+67/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+67/shape_one_way = false
+67/shape_one_way_margin = 0.0
+67/shapes = [  ]
+67/z_index = 0
+68/name = "waterfall_background.tres 68"
+68/texture = ExtResource( 4 )
+68/tex_offset = Vector2( 0, 0 )
+68/modulate = Color( 1, 1, 1, 1 )
+68/region = Rect2( 0, 0, 32, 32 )
+68/tile_mode = 0
+68/occluder_offset = Vector2( 0, 0 )
+68/navigation_offset = Vector2( 0, 0 )
+68/shape_offset = Vector2( 0, 0 )
+68/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+68/shape_one_way = false
+68/shape_one_way_margin = 0.0
+68/shapes = [  ]
+68/z_index = 0
