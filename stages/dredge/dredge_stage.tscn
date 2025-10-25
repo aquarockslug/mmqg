@@ -461,7 +461,7 @@ position = Vector2( 672, 204 )
 position = Vector2( 704, 204 )
 
 [node name="R I F T" parent="Sections" instance=ExtResource( 11 )]
-position = Vector2( 3840, 1199 )
+position = Vector2( 3840, 1200 )
 width = 512
 
 [node name="BackgroundTiles" type="TileMap" parent="Sections/R I F T"]
@@ -774,7 +774,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 2832, 1382 )
+position = Vector2( 2863, 1380 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
