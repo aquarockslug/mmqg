@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=113 format=2]
+[gd_resource type="TileSet" load_steps=112 format=2]
 
 [ext_resource path="res://stages/dredge/textures/dredge_tiles.png" type="Texture" id=1]
 [ext_resource path="res://stages/dredge/textures/dredge_background.png" type="Texture" id=2]
@@ -294,11 +294,8 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=152]
 points = PoolVector2Array( 16, 8.69377, 0, 8.77167, 0, 0, 16, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=153]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 8.46011, 0, 8.46011 )
-
 [sub_resource type="ConvexPolygonShape2D" id=154]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 6.68927, 0.465561, 6.49548 )
 
 [sub_resource type="ConvexPolygonShape2D" id=155]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -1058,12 +1055,6 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 }, {
 "autotile_coord": Vector2( 0, 12 ),
 "one_way": true,
-"one_way_margin": 1.0,
-"shape": SubResource( 153 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 0, 12 ),
-"one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 154 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
