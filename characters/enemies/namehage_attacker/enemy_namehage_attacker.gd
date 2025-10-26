@@ -1,6 +1,7 @@
 tool
 extends "res://characters/enemies/base/enemy_base.gd"
 
+export(int) var speed := 125
 export(int) var max_distance := 192
 export(bool) var is_broken := false
 
