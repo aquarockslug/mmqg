@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://stages/tile_map_extended.gd" type="Script" id=1]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/bosses/encrypt_man/EncryptMan.tscn" type="PackedScene" id=4]
 [ext_resource path="res://stages/assets/BossDoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gui/Pause.tscn" type="PackedScene" id=7]
@@ -10,8 +11,12 @@
 [ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=10]
 [ext_resource path="res://stages/encrypt/EncryptTiles.tres" type="TileSet" id=11]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=13]
+[ext_resource path="res://stages/encrypt/encrypt_stage.gd" type="Script" id=14]
 
 [node name="EncryptStage" type="Node2D"]
+script = ExtResource( 14 )
 
 [node name="Sections" type="Node2D" parent="."]
 
@@ -106,6 +111,10 @@ format = 1
 tile_data = PoolIntArray( 65536, 7, 12, 65551, 7, 12, 131072, 7, 65548, 131087, 7, 65548, 196608, 7, 131084, 196623, 7, 131084, 262144, 7, 65548, 262159, 7, 65548, 327680, 7, 131084, 327695, 7, 131084, 393216, 7, 65548, 393231, 7, 65548, 458752, 7, 131084, 458767, 7, 131084, 524288, 7, 65548, 524303, 7, 65548, 589824, 7, 196620, 589839, 7, 131084, 655375, 7, 65548, 720911, 7, 131084, 786447, 7, 65548, 851983, 7, 196620, 917504, 7, 0, 917505, 7, 1, 917506, 7, 0, 917507, 7, 1, 917508, 7, 0, 917509, 7, 1, 917510, 7, 0, 917511, 7, 1, 917512, 7, 0, 917513, 7, 1, 917514, 7, 0, 917515, 7, 1, 917516, 7, 0, 917517, 7, 1, 917518, 7, 0, 917519, 7, 1 )
 script = ExtResource( 1 )
 
+[node name="EncryptMan" parent="Sections/Section05" instance=ExtResource( 4 )]
+position = Vector2( 205, 198 )
+scale = Vector2( -1, 1 )
+
 [node name="BossDoors" type="Node2D" parent="."]
 
 [node name="BossDoor01" parent="BossDoors" instance=ExtResource( 5 )]
@@ -149,3 +158,9 @@ margin_left = 100.0
 margin_top = 16.0
 color = Color( 0.952941, 0.596078, 0.239216, 1 )
 horizontal = true
+
+[node name="PlayerCamera" parent="." instance=ExtResource( 13 )]
+player_target_node = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+position = Vector2( 942, 209 )

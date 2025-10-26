@@ -12,7 +12,7 @@
 [ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=10]
 [ext_resource path="res://stages/nimbus/NimbusTileset.tres" type="TileSet" id=11]
 [ext_resource path="res://characters/player/camera/PlayerCamera.tscn" type="PackedScene" id=12]
-[ext_resource path="res://stages/deception/deception_stage.gd" type="Script" id=13]
+[ext_resource path="res://stages/nimbus/nimbus_stage.gd" type="Script" id=13]
 [ext_resource path="res://characters/bosses/nimbus_man/NimbusMan.tscn" type="PackedScene" id=14]
 
 [node name="NimbusStage" type="Node2D"]
@@ -174,4 +174,4 @@ horizontal = true
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 48, 163 )
+position = Vector2( 967, 212 )

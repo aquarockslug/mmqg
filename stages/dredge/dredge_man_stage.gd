@@ -39,8 +39,3 @@ func _connect_signals() -> void:
 		_try_connect(self, "restarted", boss_door, "on_restarted")
 		for checkpoint in get_tree().get_nodes_in_group("Checkpoints"):
 			_try_connect(checkpoint, "checkpoint_reached", boss_door, "on_checkpoint_reached")
-
-func _process(delta) -> void:
-	var screen_x = $PlayerCamera.get_camera_screen_center().x
-	if screen_x < 2000:
-		$ParallaxBackground.scroll_offset.x = -screen_x * 0.33
