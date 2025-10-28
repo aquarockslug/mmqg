@@ -55,7 +55,6 @@ collision_layer = 4
 collision_mask = 9
 script = ExtResource( 4 )
 hit_points_max = 8
-despawn_on_camera_exit = true
 move_speed = 1000
 damage = 2
 gravity_scale = 4
@@ -65,10 +64,9 @@ position = Vector2( 1.5, 5 )
 shape = SubResource( 3 )
 
 [node name="LineOfSite" type="RayCast2D" parent="Collider" index="0"]
-visible = false
 position = Vector2( 0, 5 )
 enabled = true
-cast_to = Vector2( -100, 0 )
+cast_to = Vector2( -200, 0 )
 collision_mask = 2
 collide_with_areas = true
 
