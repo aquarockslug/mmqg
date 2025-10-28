@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_introanim.png" type="Texture" id=24]
 [ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=25]
 [ext_resource path="res://stages/dredge/dredge_water.gd" type="Script" id=26]
+[ext_resource path="res://stages/assets/InstantDeathArea.tscn" type="PackedScene" id=27]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 31, 56 )
@@ -45,11 +46,26 @@ extents = Vector2( 10, 79 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 95.5 )
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 64, 10 )
+
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 88 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 10, 119 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 32, 10 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 32, 10 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 40, 8 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 32, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 77.25, 47.75 )
@@ -470,6 +486,12 @@ position = Vector2( 672, 204 )
 [node name="EnemyKaoNaWahna7" parent="Sections/WetnWild" instance=ExtResource( 23 )]
 position = Vector2( 704, 204 )
 
+[node name="Spikes" parent="Sections/WetnWild" instance=ExtResource( 27 )]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sections/WetnWild/Spikes"]
+position = Vector2( 271.5, 54 )
+shape = SubResource( 12 )
+
 [node name="R I F T" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 3840, 1200 )
 width = 512
@@ -515,6 +537,16 @@ shape = SubResource( 10 )
 position = Vector2( 455, 17 )
 size_in_tiles = 8
 
+[node name="Spikes" parent="Sections/R I F T" instance=ExtResource( 27 )]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sections/R I F T/Spikes"]
+position = Vector2( 192, 166 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sections/R I F T/Spikes"]
+position = Vector2( 320, 166 )
+shape = SubResource( 14 )
+
 [node name="GushingGrannies" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 3584, 960 )
 width = 256
@@ -545,6 +577,16 @@ position = Vector2( 48, 156 )
 [node name="Top" parent="Sections/GushingGrannies" instance=ExtResource( 4 )]
 position = Vector2( 198, 122 )
 size_in_tiles = 16
+
+[node name="Spikes" parent="Sections/GushingGrannies" instance=ExtResource( 27 )]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sections/GushingGrannies/Spikes"]
+position = Vector2( 120, 56 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sections/GushingGrannies/Spikes"]
+position = Vector2( 192, 88 )
+shape = SubResource( 16 )
 
 [node name="shoots" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 3584, 720 )
@@ -784,7 +826,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 39, 196 )
+position = Vector2( 71, 197 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

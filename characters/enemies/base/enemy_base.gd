@@ -7,7 +7,6 @@ export(String) var enemy_name: String
 export(int) var hit_points_max := 20
 export(int) var contact_damage := 5
 export(bool) var can_respawn := true
-export(bool) var despawn_on_camera_exit := false
 export(int) var spawn_count_max := -1
 export(float) var spawn_timer := 0.0
 export(bool) var flip_direction := false setget set_flip_direction
@@ -94,8 +93,7 @@ func get_facing_direction() -> Vector2:
 	return Vector2.RIGHT if $Sprite.flip_h else Vector2.LEFT
 
 func on_camera_exited() -> void:
-	if despawn_on_camera_exit:
-		queue_free()
+	queue_free()
 
 func start_yield_timer(time: float) -> Timer:
 	_timer = Timer.new()
