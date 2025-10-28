@@ -1493,13 +1493,14 @@ use_parent_material = true
 texture = ExtResource( 2 )
 offset = Vector2( 0, -5 )
 hframes = 3
+frame = 1
 
 [node name="SpriteMask" type="Sprite" parent="."]
 pause_mode = 2
 visible = false
 material = ExtResource( 37 )
-texture = ExtResource( 46 )
-hframes = 6
+texture = ExtResource( 43 )
+hframes = 2
 vframes = 3
 script = ExtResource( 38 )
 
@@ -1599,8 +1600,6 @@ script = ExtResource( 27 )
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource( 28 )
 
-[node name="MegaBusterPos" type="Position2D" parent="."]
-
 [node name="Weapons" type="Node" parent="."]
 pause_mode = 2
 script = ExtResource( 32 )
@@ -1627,5 +1626,8 @@ script = ExtResource( 31 )
 
 [node name="Inputs" type="Node" parent="."]
 script = ExtResource( 34 )
+
+[node name="MegaBusterPos" type="Position2D" parent="."]
+position = Vector2( 12, -1 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
