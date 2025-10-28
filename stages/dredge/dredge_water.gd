@@ -1,6 +1,6 @@
 extends Area2D
 
-export(int) var water_power := 0.5
+export(float) var water_power := 0.5
 
 onready var _jumping_player: State = $"../../../Player/StateMachine/Jump"
 
