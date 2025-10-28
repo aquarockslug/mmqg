@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 func falling() -> bool: return _velocity.y != 0 && not is_on_floor()
 
 # true when trying to move but a collision is preventing it
-func stuck() -> bool: return abs(_velocity.x) < 1 && speed != 0
+func stuck() -> bool: return _velocity.x == 0 && speed != 0
 
 func turn_around() -> void:
 	toggle_flip_h()
