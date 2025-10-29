@@ -380,28 +380,26 @@ position = Vector2( 597, 19 )
 [node name="EnemyDige4" parent="Sections/DigePillers" instance=ExtResource( 22 )]
 position = Vector2( 652, 19 )
 
-[node name="BrokenPlatforms" type="Node" parent="Sections/DigePillers"]
+[node name="BrokenPlatform" parent="Sections/DigePillers" instance=ExtResource( 28 )]
+position = Vector2( 328, 165 )
 
-[node name="BrokenPlatform" parent="Sections/DigePillers/BrokenPlatforms" instance=ExtResource( 28 )]
-position = Vector2( 2120, 885 )
+[node name="BrokenPlatform2" parent="Sections/DigePillers" instance=ExtResource( 28 )]
+position = Vector2( 376, 150 )
 
-[node name="BrokenPlatform2" parent="Sections/DigePillers/BrokenPlatforms" instance=ExtResource( 28 )]
-position = Vector2( 2168, 870 )
+[node name="BrokenPlatform3" parent="Sections/DigePillers" instance=ExtResource( 28 )]
+position = Vector2( 423, 133 )
 
-[node name="BrokenPlatform3" parent="Sections/DigePillers/BrokenPlatforms" instance=ExtResource( 28 )]
-position = Vector2( 2215, 853 )
+[node name="BrokenPlatform4" parent="Sections/DigePillers" instance=ExtResource( 28 )]
+position = Vector2( 568, 150 )
 
-[node name="BrokenPlatform4" parent="Sections/DigePillers/BrokenPlatforms" instance=ExtResource( 28 )]
-position = Vector2( 2360, 870 )
+[node name="BrokenPlatform5" parent="Sections/DigePillers" instance=ExtResource( 28 )]
+position = Vector2( 615, 150 )
 
-[node name="BrokenPlatform5" parent="Sections/DigePillers/BrokenPlatforms" instance=ExtResource( 28 )]
-position = Vector2( 2407, 870 )
+[node name="BrokenPlatform6" parent="Sections/DigePillers" instance=ExtResource( 28 )]
+position = Vector2( 631, 150 )
 
-[node name="BrokenPlatform6" parent="Sections/DigePillers/BrokenPlatforms" instance=ExtResource( 28 )]
-position = Vector2( 2423, 870 )
-
-[node name="BrokenPlatform7" parent="Sections/DigePillers/BrokenPlatforms" instance=ExtResource( 28 )]
-position = Vector2( 2472, 838 )
+[node name="BrokenPlatform7" parent="Sections/DigePillers" instance=ExtResource( 28 )]
+position = Vector2( 680, 118 )
 
 [node name="DarkPitTop" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 2560, 720 )
@@ -683,11 +681,13 @@ script = ExtResource( 3 )
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 65, 393216, 1, 65, 524289, 2, 65, 327691, 5, 65, 524289, 6, 65, 393216, 7, 65, 393216, 8, 65, 393216, 9, 65, 393216, 10, 65, 786438, 11, 65, 786439, 12, 65, 393216, 13, 65, 393216, 14, 65, 524289, 15, 65, 393216, 65536, 65, 1, 65537, 65, 524289, 65538, 65, 327691, 65541, 65, 851971, 65542, 65, 458752, 65543, 65, 458753, 65544, 65, 458752, 65545, 65, 458753, 65546, 65, 458752, 65547, 65, 458753, 65548, 65, 458752, 65549, 65, 458753, 65550, 65, 524289, 65551, 65, 393216, 131072, 65, 393216, 131073, 65, 524289, 131074, 65, 327691, 131086, 65, 524289, 131087, 65, 393216, 196608, 65, 393216, 196609, 65, 524289, 196610, 65, 327691, 196622, 65, 524289, 196623, 65, 393216, 262144, 65, 393216, 262145, 65, 524289, 262146, 65, 327691, 262158, 65, 524289, 262159, 65, 393216, 327680, 65, 131075, 327681, 65, 524289, 327682, 65, 786433, 327683, 65, 786433, 327684, 65, 786433, 327685, 65, 786433, 327686, 65, 786433, 327687, 65, 786433, 327694, 65, 524289, 327695, 65, 393216, 393216, 65, 196611, 393217, 65, 524289, 393230, 65, 524289, 393231, 65, 0, 458752, 65, 393216, 458753, 65, 524289, 458766, 65, 524289, 458767, 65, 393216, 524288, 65, 393216, 524289, 65, 524289, 524302, 65, 524289, 524303, 65, 393216, 589824, 65, 393216, 589825, 65, 524289, 589838, 65, 524289, 589839, 65, 393216, 655360, 65, 393216, 655361, 65, 524289, 655374, 65, 524289, 655375, 65, 327682, 720896, 65, 393216, 720897, 65, 524289, 720898, 65, 393227, 720903, 65, 458758, 720910, 65, 524289, 720911, 65, 393216, 786432, 65, 327683, 786433, 65, 524289, 786434, 65, 524294, 786435, 65, 393222, 786436, 65, 393223, 786439, 65, 524294, 786446, 65, 524289, 786447, 65, 393216, 851968, 65, 393216, 851969, 65, 524289, 851970, 65, 327681, 851971, 65, 327680, 851972, 65, 327681, 851973, 65, 327680, 851974, 65, 327681, 851975, 65, 327680, 851976, 65, 327681, 851977, 65, 327680, 851978, 65, 786435, 851980, 65, 327691, 851982, 65, 524289, 851983, 65, 393216, 917504, 65, 393216, 917505, 65, 524289, 917506, 65, 393216, 917507, 65, 393216, 917508, 65, 327682, 917509, 65, 393216, 917510, 65, 393216, 917511, 65, 327683, 917512, 65, 393216, 917513, 65, 393216, 917514, 65, 524289, 917516, 65, 327691, 917518, 65, 524289, 917519, 65, 393216 )
+tile_data = PoolIntArray( 0, 65, 393216, 1, 65, 524289, 2, 65, 327691, 5, 65, 524289, 6, 65, 393216, 7, 65, 393216, 8, 65, 393216, 9, 65, 393216, 10, 65, 786438, 11, 65, 786439, 12, 65, 393216, 13, 65, 393216, 14, 65, 524289, 15, 65, 393216, 65536, 65, 1, 65537, 65, 524289, 65538, 65, 327691, 65541, 65, 851971, 65542, 65, 458752, 65543, 65, 458753, 65544, 65, 458752, 65545, 65, 458753, 65546, 65, 458752, 65547, 65, 458753, 65548, 65, 458752, 65549, 65, 458753, 65550, 65, 524289, 65551, 65, 393216, 131072, 65, 393216, 131073, 65, 524289, 131074, 65, 327691, 131086, 65, 524289, 131087, 65, 393216, 196608, 65, 393216, 196609, 65, 524289, 196610, 65, 327691, 196622, 65, 524289, 196623, 65, 393216, 262144, 65, 393216, 262145, 65, 524289, 262146, 65, 327691, 262158, 65, 524289, 262159, 65, 393216, 327680, 65, 131075, 327681, 65, 524289, 327694, 65, 524289, 327695, 65, 393216, 393216, 65, 196611, 393217, 65, 524289, 393230, 65, 524289, 393231, 65, 0, 458752, 65, 393216, 458753, 65, 524289, 458766, 65, 524289, 458767, 65, 393216, 524288, 65, 393216, 524289, 65, 524289, 524302, 65, 524289, 524303, 65, 393216, 589824, 65, 393216, 589825, 65, 524289, 589838, 65, 524289, 589839, 65, 393216, 655360, 65, 393216, 655361, 65, 524289, 655374, 65, 524289, 655375, 65, 327682, 720896, 65, 393216, 720897, 65, 524289, 720898, 65, 393227, 720903, 65, 458758, 720910, 65, 524289, 720911, 65, 393216, 786432, 65, 327683, 786433, 65, 524289, 786434, 65, 524294, 786435, 65, 393222, 786436, 65, 393223, 786439, 65, 524294, 786446, 65, 524289, 786447, 65, 393216, 851968, 65, 393216, 851969, 65, 524289, 851970, 65, 327681, 851971, 65, 327680, 851972, 65, 327681, 851973, 65, 327680, 851974, 65, 327681, 851975, 65, 327680, 851976, 65, 327681, 851977, 65, 327680, 851978, 65, 786435, 851980, 65, 327691, 851982, 65, 524289, 851983, 65, 393216, 917504, 65, 393216, 917505, 65, 524289, 917506, 65, 393216, 917507, 65, 393216, 917508, 65, 327682, 917509, 65, 393216, 917510, 65, 393216, 917511, 65, 327683, 917512, 65, 393216, 917513, 65, 393216, 917514, 65, 524289, 917516, 65, 327691, 917518, 65, 524289, 917519, 65, 393216 )
 script = ExtResource( 3 )
 
 [node name="Top" parent="Sections/and ladders" instance=ExtResource( 4 )]
 position = Vector2( 199, 220 )
+
+[node name="BrokenPlatforms" type="Node2D" parent="Sections/and ladders"]
 
 [node name="BrokenPlatform" parent="Sections/and ladders" instance=ExtResource( 28 )]
 position = Vector2( 87, 149 )
@@ -700,6 +700,24 @@ position = Vector2( 184, 118 )
 
 [node name="BrokenPlatform4" parent="Sections/and ladders" instance=ExtResource( 28 )]
 position = Vector2( 200, 118 )
+
+[node name="BrokenPlatform5" parent="Sections/and ladders" instance=ExtResource( 28 )]
+position = Vector2( 119, 86 )
+
+[node name="BrokenPlatform6" parent="Sections/and ladders" instance=ExtResource( 28 )]
+position = Vector2( 103, 86 )
+
+[node name="BrokenPlatform7" parent="Sections/and ladders" instance=ExtResource( 28 )]
+position = Vector2( 87, 86 )
+
+[node name="BrokenPlatform8" parent="Sections/and ladders" instance=ExtResource( 28 )]
+position = Vector2( 71, 86 )
+
+[node name="BrokenPlatform9" parent="Sections/and ladders" instance=ExtResource( 28 )]
+position = Vector2( 56, 86 )
+
+[node name="BrokenPlatform10" parent="Sections/and ladders" instance=ExtResource( 28 )]
+position = Vector2( 40, 86 )
 
 [node name="lettherebelight" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 3584, 240 )
@@ -913,7 +931,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 59, 195 )
+position = Vector2( 1810, 895 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

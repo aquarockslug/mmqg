@@ -9,11 +9,14 @@ onready var _animation_player: AnimationPlayer = $AnimationPlayer
 var fall_speed = 4
 var triggered = false
 var target_y = 0
+var init_y = 0
 
 func _ready():
-	$Trigger.connect("body_entered", self, "_on_body_entered")
+	$Trigger.connect("body_entered", self, "_on_body_entered_trigger")
+	get_parent().connect("transition_entered", self, "reset")
 	_animation_player.connect("animation_finished", self, "_on_animation_finished")
 	target_y = position.y
+	init_y = position.y
 	
 func _process(delta):
 	# if triggered, not shaking, and it is above the target, move towards the target
@@ -24,14 +27,18 @@ func _process(delta):
 	if keep_falling and triggered and position.y == target_y:
 		_animation_player.play("shake")
 	
-func _on_body_entered(body):
+func _on_body_entered_trigger(body):
 	if body.name == "Player" || body.name == "Rock": _on_trigger()
 	
 # move the target_y after every shakes
 func _on_animation_finished(anim_name):
-	if anim_name == "shake": 
-		target_y += 16
+	if anim_name == "shake": target_y += 16
 		
 func _on_trigger():
 	_animation_player.play("shake")
 	triggered = true
+
+func reset(transition):
+	position.y = init_y
+	target_y = init_y
+	triggered = false
