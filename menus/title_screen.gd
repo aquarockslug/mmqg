@@ -55,8 +55,8 @@ func _on_focus_entered(button: Button) -> void:
 func _create_main_buttons() -> void:
 	new_game_button = _create_button("New Game", "_new_game")
 	main_buttons.push_back(new_game_button)
-	options_button = _create_button("Options", "_options")
-	main_buttons.push_back(options_button)
+	# options_button = _create_button("Options", "_options")
+	# main_buttons.push_back(options_button)
 	exit_button = _create_button("Exit", "_exit")
 	main_buttons.push_back(exit_button)
 
