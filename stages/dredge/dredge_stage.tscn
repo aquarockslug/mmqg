@@ -343,10 +343,10 @@ position = Vector2( 0, -38 )
 shape = SubResource( 11 )
 
 [node name="BrokenPlatform" parent="Sections/SandPit" instance=ExtResource( 28 )]
-position = Vector2( 152, 150 )
+position = Vector2( 153, 150 )
 
 [node name="BrokenPlatform2" parent="Sections/SandPit" instance=ExtResource( 28 )]
-position = Vector2( 168, 150 )
+position = Vector2( 169, 150 )
 
 [node name="DigePillers" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1792, 720 )
