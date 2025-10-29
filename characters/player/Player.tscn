@@ -50,7 +50,7 @@
 [ext_resource path="res://characters/player/sprites/mega_man/SlideMask.png" type="Texture" id=48]
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 6, 10.75 )
+extents = Vector2( 6, 11.875 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "power_charge_lvl1"
@@ -1477,7 +1477,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 1.1, 1.1 )
+position = Vector2( 0, 1.125 )
 shape = SubResource( 27 )
 
 [node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
