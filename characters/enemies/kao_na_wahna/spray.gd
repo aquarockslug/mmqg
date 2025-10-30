@@ -3,8 +3,10 @@ extends State
 onready var _enemy_animations: AnimationPlayer = $"../../EnemyAnimations"
 
 func _enter():
-	_enemy_animations.play("spray")
-
-func _on_enemyAnimations_animation_finished(anim_name):
-	if (anim_name == "spray"):
-		emit_signal("finished", "idle")
+	# choose which spray animation to enter 
+	if (owner.water_height == 0):
+		_enemy_animations.play("spray_short")
+	if (owner.water_height == 1):
+		_enemy_animations.play("spray_middle")
+	if (owner.water_height == 2):
+		_enemy_animations.play("spray_tall")
