@@ -77,7 +77,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=39]
 resource_name = "idle"
-length = 1.5
+length = 0.66
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("CharacterSprites/Sprite:frame")
@@ -86,7 +86,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.33 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
@@ -201,6 +201,7 @@ shape = SubResource( 1 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 14 )
 hframes = 2
+frame = 1
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
