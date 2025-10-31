@@ -43,14 +43,17 @@ func _on_water_body_exited(body):
 		entered = false
 
 func _after_animation(anim_name):
-	if (anim_name == "idle"): 
+	if anim_name == "idle": 
 		# choose which spray animation to enter 
-		if (water_height == 0):
+		if water_height == 0:
 			_enemy_animations.play("spray_short")
-		if (water_height == 1):
+		if water_height == 1:
 			_enemy_animations.play("spray_middle")
-		if (water_height == 2):
+		if water_height == 2:
 			_enemy_animations.play("spray_tall")
 	
-	if (anim_name == "spray_tall" or anim_name == "spray_middle" or anim_name == "spray_short"):
+	if anim_name == "spray_tall" or anim_name == "spray_middle" or anim_name == "spray_short":
 		emit_signal("change_state", "idle")
+		
+	if anim_name == "death":
+		queue_free()

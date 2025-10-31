@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://characters/enemies/kao_na_wahna/enemy_kao_na_wahna.gd" type="Script" id=1]
 [ext_resource path="res://characters/enemies/kao_na_wahna/kao_na_wahna.png" type="Texture" id=2]
@@ -56,6 +56,22 @@ extents = Vector2( 14.25, 19 )
 [sub_resource type="RectangleShape2D" id=7]
 resource_local_to_scene = true
 extents = Vector2( 10.5, 18.6875 )
+
+[sub_resource type="Animation" id=33]
+resource_name = "death"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
 
 [sub_resource type="Animation" id=29]
 length = 2.0
@@ -318,7 +334,7 @@ collision_mask = 46
 
 [node name="WaterCollision" type="CollisionShape2D" parent="Water"]
 position = Vector2( -1.25, 0 )
-scale = Vector2( 0.8, 4 )
+scale = Vector2( 1, 4 )
 shape = SubResource( 17 )
 
 [node name="TopSprite" type="AnimatedSprite" parent="Water"]
@@ -328,42 +344,49 @@ animation = "top"
 playing = true
 
 [node name="WaterMiddle3" type="AnimatedSprite" parent="Water/TopSprite"]
+visible = false
 position = Vector2( 0, 23 )
 frames = SubResource( 27 )
 animation = "middle"
 playing = true
 
 [node name="WaterMiddle4" type="AnimatedSprite" parent="Water/TopSprite"]
+visible = false
 position = Vector2( 0, 35 )
 frames = SubResource( 27 )
 animation = "middle"
 playing = true
 
 [node name="WaterMiddle5" type="AnimatedSprite" parent="Water/TopSprite"]
+visible = false
 position = Vector2( 0, 47 )
 frames = SubResource( 27 )
 animation = "middle"
 playing = true
 
 [node name="WaterMiddle6" type="AnimatedSprite" parent="Water/TopSprite"]
+visible = false
 position = Vector2( 0, 59 )
 frames = SubResource( 27 )
 animation = "middle"
 playing = true
 
 [node name="WaterMiddle7" type="AnimatedSprite" parent="Water/TopSprite"]
+visible = false
 position = Vector2( 0, 71 )
 frames = SubResource( 27 )
 animation = "middle"
 playing = true
 
 [node name="WaterMiddle8" type="AnimatedSprite" parent="Water/TopSprite"]
+visible = false
 position = Vector2( 0, 83 )
 frames = SubResource( 27 )
 animation = "middle"
 playing = true
 
 [node name="WaterMiddle9" type="AnimatedSprite" parent="Water/TopSprite"]
+visible = false
 position = Vector2( 0, 94 )
 frames = SubResource( 27 )
 animation = "middle"
@@ -373,6 +396,7 @@ playing = true
 texture = ExtResource( 2 )
 hframes = 3
 vframes = 4
+frame = 4
 region_enabled = true
 region_rect = Rect2( 65.4442, 0.513817, 108.072, 171.991 )
 
@@ -395,6 +419,7 @@ rect = Rect2( -8, -8, 16, 16 )
 script = ExtResource( 3 )
 
 [node name="EnemyAnimations" type="AnimationPlayer" parent="."]
+anims/death = SubResource( 33 )
 anims/idle = SubResource( 29 )
 anims/spray_middle = SubResource( 18 )
 anims/spray_short = SubResource( 19 )

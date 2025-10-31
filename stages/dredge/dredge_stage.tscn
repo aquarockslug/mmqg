@@ -997,4 +997,10 @@ stream = ExtResource( 21 )
 stream = ExtResource( 21 )
 
 [node name="EnemyKaoNaWahnaShort" parent="." instance=ExtResource( 31 )]
-position = Vector2( 97, 186 )
+position = Vector2( 144, 188 )
+
+[node name="EnemyKaoNaWahnaTall" parent="." instance=ExtResource( 29 )]
+position = Vector2( 209, 188 )
+
+[node name="EnemyKaoNaWahnaMiddle" parent="." instance=ExtResource( 30 )]
+position = Vector2( 176, 188 )
