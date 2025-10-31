@@ -507,9 +507,11 @@ position = Vector2( 320, 188 )
 
 [node name="EnemyKaoNaWahna5" parent="Sections/WetnWild" instance=ExtResource( 23 )]
 position = Vector2( 640, 204 )
+water_height = 1
 
 [node name="EnemyKaoNaWahna6" parent="Sections/WetnWild" instance=ExtResource( 23 )]
 position = Vector2( 672, 204 )
+water_height = 1
 
 [node name="EnemyKaoNaWahna7" parent="Sections/WetnWild" instance=ExtResource( 23 )]
 position = Vector2( 704, 204 )
@@ -930,7 +932,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 69, 195 )
+position = Vector2( 4078, 363 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

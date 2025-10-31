@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/absolute_snow.png-6ef2cb624a629496c85b3dd583f4010e.stex"
+path="res://.import/absolute_snow_1.png-7310212062f7191383e76fc4b5353231.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/absolute/textures/absolute_snow.png"
-dest_files=[ "res://.import/absolute_snow.png-6ef2cb624a629496c85b3dd583f4010e.stex" ]
+source_file="res://stages/absolute/textures/snow/absolute_snow_1.png"
+dest_files=[ "res://.import/absolute_snow_1.png-7310212062f7191383e76fc4b5353231.stex" ]
 
 [params]
 

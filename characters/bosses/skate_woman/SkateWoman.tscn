@@ -5,7 +5,7 @@
 [ext_resource path="res://characters/enemies/base/sounds/Hit.wav" type="AudioStream" id=3]
 [ext_resource path="res://characters/bosses/rag_woman/states/idle.gd" type="Script" id=4]
 [ext_resource path="res://characters/bosses/rag_woman/states/death.gd" type="Script" id=5]
-[ext_resource path="res://characters/bosses/rag_woman/rag_woman.png" type="Texture" id=6]
+[ext_resource path="res://characters/bosses/skate_woman/skate.png" type="Texture" id=6]
 [ext_resource path="res://characters/bosses/rag_woman/rag_woman.gd" type="Script" id=7]
 [ext_resource path="res://effects/effect_spawner/EffectSpawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://characters/player/sprites/mega_man/Hit.png" type="Texture" id=9]
@@ -198,9 +198,10 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
+position = Vector2( 0, 9 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, -10 )
-hframes = 2
+flip_h = true
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false

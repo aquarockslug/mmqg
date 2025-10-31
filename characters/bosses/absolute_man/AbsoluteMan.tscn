@@ -201,7 +201,7 @@ position = Vector2( 0, -240 )
 texture = ExtResource( 10 )
 flip_h = true
 hframes = 8
-frame = 7
+frame = 3
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
