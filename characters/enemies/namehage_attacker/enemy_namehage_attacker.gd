@@ -20,7 +20,7 @@ func _on_hit(body: PhysicsBody2D) -> void:
 		else:
 			is_blocking = get_facing_direction().x != body.direction.x
 		
-	if is_blocking: break_mask()
+	if is_blocking && not is_broken: break_mask()
 	else: ._on_hit(body)
 
 func break_mask():
