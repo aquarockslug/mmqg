@@ -41,7 +41,7 @@ func _process(delta) -> void:
 	if exploded:
 		frames_since_exploded += 1
 		if frames_since_exploded >= explosion_frame_count:
-			drop_rubble(); drop_rubble()
+			# drop_rubble(); drop_rubble()
 			queue_free()
 
 func drop_rubble():

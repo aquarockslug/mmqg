@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export(int) var speed := 1
+export(float) var speed := 1.1
 export(int) var damage := 3
 
 var _velocity: Vector2
