@@ -19,21 +19,24 @@ func _ready():
 
 func _process(delta):
 	if not is_instance_valid(_enemy_animations): return
-	if _enemy_animations.current_animation == "idle":
-		return
+	if _enemy_animations.current_animation == "idle": return
+
+	# hide all water with a y position that is below 0
 	for water_part in _water.get_children():
 		var water_part_y = _water.position.y + water_part.position.y
 		water_part.visible = water_part_y < 0
 
 	# push the player upwards while inside the water and jumping
-	if entered && _jumping_player: 
+	if entered && _jumping_player:
 		_jumping_player.velocity.y += -water_power * delta * 1000
 
 func _on_water_body_entered(body):
 	if body and body.name == "Player":
 		entered = true
+
 		# force the player into the jump state when they enter the water
 		body.emit_signal("change_state", "jump")
+
 		# replace the normal initial jump velocity
 		if not _jumping_player: _jumping_player = body.find_node("Jump")
 		_jumping_player.velocity.y = -water_power * 50
@@ -43,17 +46,14 @@ func _on_water_body_exited(body):
 		entered = false
 
 func _after_animation(anim_name):
-	if anim_name == "idle": 
-		# choose which spray animation to enter 
-		if water_height == 0:
-			_enemy_animations.play("spray_short")
-		if water_height == 1:
-			_enemy_animations.play("spray_middle")
-		if water_height == 2:
-			_enemy_animations.play("spray_tall")
-	
-	if anim_name == "spray_tall" or anim_name == "spray_middle" or anim_name == "spray_short":
+	var water_animations = ["spray_short", "spray_middle", "spray_tall"]
+
+	# if done being idle choose which spray animation to enter
+	if anim_name == "idle":
+		_enemy_animations.play(water_animations[water_height])
+
+	# done spraying
+	if water_animations.has(anim_name):
 		emit_signal("change_state", "idle")
-		
-	if anim_name == "death":
-		queue_free()
+
+	if anim_name == "death": queue_free()

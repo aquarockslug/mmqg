@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://stages/assets/appearing_block.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "BrokenPlatform",
-"language": "GDScript",
-"path": "res://stages/assets/broken_platform.gd"
-}, {
 "base": "Node",
 "class": "InputHandler",
 "language": "GDScript",
@@ -72,7 +67,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AI": "",
 "AppearingBlock": "",
-"BrokenPlatform": "",
 "InputHandler": "",
 "Player": "",
 "PreciseVisibilityNotifier2D": "",
