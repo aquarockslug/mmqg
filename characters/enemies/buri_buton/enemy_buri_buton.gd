@@ -9,7 +9,7 @@ export(int) var gravity_scale := 5
 
 var speed = 1000 # the current speed
 var stuck_time = 0 # the number of _physics_processes spent being stuck
-var turn_threshold = 10 # how long to be stuck before turning
+var turn_threshold = 30 # how long to be stuck before turning
 
 func _physics_process(delta: float) -> void:
 	_velocity = get_facing_direction() * speed * delta

@@ -60,7 +60,7 @@ damage = 2
 gravity_scale = 5
 
 [node name="Collider" parent="." index="0"]
-position = Vector2( 0, 4.5 )
+position = Vector2( 0, 3.5 )
 shape = SubResource( 3 )
 
 [node name="LineOfSite" type="RayCast2D" parent="Collider" index="0"]
