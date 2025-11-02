@@ -725,7 +725,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
+"values": [ 2 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:texture")
@@ -875,7 +875,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 2 ]
+"values": [ 4 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:texture")
@@ -1031,7 +1031,7 @@ step = 0.12
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
@@ -1050,7 +1050,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 6 ]
+"values": [ 12 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:texture")
@@ -1068,7 +1068,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=19]
 resource_local_to_scene = true
 resource_name = "move_shoot_alt"
-length = 0.48
+length = 0.24
 loop = true
 step = 0.12
 tracks/0/type = "value"
@@ -1078,10 +1078,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.12, 0.24, 0.36 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.12 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0, 1, 2, 1 ]
+"values": [ 0, 1 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -1093,7 +1093,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 3 ]
+"values": [ 2 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:texture")
@@ -1158,11 +1158,11 @@ tracks/0/path = NodePath("Sprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.74 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 0,
+"update": 1,
 "values": [ Vector2( 0, -3 ), Vector2( 0, -5 ) ]
 }
 tracks/1/type = "value"
@@ -1486,7 +1486,7 @@ hframes = 3
 pause_mode = 2
 visible = false
 material = ExtResource( 37 )
-texture = ExtResource( 36 )
+texture = ExtResource( 48 )
 offset = Vector2( 0, -7 )
 hframes = 2
 vframes = 3

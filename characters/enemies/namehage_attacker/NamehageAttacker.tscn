@@ -73,6 +73,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mask:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "move_broken"
@@ -172,11 +184,10 @@ position = Vector2( -0.5, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
-modulate = Color( 1, 1, 1, 0.160235 )
 texture = ExtResource( 9 )
 hframes = 3
 vframes = 4
-frame = 6
+frame = 1
 region_enabled = true
 region_rect = Rect2( 41, 1, 108, 172 )
 region_filter_clip = true
