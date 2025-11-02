@@ -174,4 +174,4 @@ horizontal = true
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 967, 212 )
+position = Vector2( 17, 163 )
