@@ -109,7 +109,7 @@ position = Vector2( 125, 172 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 969, 179 )
+position = Vector2( 17, 179 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
