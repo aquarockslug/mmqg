@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-const Rubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManRubbleBig.tscn")
 onready var _timer_fuse: Timer = $TimerBombFuse
 onready var _area := $Area2D
 
@@ -14,13 +13,11 @@ var direction := Vector2.RIGHT
 
 var exploded = false
 var frames_since_exploded = 0
-var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	_timer_fuse.one_shot = true
 	_timer_fuse.connect("timeout", self, "_on_explode")
 	_timer_fuse.start()
-	rng.randomize()
 	$AnimationPlayer.play("drop")
 	$Sprite.flip_h = direction == Vector2.RIGHT
 	_velocity = Vector2(0, 0)
@@ -40,14 +37,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta) -> void:
 	if exploded:
 		frames_since_exploded += 1
-		if frames_since_exploded >= explosion_frame_count:
-			# drop_rubble(); drop_rubble()
-			queue_free()
-
-func drop_rubble():
-	var rubble := Rubble.instance()
-	self.get_parent().add_child(rubble)
-	rubble.drop(self.global_position.x, 50)
+		if frames_since_exploded >= explosion_frame_count: queue_free()
 
 func _on_explode():
 	exploded = true
