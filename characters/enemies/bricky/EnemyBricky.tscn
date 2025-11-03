@@ -79,6 +79,8 @@ tracks/0/keys = {
 }
 
 [node name="EnemyBricky" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 3
 enemy_name = "Bricky"
 hit_points_max = 9
 contact_damage = 1
