@@ -8,7 +8,7 @@ extents = Vector2( 7.8125, 2 )
 
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
-extents = Vector2( 10.5, 18.6875 )
+extents = Vector2( 9, 7 )
 
 [node name="EnemyKaoNaWahnaMiddle" instance=ExtResource( 1 )]
 enemy_name = "Middle"
@@ -17,26 +17,6 @@ water_height = 1
 [node name="WaterCollision" parent="Water" index="0"]
 shape = SubResource( 1 )
 
-[node name="WaterMiddle3" parent="Water/TopSprite" index="0"]
-visible = false
-
-[node name="WaterMiddle4" parent="Water/TopSprite" index="1"]
-visible = false
-
-[node name="WaterMiddle5" parent="Water/TopSprite" index="2"]
-visible = false
-
-[node name="WaterMiddle6" parent="Water/TopSprite" index="3"]
-visible = false
-
-[node name="WaterMiddle7" parent="Water/TopSprite" index="4"]
-visible = false
-
-[node name="WaterMiddle8" parent="Water/TopSprite" index="5"]
-visible = false
-
-[node name="WaterMiddle9" parent="Water/TopSprite" index="6"]
-visible = false
-
 [node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( -1, -4 )
 shape = SubResource( 2 )
