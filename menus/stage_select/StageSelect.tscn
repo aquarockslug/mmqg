@@ -182,7 +182,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource( 5 )
 stage_top_left = "res://stages/nimbus/NimbusStage.tscn"
-stage_top_center = "res://gui/IntroDredgeStage.tscn"
+stage_top_center = "res://stages/dredge/IntroDredgeStage.tscn"
 stage_top_right = "res://stages/encrypt/EncryptStage.tscn"
 stage_mid_left = "res://stages/absolute/AbsoluteStage.tscn"
 stage_mid_right = "res://stages/extinguish/ExtinguishStage.tscn"
@@ -211,7 +211,6 @@ frames = SubResource( 5 )
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -2.0
-autoplay = true
 
 [node name="MoveCursorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

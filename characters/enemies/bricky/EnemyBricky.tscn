@@ -120,6 +120,7 @@ position = Vector2( -2, 5 )
 texture = ExtResource( 2 )
 hframes = 3
 vframes = 4
+frame = 5
 region_enabled = true
 region_rect = Rect2( 46, -0.175026, 108, 240.087 )
 region_filter_clip = true

@@ -1,0 +1,210 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://gui/themes/menu_theme.tres" type="Theme" id=1]
+[ext_resource path="res://stages/dredge/intro_dredge_stage.gd" type="Script" id=2]
+[ext_resource path="res://menus/intro-animation-screen-asset.png" type="Texture" id=3]
+[ext_resource path="res://music/boss-intro.ogg" type="AudioStream" id=4]
+[ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_man.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "intro"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 256, 0 ), Vector2( -128, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background_cards:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 0 ), Vector2( -96, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TopBorder:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 99 ), Vector2( 128, 62 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BottomBorder:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 127, 118 ), Vector2( 127, 163 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("box:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TopBorder:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BottomBorder:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("BackgroundBox:margin_top")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 105.0, 72.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("BackgroundBox:margin_bottom")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 116.0, 153.0 ]
+}
+
+[node name="IntroDredgeStage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -768.0
+margin_bottom = -344.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1344.0
+margin_bottom = 644.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="background_cards" type="Sprite" parent="."]
+position = Vector2( -96, 0 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 281.332, 386.723, 251.892 )
+
+[node name="cards" type="Sprite" parent="."]
+position = Vector2( -128, 0 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 27.0152, 405.172, 241.848 )
+
+[node name="BackgroundBox" type="ColorRect" parent="."]
+margin_top = 72.0
+margin_right = 256.0
+margin_bottom = 153.0
+color = Color( 0.00392157, 0.439216, 0.905882, 1 )
+
+[node name="box" type="Sprite" parent="."]
+position = Vector2( 115, 158 )
+texture = ExtResource( 3 )
+vframes = 4
+frame = 2
+
+[node name="dredgeman" type="Sprite" parent="box"]
+position = Vector2( 10, -52 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -1.1875, 33.0063, 54.15, 57.1092 )
+
+[node name="Label" type="Label" parent="box"]
+margin_left = -27.0
+margin_top = -19.0
+margin_right = 53.0
+margin_bottom = -5.0
+theme = ExtResource( 1 )
+text = "Dredge Man"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/intro = SubResource( 1 )
+
+[node name="TopBorder" type="Sprite" parent="."]
+visible = false
+position = Vector2( 128, 62 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 88.562, 877.96, 256.994, 21.0479 )
+
+[node name="BottomBorder" type="Sprite" parent="."]
+visible = false
+position = Vector2( 127, 163 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 88.4215, 909.483, 257.148, 23.5091 )
+
+[node name="FadeEffects" parent="." instance=ExtResource( 5 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -120.0
+margin_right = 1408.0
+margin_bottom = 780.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -2.0
+autoplay = true
+
+[node name="Sprite" type="Sprite" parent="."]

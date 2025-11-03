@@ -1,6 +1,6 @@
 extends Control
 
-var path = "res://stages/dredge/dredge_stage.tscn"
+var path = "res://stages/dredge/DredgeStage.tscn"
 
 func _ready():
 	$AnimationPlayer.connect("animation_finished", self, "start_stage")
