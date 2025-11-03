@@ -5,8 +5,7 @@ export(int) var speed := 125
 export(int) var max_distance := 192
 export(bool) var is_broken := false
 
-const Mask: Resource = preload("res://characters/enemies/namehage_attacker/Mask.tscn")
-var mask
+var mask: Node = preload("res://characters/enemies/namehage_attacker/Mask.tscn").instance()
 
 func _ready() -> void:
 	$Inputs.controller = InputHandler.Controller.AI
@@ -23,20 +22,21 @@ func _on_hit(body: PhysicsBody2D) -> void:
 		else:
 			is_blocking = get_facing_direction().x != body.direction.x
 		
-	if is_blocking && not is_broken: break_mask(body)
+	if is_blocking && not is_broken: call_deferred("break_mask", body)
 	else: ._on_hit(body)
 
 func break_mask(weapon_projectile):
-	is_broken = true
-	
-	# replace placeholder mask with the mask scene object
-	mask = Mask.instance()
-	mask.global_position = $Mask.global_position
-	get_parent().add_child(mask)
-	mask.set_direction($Mask.flip_h)
+	is_broken = true	
+	drop_mask()
 	
 	# weapon deflection effects
 	weapon_projectile.reflect()
 	$"SFX/MaskReflect".play()
 	
 	$EnemyAnimations.play("break")
+
+# replace placeholder mask with the mask rigid body
+func drop_mask():
+	mask.global_position = $Mask.global_position
+	get_parent().get_parent().add_child(mask)
+	mask.set_direction($Mask.flip_h)

@@ -7,10 +7,10 @@
 [sub_resource type="PhysicsMaterial" id=12]
 bounce = 0.5
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=14]
 radius = 8.06226
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=13]
 radius = 8.0
 
 [node name="Mask" type="RigidBody2D"]
@@ -27,7 +27,7 @@ region_rect = Rect2( 45.514, 176.904, 23.4988, 36.7807 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -3, 7 )
-shape = SubResource( 10 )
+shape = SubResource( 14 )
 
 [node name="CollisionDeactivateTimer" type="Timer" parent="."]
 process_mode = 0
@@ -44,4 +44,4 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -3, 7 )
-shape = SubResource( 11 )
+shape = SubResource( 13 )
