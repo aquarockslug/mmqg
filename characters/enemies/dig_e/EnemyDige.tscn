@@ -134,7 +134,6 @@ script = ExtResource( 7 )
 enemy_name = "Dige"
 hit_points_max = 1
 contact_damage = 2
-despawn_on_camera_exit = true
 spawn_timer = 4.0
 explosion_scale = 4
 damage = 2

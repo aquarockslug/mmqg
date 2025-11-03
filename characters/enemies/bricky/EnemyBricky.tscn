@@ -1,0 +1,150 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://characters/enemies/base/EnemyBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/bricky/bricky.png" type="Texture" id=2]
+[ext_resource path="res://characters/enemies/bricky/bricky_state_machine.gd" type="Script" id=3]
+[ext_resource path="res://characters/enemies/bricky/Triple.gd" type="Script" id=4]
+[ext_resource path="res://characters/enemies/bricky/Double.gd" type="Script" id=5]
+[ext_resource path="res://characters/enemies/bricky/Single.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 8.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 8, 23.5 )
+
+[sub_resource type="RectangleShape2D" id=5]
+resource_local_to_scene = true
+extents = Vector2( 8.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 11, 8.5 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "double_idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 1 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "single_idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "triple_idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 5, 2 ]
+}
+
+[node name="EnemyBricky" instance=ExtResource( 1 )]
+enemy_name = "Bricky"
+hit_points_max = 9
+contact_damage = 1
+
+[node name="LowerCollision" type="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, 17.5 )
+shape = SubResource( 1 )
+
+[node name="MiddleCollision" type="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="TopCollision" type="CollisionShape2D" parent="." index="2"]
+position = Vector2( 0, -15 )
+shape = SubResource( 3 )
+
+[node name="Collider" parent="." index="3"]
+position = Vector2( 0, 1.5 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( -0.5, 18 )
+shape = SubResource( 5 )
+
+[node name="LowerHitBox" type="CollisionShape2D" parent="HitBox" index="1"]
+position = Vector2( 0, 17.5 )
+shape = SubResource( 6 )
+
+[node name="MiddleHitBox" type="CollisionShape2D" parent="HitBox" index="2"]
+position = Vector2( 0, 1 )
+shape = SubResource( 6 )
+
+[node name="TopHitBox" type="CollisionShape2D" parent="HitBox" index="3"]
+position = Vector2( 0, -15.5 )
+shape = SubResource( 6 )
+
+[node name="Sprite" parent="." index="5"]
+position = Vector2( -2, 5 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 4
+region_enabled = true
+region_rect = Rect2( 46, -0.175026, 108, 240.087 )
+region_filter_clip = true
+
+[node name="SpriteExplosion" parent="." index="6"]
+position = Vector2( 0, 16 )
+
+[node name="PreciseVisibilityNotifier2D" parent="." index="7"]
+position = Vector2( 0, 1.5 )
+scale = Vector2( 1, 2.45 )
+
+[node name="EnemyAnimations" type="AnimationPlayer" parent="." index="8"]
+anims/double_idle = SubResource( 8 )
+anims/single_idle = SubResource( 9 )
+anims/triple_idle = SubResource( 7 )
+
+[node name="StateMachine" parent="." index="11"]
+script = ExtResource( 3 )
+start_state = NodePath("Triple")
+
+[node name="Double" type="Node" parent="StateMachine" index="1"]
+script = ExtResource( 5 )
+
+[node name="Triple" type="Node" parent="StateMachine" index="2"]
+script = ExtResource( 4 )
+
+[node name="Single" type="Node" parent="StateMachine" index="3"]
+script = ExtResource( 6 )
