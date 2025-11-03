@@ -18,21 +18,21 @@ func _ready() -> void:
 	$FadeEffects.margin_right = Global.get_base_size().x
 	$FadeEffects.margin_bottom = Global.get_base_size().x
 	$FadeEffects.fade_in(0.5)
-	
+
 	if not OS.is_debug_build():
 		for mugshot in $"Mugshots".get_children():
 			if mugshot.name != "Mugshot" + available_stage_position and mugshot.name != "MugshotMidCenter":
 				mugshot.texture = $"Mugshots/MugshotUnavailable".texture
-				
+
 	yield($FadeEffects, "screen_faded_in")
 	$"Buttons/ButtonMidCenter".grab_focus()
-	$"Background/ShopButton".play()
+	# $"Background/ShopButton".play()
 
 	Global.wide_screen = false
 	Global.lighting_vfx = false
 
-	if not OS.is_debug_build():
-		$Music.play()
+	# if not OS.is_debug_build():
+	$Music.play()
 
 	var index: int = 0
 	for button in $Buttons.get_children():
@@ -41,11 +41,11 @@ func _ready() -> void:
 		button.connect("mouse_entered", self, "_on_focus_entered", [index, true])
 		button.connect("pressed", self, "_on_pressed", [index])
 		index += 1
-			
+
 		var button_is_available = OS.is_debug_build() or \
 			button.name == "ButtonMidCenter" or \
 			button.name == "Button" + available_stage_position
-		
+
 		button.disabled = not button_is_available
 		button.visible = button_is_available
 
@@ -90,7 +90,7 @@ func _on_pressed(index: int) -> void:
 			# from being able to receive focus. Workaround for missing
 			# possiblity to stop receiving input events for control nodes.
 			button.visible = false
-				
+
 	$FlashEffect.play("flash")
 	$Music.stop()
 	$StageSelectedSound.play()
