@@ -39,7 +39,3 @@ func scatter_rubble(power = 1) -> void:
 		_dig_pos.position.y
 	)
 	rubble.fling(power)
-
-func drop_rubble() -> void:
-	var rubble := Rubble.instance()
-	rubble.drop()

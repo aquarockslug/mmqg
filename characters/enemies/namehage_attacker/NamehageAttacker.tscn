@@ -33,30 +33,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 6 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Mask:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 1.15 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -20 ), Vector2( 0, 300 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Mask:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.75 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 
 [sub_resource type="Animation" id=2]
 length = 0.3
@@ -73,18 +49,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Mask:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -193,28 +157,20 @@ region_enabled = true
 region_rect = Rect2( 41, 1, 108, 172 )
 region_filter_clip = true
 
-[node name="Mask" type="Sprite" parent="." index="4"]
-visible = false
-position = Vector2( -4, 1 )
-texture = ExtResource( 9 )
-offset = Vector2( 0, 300 )
-region_enabled = true
-region_rect = Rect2( 45.514, 176.904, 23.4988, 36.7807 )
-
-[node name="EnemyAnimations" type="AnimationPlayer" parent="." index="5"]
+[node name="EnemyAnimations" type="AnimationPlayer" parent="." index="4"]
 anims/break = SubResource( 7 )
 anims/move = SubResource( 2 )
 anims/move_broken = SubResource( 8 )
 anims/turn = SubResource( 3 )
 anims/turn_broken = SubResource( 9 )
 
-[node name="PreciseVisibilityNotifier2D" parent="." index="6"]
+[node name="PreciseVisibilityNotifier2D" parent="." index="5"]
 rect = Rect2( -16, -16, 32, 32 )
 
 [node name="MaskReflect" type="AudioStreamPlayer" parent="SFX" index="1"]
 stream = ExtResource( 3 )
 
-[node name="StateMachine" parent="." index="9"]
+[node name="StateMachine" parent="." index="8"]
 script = ExtResource( 4 )
 start_state = NodePath("Move")
 
@@ -224,10 +180,13 @@ script = ExtResource( 5 )
 [node name="Turn" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 6 )
 
-[node name="Inputs" type="Node" parent="." index="11"]
+[node name="Inputs" type="Node" parent="." index="10"]
 script = ExtResource( 7 )
 
-[node name="AI" type="Node" parent="." index="12"]
+[node name="AI" type="Node" parent="." index="11"]
 script = ExtResource( 8 )
+
+[node name="Mask" type="Sprite" parent="." index="12"]
+position = Vector2( -7, 0 )
 
 [connection signal="animation_finished" from="EnemyAnimations" to="StateMachine/Turn" method="_on_animation_finished"]
