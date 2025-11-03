@@ -20,9 +20,11 @@ func _on_hit(body: PhysicsBody2D) -> void:
 		else:
 			is_blocking = get_facing_direction().x != body.direction.x
 		
-	if is_blocking && not is_broken: break_mask()
+	if is_blocking && not is_broken: break_mask(body)
 	else: ._on_hit(body)
 
-func break_mask():
+func break_mask(weapon_projectile):
 	is_broken = true
-	$"EnemyAnimations".play("break")
+	weapon_projectile.reflect()
+	$"SFX/MaskReflect".play()
+	$EnemyAnimations.play("break")
