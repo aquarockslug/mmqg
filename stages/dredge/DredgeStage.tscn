@@ -1019,3 +1019,6 @@ stream = ExtResource( 21 )
 [node name="BossIntro" type="AudioStreamPlayer" parent="Music"]
 pause_mode = 2
 stream = ExtResource( 32 )
+
+[node name="EnemyDige" parent="." instance=ExtResource( 22 )]
+position = Vector2( 103, 135 )

@@ -125,6 +125,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpriteExplosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="EnemyDige" instance=ExtResource( 1 )]
 position = Vector2( 1, 0 )
@@ -134,7 +146,7 @@ script = ExtResource( 7 )
 enemy_name = "Dige"
 hit_points_max = 1
 contact_damage = 2
-spawn_timer = 4.0
+spawn_timer = 3.0
 explosion_scale = 4
 damage = 2
 
@@ -151,6 +163,7 @@ position = Vector2( -1, -4.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
+visible = false
 texture = ExtResource( 2 )
 offset = Vector2( 2, -16 )
 hframes = 2
@@ -160,6 +173,7 @@ region_enabled = true
 region_rect = Rect2( 36, 1, 72, 85 )
 
 [node name="SpriteExplosion" parent="." index="3"]
+visible = true
 texture = ExtResource( 9 )
 vframes = 2
 frame = 0
