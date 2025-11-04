@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		_velocity.x = 0 
 		
 func _process(delta: float) -> void:
-	# count how many _physics_processes have been made while stuck
+	# count how many _processes have been made while stuck
 	if stuck(): stuck_time += 1
 		
 	# turn around if stuck for too long

@@ -1,5 +1,6 @@
 extends State
 
+var player
 var player_in_range = false
 
 func _ready():
@@ -17,9 +18,11 @@ func _ready_to_shoot():
 		emit_signal("finished", "shoot")
 
 func _shoot_area_exited(body):
-	if not body is Player: return
-	player_in_range = false
+	if body is Player:
+		player = null 
+		player_in_range = false
 
 func _shoot_area_entered(body):
-	if not body is Player: return
-	player_in_range = true
+	if body is Player: 
+		player = body as Player
+		player_in_range = true
