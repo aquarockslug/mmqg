@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://characters/enemies/base/EnemyBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/bricky/bricky.png" type="Texture" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://characters/enemies/bricky/Triple.gd" type="Script" id=4]
 [ext_resource path="res://characters/enemies/bricky/Double.gd" type="Script" id=5]
 [ext_resource path="res://characters/enemies/bricky/Single.gd" type="Script" id=6]
+[ext_resource path="res://characters/enemies/bricky/enemy_bricky.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 8.5 )
+extents = Vector2( 10, 7.75 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 8 )
@@ -18,7 +19,7 @@ extents = Vector2( 10, 8 )
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
-extents = Vector2( 8, 23.5 )
+extents = Vector2( 8, 5 )
 
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
@@ -44,6 +45,22 @@ tracks/0/keys = {
 "values": [ 4, 1 ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "double_shake"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 10, 7, 4 ]
+}
+
 [sub_resource type="Animation" id=9]
 resource_name = "single_idle"
 length = 2.0
@@ -59,6 +76,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 3, 0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "single_shake"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 9, 6, 3 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -78,15 +111,32 @@ tracks/0/keys = {
 "values": [ 5, 2 ]
 }
 
+[sub_resource type="Animation" id=10]
+resource_name = "triple_shake"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 11, 8, 5 ]
+}
+
 [node name="EnemyBricky" instance=ExtResource( 1 )]
 collision_layer = 4
 collision_mask = 3
+script = ExtResource( 7 )
 enemy_name = "Bricky"
 hit_points_max = 9
 contact_damage = 1
 
 [node name="LowerCollision" type="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0, 17.5 )
+position = Vector2( 0, 19.75 )
 shape = SubResource( 1 )
 
 [node name="MiddleCollision" type="CollisionShape2D" parent="." index="1"]
@@ -98,7 +148,7 @@ position = Vector2( 0, -15 )
 shape = SubResource( 3 )
 
 [node name="Collider" parent="." index="3"]
-position = Vector2( 0, 1.5 )
+position = Vector2( 0, 20 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
@@ -118,14 +168,13 @@ position = Vector2( 0, -15.5 )
 shape = SubResource( 6 )
 
 [node name="Sprite" parent="." index="5"]
-position = Vector2( -2, 5 )
+position = Vector2( -2, 5.5 )
 texture = ExtResource( 2 )
 hframes = 3
 vframes = 4
 frame = 5
 region_enabled = true
-region_rect = Rect2( 46, -0.175026, 108, 240.087 )
-region_filter_clip = true
+region_rect = Rect2( 46, 0, 108, 240 )
 
 [node name="SpriteExplosion" parent="." index="6"]
 position = Vector2( 0, 16 )
@@ -136,8 +185,11 @@ scale = Vector2( 1, 2.45 )
 
 [node name="EnemyAnimations" type="AnimationPlayer" parent="." index="8"]
 anims/double_idle = SubResource( 8 )
+anims/double_shake = SubResource( 11 )
 anims/single_idle = SubResource( 9 )
+anims/single_shake = SubResource( 12 )
 anims/triple_idle = SubResource( 7 )
+anims/triple_shake = SubResource( 10 )
 
 [node name="StateMachine" parent="." index="11"]
 script = ExtResource( 3 )
@@ -151,3 +203,6 @@ script = ExtResource( 4 )
 
 [node name="Single" type="Node" parent="StateMachine" index="3"]
 script = ExtResource( 6 )
+
+[node name="ItemGenerator" parent="." index="12"]
+position = Vector2( 0, 18 )
