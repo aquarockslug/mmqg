@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://gui/WeaponIconOverhead.tscn" type="PackedScene" id=13]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=14]
 [ext_resource path="res://gui/GameOver.tscn" type="PackedScene" id=15]
-[ext_resource path="res://characters/enemies/metall/EnemyMetall.tscn" type="PackedScene" id=16]
 [ext_resource path="res://stages/assets/BossDoor.tscn" type="PackedScene" id=17]
 [ext_resource path="res://items/tanks/EnergyTank.tscn" type="PackedScene" id=18]
 [ext_resource path="res://characters/enemies/namehage_attacker/NamehageAttacker.tscn" type="PackedScene" id=19]
@@ -158,15 +157,6 @@ scale = Vector2( 0.970774, 1.29178 )
 [node name="EnergyTank" parent="Sections/TempleApproach" instance=ExtResource( 18 )]
 position = Vector2( 1425, 56 )
 
-[node name="EnemyMetall" parent="Sections/TempleApproach" instance=ExtResource( 16 )]
-position = Vector2( 1330, 60 )
-
-[node name="EnemyMetall2" parent="Sections/TempleApproach" instance=ExtResource( 16 )]
-position = Vector2( 496, 156 )
-
-[node name="EnemyMetall3" parent="Sections/TempleApproach" instance=ExtResource( 16 )]
-position = Vector2( 944, 60 )
-
 [node name="EnemyBuriBaton" parent="Sections/TempleApproach" instance=ExtResource( 7 )]
 position = Vector2( 716, 198 )
 
@@ -175,6 +165,15 @@ position = Vector2( 1260, 182 )
 
 [node name="EnemyBuriBaton3" parent="Sections/TempleApproach" instance=ExtResource( 7 )]
 position = Vector2( 1512, 166 )
+
+[node name="Metallsv" parent="Sections/TempleApproach" instance=ExtResource( 34 )]
+position = Vector2( 496, 151 )
+
+[node name="Metallsv2" parent="Sections/TempleApproach" instance=ExtResource( 34 )]
+position = Vector2( 977, 152 )
+
+[node name="Metallsv3" parent="Sections/TempleApproach" instance=ExtResource( 34 )]
+position = Vector2( 1328, 56 )
 
 [node name="BuriStairs" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1536, 0 )
@@ -249,8 +248,11 @@ size_in_tiles = 4
 
 [node name="Top" parent="Sections/MetHideout/Ladder" instance=ExtResource( 4 )]
 
-[node name="EnemyMetall" parent="Sections/MetHideout" instance=ExtResource( 16 )]
-position = Vector2( 127, 91 )
+[node name="Metallsv" parent="Sections/MetHideout" instance=ExtResource( 34 )]
+position = Vector2( 41, 182 )
+
+[node name="Metallsv2" parent="Sections/MetHideout" instance=ExtResource( 34 )]
+position = Vector2( 120, 86 )
 
 [node name="NamehageDrop" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1536, 240 )
@@ -419,6 +421,9 @@ position = Vector2( 721, 69 )
 [node name="EnemyBricky" parent="Sections/DigePillers" instance=ExtResource( 33 )]
 position = Vector2( 225, 133 )
 
+[node name="Metallsv" parent="Sections/DigePillers" instance=ExtResource( 34 )]
+position = Vector2( 535, 134 )
+
 [node name="DarkPitTop" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 2560, 720 )
 width = 256
@@ -437,14 +442,14 @@ format = 1
 tile_data = PoolIntArray( 0, 65, 458752, 1, 65, 458753, 2, 65, 458753, 3, 65, 524290, 4, 65, 524291, 5, 65, 851968, 6, 65, 393217, 7, 65, 393217, 8, 65, 393217, 9, 65, 458756, 10, 65, 524290, 11, 65, 524291, 12, 65, 458756, 13, 65, 524293, 14, 65, 524293, 15, 65, 524290, 65539, 65, 524290, 65540, 65, 524291, 65541, 65, 458752, 65542, 65, 458753, 65543, 65, 458752, 65544, 65, 458753, 65545, 65, 458752, 65546, 65, 458754, 65547, 65, 458755, 65548, 65, 458752, 65549, 65, 458753, 65550, 65, 458753, 65551, 65, 524290, 131075, 65, 458754, 131076, 65, 458755, 131087, 65, 524290, 196623, 65, 524290, 262154, 65, 393218, 262155, 65, 393219, 262159, 65, 589826, 327690, 65, 524290, 327691, 65, 524291, 327695, 65, 524290, 393216, 65, 327680, 393217, 65, 327681, 393218, 65, 786435, 393219, 65, 327680, 393220, 65, 327681, 393221, 65, 327680, 393222, 65, 327680, 393223, 65, 327681, 393224, 65, 327680, 393225, 65, 327680, 393226, 65, 524290, 393227, 65, 524291, 393231, 65, 655362, 458752, 65, 393217, 458753, 65, 393217, 458754, 65, 524289, 458755, 65, 851968, 458756, 65, 393217, 458757, 65, 393217, 458758, 65, 65537, 458759, 65, 327682, 458760, 65, 393217, 458761, 65, 393217, 458762, 65, 524290, 458763, 65, 524291, 458767, 65, 720898, 524288, 65, 720902, 524289, 65, 720903, 524290, 65, 524289, 524291, 65, 458753, 524292, 65, 458752, 524293, 65, 458753, 524294, 65, 458752, 524295, 65, 458753, 524296, 65, 458752, 524297, 65, 458753, 524298, 65, 524290, 524299, 65, 524291, 524303, 65, 524290, 589824, 65, 786438, 589825, 65, 786439, 589826, 65, 524289, 589834, 65, 458754, 589835, 65, 458755, 589839, 65, 524290, 655360, 65, 393217, 655361, 65, 393217, 655362, 65, 524289, 655375, 65, 524290, 720896, 65, 393217, 720897, 65, 393217, 720898, 65, 524289, 720911, 65, 589826, 786432, 65, 458756, 786433, 65, 458757, 786434, 65, 524289, 786447, 65, 524290, 851968, 65, 458756, 851969, 65, 524293, 851970, 65, 524289, 851974, 65, 786435, 851975, 65, 327680, 851976, 65, 327680, 851977, 65, 327680, 851978, 65, 327680, 851979, 65, 327681, 851980, 65, 327680, 851981, 65, 327680, 851982, 65, 327681, 851983, 65, 524290, 917504, 65, 458756, 917505, 65, 524293, 917506, 65, 524289, 917510, 65, 524289, 917511, 65, 393217, 917512, 65, 393217, 917513, 65, 393217, 917514, 65, 327682, 917515, 65, 393217, 917516, 65, 720902, 917517, 65, 720903, 917518, 65, 393217, 917519, 65, 524290 )
 script = ExtResource( 3 )
 
-[node name="EnemyMetall" parent="Sections/DarkPitTop" instance=ExtResource( 16 )]
-position = Vector2( 176, 59 )
-
 [node name="EnemyBricky" parent="Sections/DarkPitTop" instance=ExtResource( 33 )]
 position = Vector2( 113, 181 )
 
+[node name="Metallsv" parent="Sections/DarkPitTop" instance=ExtResource( 34 )]
+position = Vector2( 179, 54 )
+
 [node name="DarkPitBottom" parent="Sections" instance=ExtResource( 11 )]
-position = Vector2( 2558, 957 )
+position = Vector2( 2560, 960 )
 width = 256
 
 [node name="BackgroundTiles" type="TileMap" parent="Sections/DarkPitBottom"]
@@ -575,6 +580,9 @@ water_height = 2
 [node name="EnemyKaoNaWahnaMiddle3" parent="Sections/WetnWild" instance=ExtResource( 30 )]
 position = Vector2( 642, 204 )
 water_height = 2
+
+[node name="Metallsv" parent="Sections/WetnWild" instance=ExtResource( 34 )]
+position = Vector2( 368, 135 )
 
 [node name="R I F T" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 3840, 1200 )
@@ -943,8 +951,8 @@ format = 1
 tile_data = PoolIntArray( -196608, 65, 393217, -196607, 65, 393217, -196606, 65, 393217, -196605, 65, 524289, -196604, 65, 589828, -196603, 65, 393217, -196602, 65, 720902, -196601, 65, 720903, -196600, 65, 393217, -196599, 65, 393217, -196598, 65, 458756, -196597, 65, 524292, -196596, 65, 589828, -196595, 65, 524289, -196594, 65, 393217, -196593, 65, 524290, -131072, 65, 393217, -131071, 65, 393217, -131070, 65, 393217, -131069, 65, 524289, -131068, 65, 589828, -131067, 65, 393217, -131066, 65, 786438, -131065, 65, 786439, -131064, 65, 393217, -131063, 65, 393217, -131062, 65, 327682, -131061, 65, 393217, -131060, 65, 589828, -131059, 65, 524289, -131058, 65, 393217, -131057, 65, 524290, -65536, 65, 393217, -65535, 65, 393217, -65534, 65, 393217, -65533, 65, 524289, -65532, 65, 589828, -65531, 65, 393217, -65530, 65, 393217, -65529, 65, 393217, -65528, 65, 393217, -65527, 65, 393217, -65526, 65, 393217, -65525, 65, 393217, -65524, 65, 589828, -65523, 65, 524289, -65522, 65, 393217, -65521, 65, 524290, 0, 65, 458753, 1, 65, 458753, 2, 65, 458752, 3, 65, 524289, 4, 65, 458760, 5, 65, 589832, 6, 65, 589832, 7, 65, 589832, 8, 65, 589832, 9, 65, 589832, 10, 65, 589832, 11, 65, 589832, 12, 65, 458761, 13, 65, 524289, 14, 65, 393217, 15, 65, 589826, 65539, 65, 851971, 65549, 65, 524289, 65550, 65, 393217, 65551, 65, 524290, 131085, 65, 524289, 131086, 65, 393217, 131087, 65, 524290, 196621, 65, 524289, 196622, 65, 393217, 196623, 65, 524290, 262157, 65, 524289, 262158, 65, 393217, 262159, 65, 524290, 327693, 65, 851971, 327694, 65, 458752, 327695, 65, 458754, 458752, 65, 327680, 458753, 65, 327681, 458754, 65, 327680, 458755, 65, 458762, 524288, 65, 65537, 524289, 65, 393217, 524290, 65, 65537, 524291, 65, 589828, 589824, 65, 393217, 589825, 65, 327682, 589826, 65, 393217, 589827, 65, 589828, 655360, 65, 393217, 655361, 65, 327682, 655362, 65, 393217, 655363, 65, 589828, 655364, 65, 327680, 655365, 65, 327681, 655366, 65, 327680, 655367, 65, 458760, 655368, 65, 589832, 655369, 65, 589832, 655370, 65, 458761, 655371, 65, 327680, 655372, 65, 327681, 655373, 65, 786434, 655374, 65, 327680, 655375, 65, 393218, 720896, 65, 393217, 720897, 65, 65537, 720898, 65, 393217, 720899, 65, 589828, 720900, 65, 393217, 720901, 65, 393217, 720902, 65, 393217, 720903, 65, 589828, 720904, 65, 851968, 720905, 65, 851968, 720906, 65, 589828, 720907, 65, 393217, 720908, 65, 393217, 720909, 65, 524289, 720910, 65, 393217, 720911, 65, 524290 )
 script = ExtResource( 3 )
 
-[node name="EnemyMetall" parent="Sections/MetHideout2" instance=ExtResource( 16 )]
-position = Vector2( 206, 203 )
+[node name="Metallsv" parent="Sections/MetHideout2" instance=ExtResource( 34 )]
+position = Vector2( 195, 198 )
 
 [node name="BossApproach" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 5120, 0 )
@@ -1092,6 +1100,3 @@ stream = ExtResource( 21 )
 [node name="BossIntro" type="AudioStreamPlayer" parent="Music"]
 pause_mode = 2
 stream = ExtResource( 32 )
-
-[node name="Metallsv" parent="." instance=ExtResource( 34 )]
-position = Vector2( 241, 166 )
