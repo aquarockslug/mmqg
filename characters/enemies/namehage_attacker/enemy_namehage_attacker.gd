@@ -28,15 +28,11 @@ func _on_hit(body: PhysicsBody2D) -> void:
 func break_mask(weapon_projectile):
 	is_broken = true	
 	drop_mask()
-	
-	# weapon deflection effects
 	weapon_projectile.reflect()
-	$"SFX/MaskReflect".play()
-	
 	$EnemyAnimations.play("break")
 
 # replace placeholder mask with the mask rigid body
 func drop_mask():
 	mask.global_position = $Mask.global_position
-	get_parent().get_parent().add_child(mask)
+	Global.get_current_stage().add_child(mask)
 	mask.set_direction($Mask.flip_h)
