@@ -163,17 +163,15 @@ position = Vector2( -1, -4.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
-visible = false
 texture = ExtResource( 2 )
 offset = Vector2( 2, -16 )
 hframes = 2
 vframes = 2
-frame = 2
+frame = 0
 region_enabled = true
 region_rect = Rect2( 36, 1, 72, 85 )
 
 [node name="SpriteExplosion" parent="." index="3"]
-visible = true
 texture = ExtResource( 9 )
 vframes = 2
 frame = 0
