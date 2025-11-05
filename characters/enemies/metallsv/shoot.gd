@@ -35,4 +35,4 @@ func shoot():
 
 func _after_shooting(anim_name):
 	if anim_name == "shoot":
-		emit_signal("finished", "hide")
+		emit_signal("finished", "walk")
