@@ -57,7 +57,7 @@ script = ExtResource( 4 )
 hit_points_max = 8
 move_speed = 1000
 damage = 2
-gravity_scale = 5
+gravity_scale = 10
 
 [node name="Collider" parent="." index="0"]
 position = Vector2( 0, 3.5 )
