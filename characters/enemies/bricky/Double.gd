@@ -5,7 +5,7 @@ func _enter():
 	$"../../TopCollision".disabled = true
 	$"../../HitBox/TopHitBox".disabled = true
 
-func _process(delta):
-	if (owner._hit_points <= round(owner.hit_points_max * 0.33)):
+func _update(delta):
+	if (owner._hit_points <= 3):
 		queue_free() # free this Double state so its _process doesnt interfere
 		emit_signal("finished", "single")

@@ -8,7 +8,7 @@ func _enter():
 	$"../../HitBox/MiddleHitBox".disabled = false
 	$"../../EnemyAnimations".play("triple_idle")
 
-func _process(delta):
-	if (owner._hit_points <= round(owner.hit_points_max * 0.66)):
+func _update(delta):
+	if (owner._hit_points <= 6):
 		queue_free() # free this triple state so its _process doesnt interfere
 		emit_signal("finished", "double")

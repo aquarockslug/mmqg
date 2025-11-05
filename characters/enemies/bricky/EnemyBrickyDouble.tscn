@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://characters/enemies/bricky/EnemyBricky.tscn" type="PackedScene" id=1]
+
+[node name="EnemyBrickyDouble" instance=ExtResource( 1 )]
+hit_points_max = 5
+
+[node name="TopHitBox" parent="HitBox" index="3"]
+visible = false
+
+[node name="Sprite" parent="." index="5"]
+frame = 4
+
+[node name="StateMachine" parent="." index="11"]
+start_state = NodePath("Double")
