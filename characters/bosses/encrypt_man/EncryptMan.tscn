@@ -198,10 +198,10 @@ shape = SubResource( 1 )
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
+visible = false
 scale = Vector2( -1, 1 )
 texture = ExtResource( 14 )
 hframes = 2
-frame = 1
 
 [node name="SpriteEffect" type="Sprite" parent="."]
 visible = false
