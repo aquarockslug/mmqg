@@ -416,7 +416,7 @@ position = Vector2( 631, 150 )
 position = Vector2( 680, 118 )
 
 [node name="EnemyBricky2" parent="Sections/DigePillers" instance=ExtResource( 33 )]
-position = Vector2( 721, 69 )
+position = Vector2( 738, 69 )
 
 [node name="EnemyBricky" parent="Sections/DigePillers" instance=ExtResource( 33 )]
 position = Vector2( 225, 133 )
@@ -1033,7 +1033,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 44, 195 )
+position = Vector2( 2056, 865 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
