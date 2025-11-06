@@ -53,6 +53,7 @@ func _physics_process(delta: float) -> void:
 				body.on_hit(contact_damage)
 
 func _on_hit(body: PhysicsBody2D) -> void:
+	die()
 	if is_invincible:
 		body.queue_free()
 		return
