@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dredge_mine.ogg-178cd74ff74f509deccee579efcc2926.oggstr"
+
+[deps]
+
+source_file="res://characters/bosses/dredge_man/sfx/dredge_mine.ogg"
+dest_files=[ "res://.import/dredge_mine.ogg-178cd74ff74f509deccee579efcc2926.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

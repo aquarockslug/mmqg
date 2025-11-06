@@ -46,7 +46,7 @@ func reset(transition):
 	call_deferred("set_active", true)
 
 func _on_exit_screen():
-	call_deferred("set_active", false)
+	if triggered: call_deferred("set_active", false)
 
 func set_active(is_active):
 	$Sprite.visible = is_active
