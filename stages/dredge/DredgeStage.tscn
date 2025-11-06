@@ -175,7 +175,7 @@ position = Vector2( 496, 151 )
 position = Vector2( 977, 152 )
 
 [node name="Metallsv3" parent="Sections/TempleApproach" instance=ExtResource( 34 )]
-position = Vector2( 1328, 56 )
+position = Vector2( 1323, 57 )
 
 [node name="LifeEnergyBig" parent="Sections/TempleApproach" instance=ExtResource( 18 )]
 position = Vector2( 1424, 58 )
