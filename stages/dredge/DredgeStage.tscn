@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -25,7 +25,7 @@
 [ext_resource path="res://characters/enemies/kao_na_wahna/EnemyKaoNaWahna.tscn" type="PackedScene" id=23]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_introanim.png" type="Texture" id=24]
 [ext_resource path="res://gui/Bar.tscn" type="PackedScene" id=25]
-[ext_resource path="res://stages/dredge/dredge_water.gd" type="Script" id=26]
+[ext_resource path="res://stages/assets/waterfall.gd" type="Script" id=26]
 [ext_resource path="res://stages/assets/InstantDeathArea.tscn" type="PackedScene" id=27]
 [ext_resource path="res://stages/assets/BrokenPlatform.tscn" type="PackedScene" id=28]
 [ext_resource path="res://characters/enemies/kao_na_wahna/EnemyKaoNaWahnaTall.tscn" type="PackedScene" id=29]
@@ -38,6 +38,9 @@
 [ext_resource path="res://items/life_energy/LifeEnergySmall.tscn" type="PackedScene" id=36]
 [ext_resource path="res://characters/enemies/bricky/EnemyBrickySingle.tscn" type="PackedScene" id=37]
 [ext_resource path="res://items/tanks/EnergyTank.tscn" type="PackedScene" id=38]
+[ext_resource path="res://characters/enemies/batton/EnemyBatton.tscn" type="PackedScene" id=39]
+[ext_resource path="res://stages/assets/sounds/Splash.wav" type="AudioStream" id=40]
+[ext_resource path="res://stages/assets/sprites/WaterfallSplash.png" type="Texture" id=41]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 31, 56 )
@@ -179,6 +182,9 @@ position = Vector2( 1323, 57 )
 
 [node name="LifeEnergyBig" parent="Sections/TempleApproach" instance=ExtResource( 18 )]
 position = Vector2( 1424, 58 )
+
+[node name="EnemyBatton" parent="Sections/TempleApproach" instance=ExtResource( 39 )]
+position = Vector2( 273, 90 )
 
 [node name="BuriStairs" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 1536, 0 )
@@ -569,6 +575,15 @@ shape = SubResource( 7 )
 position = Vector2( 864, 143.5 )
 shape = SubResource( 8 )
 
+[node name="SplashSound" type="AudioStreamPlayer" parent="Sections/WetnWild/Water"]
+stream = ExtResource( 40 )
+volume_db = 10.0
+
+[node name="SplashSprite" type="Sprite" parent="Sections/WetnWild/Water"]
+position = Vector2( 1025, -2 )
+texture = ExtResource( 41 )
+hframes = 2
+
 [node name="EnemyKaoNaWahna" parent="Sections/WetnWild" instance=ExtResource( 23 )]
 position = Vector2( 224, 188 )
 
@@ -651,6 +666,14 @@ shape = SubResource( 10 )
 position = Vector2( 383, 122 )
 shape = SubResource( 10 )
 
+[node name="SplashSound" type="AudioStreamPlayer" parent="Sections/R I F T/Water"]
+stream = ExtResource( 40 )
+volume_db = 10.0
+
+[node name="SplashSprite" type="Sprite" parent="Sections/R I F T/Water"]
+texture = ExtResource( 41 )
+hframes = 2
+
 [node name="Top" parent="Sections/R I F T" instance=ExtResource( 4 )]
 position = Vector2( 456, 49 )
 size_in_tiles = 8
@@ -718,6 +741,9 @@ shape = SubResource( 15 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Sections/gushinggran/Spikes"]
 position = Vector2( 104, 56 )
 shape = SubResource( 16 )
+
+[node name="EnemyBatton" parent="Sections/gushinggran" instance=ExtResource( 39 )]
+position = Vector2( 88, 59 )
 
 [node name="shoots" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 3584, 720 )
@@ -974,6 +1000,9 @@ position = Vector2( 216, 118 )
 [node name="EnemyBricky" parent="Sections/freedom" instance=ExtResource( 33 )]
 position = Vector2( 400, 133 )
 
+[node name="WeaponEnergyBig" parent="Sections/freedom" instance=ExtResource( 35 )]
+position = Vector2( 256, 73 )
+
 [node name="MetHideout2" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 4864, 0 )
 width = 256
@@ -1143,6 +1172,3 @@ stream = ExtResource( 21 )
 [node name="BossIntro" type="AudioStreamPlayer" parent="Music"]
 pause_mode = 2
 stream = ExtResource( 32 )
-
-[node name="WeaponEnergyBig" parent="." instance=ExtResource( 35 )]
-position = Vector2( 4608, 73 )

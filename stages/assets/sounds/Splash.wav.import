@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/splash.wav-765a8dafc85b55806cbdd6b802537d3d.sample"
+path="res://.import/Splash.wav-4c4259599b25931422d80b4853aaf47a.sample"
 
 [deps]
 
-source_file="res://stages/dredge/sfx/splash.wav"
-dest_files=[ "res://.import/splash.wav-765a8dafc85b55806cbdd6b802537d3d.sample" ]
+source_file="res://stages/assets/sounds/Splash.wav"
+dest_files=[ "res://.import/Splash.wav-4c4259599b25931422d80b4853aaf47a.sample" ]
 
 [params]
 

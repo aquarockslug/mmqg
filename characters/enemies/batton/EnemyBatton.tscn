@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://characters/enemies/base/EnemyBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/batton/batton.png" type="Texture" id=2]
+[ext_resource path="res://characters/enemies/batton/move.gd" type="Script" id=3]
+[ext_resource path="res://characters/enemies/batton/hide.gd" type="Script" id=4]
+[ext_resource path="res://characters/enemies/batton/batton_state_machine.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 8, 8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "flap"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "wake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 120.0
+
+[node name="EnemyBatton" instance=ExtResource( 1 )]
+hit_points_max = 3
+
+[node name="Collider" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="2"]
+position = Vector2( -1, -9 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+frame = 0
+region_enabled = true
+region_rect = Rect2( 0, 0, 107.963, 88.1266 )
+
+[node name="EnemyAnimations" type="AnimationPlayer" parent="." index="5"]
+anims/flap = SubResource( 3 )
+anims/hide = SubResource( 6 )
+anims/wake = SubResource( 4 )
+
+[node name="StateMachine" parent="." index="8"]
+script = ExtResource( 5 )
+start_state = NodePath("Hide")
+
+[node name="Move" type="Node" parent="StateMachine" index="1"]
+script = ExtResource( 3 )
+
+[node name="Hide" type="Node" parent="StateMachine" index="2"]
+script = ExtResource( 4 )
+
+[node name="TriggerArea" type="Area2D" parent="." index="10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" index="0"]
+shape = SubResource( 5 )
