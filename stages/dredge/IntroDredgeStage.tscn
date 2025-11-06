@@ -186,7 +186,7 @@ region_rect = Rect2( 88.562, 877.96, 256.994, 21.0479 )
 
 [node name="BottomBorder" type="Sprite" parent="."]
 visible = false
-position = Vector2( 127, 163 )
+position = Vector2( 128, 163 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 88.4215, 909.483, 257.148, 23.5091 )

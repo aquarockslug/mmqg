@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dredge_explode.wav-7f4d13b88c219c5cd3c3ed9114bd0f86.sample"
+
+[deps]
+
+source_file="res://characters/bosses/dredge_man/sfx/dredge_explode.wav"
+dest_files=[ "res://.import/dredge_explode.wav-7f4d13b88c219c5cd3c3ed9114bd0f86.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
