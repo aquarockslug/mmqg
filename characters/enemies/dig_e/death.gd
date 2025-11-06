@@ -3,6 +3,7 @@ extends State
 onready var _animations: AnimationPlayer = $"../../EnemyAnimations"
 
 func _enter() -> void:
+	$"../../SFX/Explode".play()
 	_animations.play("explode")
 	_animations.connect("animation_finished", self, "_on_animation_finished")
 

@@ -15,6 +15,9 @@ func _ready() -> void:
 	_timer_fuse.connect("timeout", self, "_on_explode")
 	_timer_fuse.start()
 
-func explode():
+func _on_explode():
 	_timer_fuse.stop()
 	exploded = true
+	_player_collision_area.scale = Vector2(explosion_scale, explosion_scale)
+	set_physics_process(false) # stop the physics process loop
+	emit_signal("change_state", "death")
