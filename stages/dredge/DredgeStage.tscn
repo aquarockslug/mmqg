@@ -815,15 +815,14 @@ position = Vector2( 103, 86 )
 position = Vector2( 87, 86 )
 
 [node name="Spikes" parent="Sections/ladders" instance=ExtResource( 27 )]
-position = Vector2( -16, -111 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sections/ladders/Spikes"]
-position = Vector2( 88, 215 )
+position = Vector2( 71, 103 )
 scale = Vector2( 1.36, 1 )
 shape = SubResource( 15 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Sections/ladders/Spikes"]
-position = Vector2( 208, 135 )
+position = Vector2( 191, 23 )
 scale = Vector2( 5.41311, 1 )
 shape = SubResource( 15 )
 
