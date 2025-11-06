@@ -8,7 +8,7 @@ func _ready():
 
 func _enter():
 	owner.is_blocking = false
-	owner.set_flip_direction(Global.get_player().position.x > owner.position.x)
+	owner.set_flip_direction(Global.get_player().global_position.x > owner.global_position.x)
 	$"../../EnemyAnimations".play("shoot")
 	yield(owner.start_yield_timer(SHOOT_DELAY), "timeout")
 
