@@ -23,6 +23,8 @@ tracks/0/keys = {
 [node name="PickUpBase" type="KinematicBody2D"]
 collision_layer = 32
 script = ExtResource( 1 )
+persistent = true
+respawns_on_restart = true
 
 [node name="Sprite" type="Sprite" parent="."]
 
