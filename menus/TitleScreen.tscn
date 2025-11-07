@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://menus/title_screen.gd" type="Script" id=1]
 [ext_resource path="res://gui/themes/menu_theme.tres" type="Theme" id=2]
 [ext_resource path="res://menus/TitleLogo.png" type="Texture" id=3]
 [ext_resource path="res://fonts/PressStart2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/remapper.gd" type="Script" id=5]
 [ext_resource path="res://effects/FadeEffects.tscn" type="PackedScene" id=6]
 [ext_resource path="res://menus/stage_select/MoveCursor.wav" type="AudioStream" id=7]
 [ext_resource path="res://gui/sounds/Select.wav" type="AudioStream" id=8]
@@ -70,3 +71,6 @@ stream = ExtResource( 7 )
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="Remapper" type="Control" parent="."]
+script = ExtResource( 5 )
