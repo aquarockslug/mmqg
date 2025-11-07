@@ -14,7 +14,7 @@
 
 [sub_resource type="RectangleShape2D" id=8]
 resource_local_to_scene = true
-extents = Vector2( 8, 8 )
+extents = Vector2( 4.5, 5 )
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 7.0
@@ -152,13 +152,14 @@ explosion_scale = 4
 damage = 2
 
 [node name="Collider" parent="." index="0"]
-position = Vector2( -1, -0.5 )
+position = Vector2( -1, 2 )
 shape = SubResource( 8 )
 
 [node name="HitBox" parent="." index="1"]
 position = Vector2( -1, 0 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( 0, 2 )
 shape = SubResource( 7 )
 
 [node name="Sprite" parent="." index="2"]
