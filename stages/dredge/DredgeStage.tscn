@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://characters/enemies/kao_na_wahna/EnemyKaoNaWahnaTall.tscn" type="PackedScene" id=29]
 [ext_resource path="res://characters/enemies/kao_na_wahna/EnemyKaoNaWahnaMiddle.tscn" type="PackedScene" id=30]
 [ext_resource path="res://music/Boss_Battle.ogg" type="AudioStream" id=31]
+[ext_resource path="res://stages/dredge/textures/dredge_bg.png" type="Texture" id=32]
 [ext_resource path="res://characters/enemies/bricky/EnemyBricky.tscn" type="PackedScene" id=33]
 [ext_resource path="res://characters/enemies/metallsv/Metallsv.tscn" type="PackedScene" id=34]
 [ext_resource path="res://items/weapon_energy/WeaponEnergyBig.tscn" type="PackedScene" id=35]
@@ -40,6 +41,7 @@
 [ext_resource path="res://characters/enemies/batton/EnemyBatton.tscn" type="PackedScene" id=39]
 [ext_resource path="res://stages/assets/sounds/Splash.wav" type="AudioStream" id=40]
 [ext_resource path="res://stages/assets/sprites/WaterfallSplash.png" type="Texture" id=41]
+[ext_resource path="res://shaders/Clouds.tres" type="Material" id=42]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 31, 56 )
@@ -110,28 +112,90 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Background" type="Node2D" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_offset = Vector2( 0.5, 0 )
+[node name="bg1" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+texture = ExtResource( 32 )
+centered = false
+region_rect = Rect2( 0, 0, 260.388, 242.136 )
 
-[node name="StageBackgroundTiles" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 0.999805, 1 )
-tile_set = ExtResource( 9 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 0, 33, 0, 16, 33, 0, 32, 33, 0, 48, 33, 0, 64, 33, 0, 80, 33, 0, 96, 33, 0, 112, 33, 0, 272, 33, 0, 288, 33, 0, 304, 33, 0, 320, 33, 0 )
-script = ExtResource( 3 )
+[node name="bg2" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 256, 0 )
+texture = ExtResource( 32 )
+centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_offset = Vector2( 0.1, 0 )
+[node name="bg3" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 512, 0 )
+texture = ExtResource( 32 )
+centered = false
+region_rect = Rect2( 0, 0, 260.388, 242.136 )
 
-[node name="CloudTiles" type="TileMap" parent="ParallaxBackground/ParallaxLayer2"]
-tile_set = ExtResource( 9 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 0, 32, 0, 24, 32, 0, 72, 32, 0, 65632, 32, 0, 131118, 32, 0 )
-script = ExtResource( 3 )
+[node name="bg4" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 768, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="bg5" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 1024, 0 )
+texture = ExtResource( 32 )
+centered = false
+region_rect = Rect2( 0, 0, 260.388, 242.136 )
+
+[node name="bg6" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 1280, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="bg7" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 1536, 0 )
+texture = ExtResource( 32 )
+centered = false
+region_rect = Rect2( 0, 0, 260.388, 242.136 )
+
+[node name="bg8" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 1792, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="bg9" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 4608, -1 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="bg10" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 4864, -1 )
+texture = ExtResource( 32 )
+centered = false
+region_rect = Rect2( 0, 0, 260.388, 242.136 )
+
+[node name="bg11" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 5120, -1 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="bg12" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 5376, -1 )
+texture = ExtResource( 32 )
+centered = false
+region_rect = Rect2( 0, 0, 260.388, 242.136 )
+
+[node name="bg13" type="Sprite" parent="Background"]
+material = ExtResource( 42 )
+position = Vector2( 5632, -1 )
+texture = ExtResource( 32 )
+centered = false
 
 [node name="Sections" type="Node2D" parent="."]
 
@@ -146,6 +210,9 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 84, 65, 589837, 85, 65, 589837, 86, 65, 589837, 87, 65, 589837, 88, 65, 589837, 92, 65, 196614, 93, 65, 196615, 94, 65, 196614, 95, 65, 196614, 65621, 65, 589835, 65622, 65, 589836, 65624, 65, 12, 65625, 65, 13, 65628, 65, 131078, 65629, 65, 131079, 65630, 65, 131078, 65631, 65, 524288, 131157, 65, 262152, 131158, 65, 262153, 131160, 65, 65548, 131161, 65, 65549, 131162, 65, 524288, 131163, 65, 196615, 131164, 65, 196614, 131165, 65, 196615, 131166, 65, 196614, 131167, 65, 524288, 196645, 65, 589835, 196646, 65, 589837, 196647, 65, 589837, 196648, 65, 589837, 196649, 65, 589836, 196697, 65, 458759, 196698, 65, 720896, 196699, 65, 720897, 196700, 65, 196615, 196701, 65, 262150, 196702, 65, 196615, 196703, 65, 524288, 262160, 65, 589835, 262161, 65, 589836, 262181, 65, 262152, 262182, 65, 262154, 262183, 65, 262154, 262184, 65, 262154, 262185, 65, 262153, 262202, 65, 589835, 262203, 65, 589836, 262204, 65, 589837, 262205, 65, 589837, 262206, 65, 589837, 262207, 65, 589837, 262208, 65, 589837, 262209, 65, 589837, 262210, 65, 589837, 262211, 65, 589837, 262212, 65, 589835, 262213, 65, 589836, 262229, 65, 589835, 262230, 65, 589836, 262232, 65, 131084, 262233, 65, 13, 262234, 65, 589824, 262235, 65, 589825, 262236, 65, 196615, 262237, 65, 327686, 262238, 65, 196615, 262239, 65, 524288, 327688, 65, 589835, 327689, 65, 589836, 327696, 65, 262152, 327697, 65, 262153, 327717, 65, 262152, 327718, 65, 262154, 327719, 65, 262154, 327720, 65, 262154, 327721, 65, 262153, 327738, 65, 262152, 327739, 65, 262153, 327748, 65, 262152, 327749, 65, 262153, 327752, 65, 589835, 327753, 65, 589836, 327754, 65, 589837, 327755, 65, 589837, 327756, 65, 589837, 327757, 65, 589835, 327758, 65, 589836, 327765, 65, 262152, 327766, 65, 262153, 327770, 65, 589824, 327771, 65, 589825, 327772, 65, 589837, 327773, 65, 589837, 327774, 65, 589837, 327775, 65, 524288, 393224, 65, 262152, 393225, 65, 262153, 393232, 65, 262152, 393233, 65, 262153, 393252, 65, 589835, 393253, 65, 589836, 393255, 65, 262152, 393256, 65, 262153, 393258, 65, 589835, 393259, 65, 589836, 393274, 65, 262152, 393275, 65, 262153, 393284, 65, 262152, 393285, 65, 262153, 393288, 65, 262152, 393289, 65, 262153, 393293, 65, 262152, 393294, 65, 262153, 393301, 65, 262152, 393302, 65, 262153, 393306, 65, 589824, 393307, 65, 589825, 393308, 65, 196615, 393309, 65, 262150, 393310, 65, 196615, 393311, 65, 524288, 458760, 65, 262152, 458761, 65, 262153, 458762, 65, 589837, 458763, 65, 589837, 458764, 65, 589837, 458765, 65, 589837, 458766, 65, 589837, 458767, 65, 589837, 458768, 65, 262152, 458769, 65, 262153, 458787, 65, 589835, 458788, 65, 589837, 458789, 65, 589836, 458790, 65, 589837, 458791, 65, 589837, 458792, 65, 589837, 458793, 65, 589835, 458794, 65, 589837, 458795, 65, 589836, 458810, 65, 262152, 458811, 65, 262153, 458820, 65, 262152, 458821, 65, 262153, 458824, 65, 262152, 458825, 65, 262153, 458826, 65, 589837, 458827, 65, 589837, 458828, 65, 589837, 458829, 65, 262152, 458830, 65, 262153, 458837, 65, 262152, 458838, 65, 262153, 458842, 65, 589824, 458843, 65, 589825, 458844, 65, 196614, 458845, 65, 327686, 458846, 65, 196615, 458847, 65, 524288, 524296, 65, 262152, 524297, 65, 262153, 524304, 65, 262152, 524305, 65, 262153, 524323, 65, 262152, 524324, 65, 262154, 524325, 65, 262153, 524329, 65, 262152, 524330, 65, 262154, 524331, 65, 262153, 524346, 65, 262152, 524347, 65, 262153, 524356, 65, 262152, 524357, 65, 262153, 524360, 65, 262152, 524361, 65, 262153, 524365, 65, 262152, 524366, 65, 262153, 524373, 65, 262152, 524374, 65, 262153, 524378, 65, 589824, 524379, 65, 589825, 524380, 65, 196615, 524381, 65, 196614, 524382, 65, 196614, 524383, 65, 524288, 589832, 65, 262152, 589833, 65, 262153, 589840, 65, 589833, 589841, 65, 589834, 589859, 65, 262152, 589860, 65, 262154, 589861, 65, 262153, 589865, 65, 262152, 589866, 65, 262154, 589867, 65, 262153, 589882, 65, 589833, 589883, 65, 589834, 589892, 65, 262152, 589893, 65, 262153, 589896, 65, 262152, 589897, 65, 262153, 589901, 65, 262152, 589902, 65, 262153, 589909, 65, 262152, 589910, 65, 262153, 589913, 65, 131084, 589914, 65, 589824, 589915, 65, 589825, 589916, 65, 196614, 589917, 65, 196615, 589918, 65, 196615, 589919, 65, 524288, 655368, 65, 262152, 655369, 65, 262153, 655395, 65, 262152, 655396, 65, 262154, 655397, 65, 262153, 655401, 65, 262152, 655402, 65, 262154, 655403, 65, 262153, 655428, 65, 589833, 655429, 65, 589834, 655432, 65, 589833, 655433, 65, 589834, 655437, 65, 589833, 655438, 65, 589834, 655445, 65, 262152, 655446, 65, 262153, 655448, 65, 12, 655449, 65, 13, 655450, 65, 589824, 720904, 65, 589833, 720905, 65, 589834, 720931, 65, 589833, 720932, 65, 589837, 720933, 65, 589834, 720937, 65, 589833, 720938, 65, 589837, 720939, 65, 589834, 720943, 65, 458756, 720981, 65, 589833, 720982, 65, 589834, 720984, 65, 65548, 720985, 65, 65549, 720986, 65, 589826, 786478, 65, 458757, 786496, 65, 13, 786497, 65, 13, 786498, 65, 13, 786499, 65, 13, 786500, 65, 13, 852012, 65, 589824, 852013, 65, 589825, 852032, 65, 196620, 852033, 65, 65549, 852034, 65, 65549, 852035, 65, 196621 )
 script = ExtResource( 3 )
+
+[node name="EnemyBrickySingle" parent="Sections/TempleApproach" instance=ExtResource( 37 )]
+position = Vector2( 1353, 38 )
 
 [node name="GroundTiles" type="TileMap" parent="Sections/TempleApproach"]
 position = Vector2( 0, 17 )
@@ -181,9 +248,6 @@ position = Vector2( 1109, 57 )
 
 [node name="LifeEnergyBig" parent="Sections/TempleApproach" instance=ExtResource( 18 )]
 position = Vector2( 1424, 58 )
-
-[node name="EnemyBrickySingle" parent="Sections/TempleApproach" instance=ExtResource( 37 )]
-position = Vector2( 1353, 38 )
 
 [node name="Metallsv4" parent="Sections/TempleApproach" instance=ExtResource( 34 )]
 position = Vector2( 708, 105 )
@@ -1190,7 +1254,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4545, 1352 )
+position = Vector2( 51, 195 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

@@ -3,6 +3,10 @@ extends Stage
 onready var _music: Node
 onready var _boss: Node2D
 onready var _boss_door: Node2D
+onready var _material = $"Background/bg1".get_material()
+
+func _process(delta):
+	_material.set_shader_param("scroll", _material.get_shader_param("scroll") + 0.001)
 
 func _notification(what):
 	# Temporary workaround until the following engine issue will be fixed.
@@ -19,8 +23,8 @@ func _connect_signals() -> void:
 
 	# Music
 	_try_connect(self, "restarted", _music, "on_restarted")
-	# _try_connect(_gui_pause, "game_paused", _music, "on_game_paused")
-	# _try_connect(_gui_pause, "game_resumed", _music, "on_game_resumed")
+	 _try_connect(_gui_pause, "game_paused", _music, "on_game_paused")
+	_try_connect(_gui_pause, "game_resumed", _music, "on_game_resumed")
 	_try_connect(player, "died", _music, "on_died")
 
 	# Stage Boss
