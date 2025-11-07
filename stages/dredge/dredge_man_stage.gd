@@ -23,7 +23,7 @@ func _connect_signals() -> void:
 
 	# Music
 	_try_connect(self, "restarted", _music, "on_restarted")
-	 _try_connect(_gui_pause, "game_paused", _music, "on_game_paused")
+	_try_connect(_gui_pause, "game_paused", _music, "on_game_paused")
 	_try_connect(_gui_pause, "game_resumed", _music, "on_game_resumed")
 	_try_connect(player, "died", _music, "on_died")
 
