@@ -13,6 +13,8 @@ func show_menu():
 	for action in handler.Action:
 		var action_label = handler.Action[action] 
 		var action_name = handler._get_name(handler.Action[action])
+		# $"VBoxContainer/Buttons".add_child()
+		# _show_main_buttons(new_game_button)
 
 func _input(event):
 	if event.as_text() == remap_key:
