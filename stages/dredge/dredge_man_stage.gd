@@ -6,7 +6,7 @@ onready var _boss_door: Node2D
 onready var _material = $"Background/bg1".get_material()
 
 func _process(delta):
-	_material.set_shader_param("scroll", _material.get_shader_param("scroll") + 0.001)
+	_material.set_shader_param("scroll", _material.get_shader_param("scroll") + 0.0005)
 
 func _notification(what):
 	# Temporary workaround until the following engine issue will be fixed.
