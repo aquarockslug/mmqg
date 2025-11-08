@@ -290,6 +290,7 @@ tracks/1/keys = {
 [node name="dredgeMan" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 4
+collision_mask = 3
 script = ExtResource( 1 )
 buster_damage = 1
 
