@@ -104,7 +104,7 @@ func _restart() -> void:
     _set_stage_start_pos()
 
     emit_signal("restarted")
-    yield(get_tree().create_timer(0.0 if OS.is_debug_build() else START_DELAY), "timeout")
+    # yield(get_tree().create_timer(0.0 if OS.is_debug_build() else START_DELAY), "timeout")
     emit_signal("player_ready")
     get_tree().paused = false
 
