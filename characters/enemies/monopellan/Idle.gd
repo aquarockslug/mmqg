@@ -20,9 +20,12 @@ func _enter():
 
 func _update(delta):
 	var player_on_left_side = abs(angle_to_player()) < 90
-	if prev_side != player_on_left_side: _animations.play("rotate")
+	if prev_side != player_on_left_side:
+		if _animations.current_animation != "aim_down":
+			_animations.play("rotate")
+		else:
+			owner.toggle_flip_h()
 	prev_side = player_on_left_side
-
 
 func _physics_process(delta):
 	# set a position using a sin wave
@@ -63,10 +66,9 @@ func aim(angle):
 	return shoot_angle
 
 func angle_to_player():
-	return rad2deg(owner.position.angle_to_point(Global.get_player().position))
+	return rad2deg(owner.global_position.angle_to_point(Global.get_player().global_position))
 
 func _on_animation_ended(anim_name):
 	if anim_name == "rotate":
-		print("flip and angled")
 		owner.toggle_flip_h()
 		_animations.play("aim_down")
