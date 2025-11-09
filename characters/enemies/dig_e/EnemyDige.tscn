@@ -148,7 +148,6 @@ enemy_name = "Dige"
 hit_points_max = 1
 contact_damage = 2
 spawn_timer = 3.0
-explosion_scale = 4
 damage = 2
 
 [node name="Collider" parent="." index="0"]
@@ -197,6 +196,7 @@ start_state = NodePath("Drop")
 
 [node name="Death" parent="StateMachine" index="0"]
 script = ExtResource( 11 )
+explosion_scale = 4
 
 [node name="Drop" type="Node" parent="StateMachine" index="1"]
 script = ExtResource( 3 )
