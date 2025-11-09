@@ -69,7 +69,7 @@ tracks/0/keys = {
 radius = 100.0
 
 [node name="Metallsv" instance=ExtResource( 2 )]
-hit_points_max = 3
+hit_points_max = 1
 
 [node name="Collider" parent="." index="0"]
 shape = SubResource( 1 )
