@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://characters/enemies/base/EnemyBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/monopellan/monopellan.png" type="Texture" id=2]
+[ext_resource path="res://characters/enemies/monopellan/death.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 8, 8 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "aim_angled"
+length = 0.1
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 10 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "aim_down"
+length = 0.1
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 5, 11 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "aim_forward"
+length = 0.1
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001, 0.05 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 3, 9 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "rotate"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 6, 1, 7, 2, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="monopellan" instance=ExtResource( 1 )]
+
+[node name="Collider" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="2"]
+position = Vector2( 0, -4 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 5
+frame = 8
+region_enabled = true
+region_rect = Rect2( 58.4251, 0.477657, 108.08, 215 )
+
+[node name="EnemyAnimations" type="AnimationPlayer" parent="." index="5"]
+anims/aim_angled = SubResource( 5 )
+anims/aim_down = SubResource( 6 )
+anims/aim_forward = SubResource( 4 )
+anims/rotate = SubResource( 3 )
+
+[node name="Death" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
