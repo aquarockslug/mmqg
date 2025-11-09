@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://characters/enemies/monopellan/monopellan.png" type="Texture" id=1]
+[ext_resource path="res://characters/enemies/base/EnemyBulletBase.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.5, 3.5 )
+
+[node name="EnemyMetallsvBullet" instance=ExtResource( 2 )]
+
+[node name="Area2D" parent="." index="0"]
+collision_mask = 3
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( -0.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="Area2D" index="1"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 72.5, 192.5, 9, 9 )
+
+[node name="PreciseVisibilityNotifier2D" parent="Area2D" index="2"]
+rect = Rect2( -3, -3, 6, 6 )

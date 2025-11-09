@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://stages/assets/sounds/Splash.wav" type="AudioStream" id=40]
 [ext_resource path="res://stages/assets/sprites/WaterfallSplash.png" type="Texture" id=41]
 [ext_resource path="res://shaders/Clouds.tres" type="Material" id=42]
+[ext_resource path="res://characters/enemies/monopellan/EnemyMonopellan.tscn" type="PackedScene" id=43]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 31, 56 )
@@ -1411,3 +1412,6 @@ volume_db = -2.0
 
 [node name="StageClear" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 21 )
+
+[node name="monopellan" parent="." instance=ExtResource( 43 )]
+position = Vector2( 105, 156 )
