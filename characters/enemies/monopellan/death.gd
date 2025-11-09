@@ -6,7 +6,6 @@ extends State
 const Propeller: Resource = preload("res://characters/enemies/monopellan/Propeller.tscn")
 
 onready var _animations: AnimationPlayer = $"../../BaseAnimations"
-onready var _item_generator := $"../../ItemGenerator"
 
 var prop
 
@@ -20,5 +19,5 @@ func _on_animation_finished(anim_name: String) -> void:
 func break_propeller():
 	prop = Propeller.instance()
 	owner.get_parent().add_child(prop)
-	prop.global_position = owner.global_position
+	prop.global_position = owner.global_position + Vector2(0, -5)
 

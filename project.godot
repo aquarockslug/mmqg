@@ -85,6 +85,7 @@ config/description="Take on the role of Mega man or Bass and defeat Queen's forc
 run/main_scene="res://general/Screen.tscn"
 boot_splash/show_image=false
 boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.901961, 0.105882, 0.360784, 1 )
 
 [autoload]
 
