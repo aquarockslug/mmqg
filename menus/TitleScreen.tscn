@@ -51,13 +51,15 @@ text = "START"
 align = 1
 
 [node name="Info" type="Label" parent="VBoxContainer"]
-margin_left = 409.0
-margin_top = 472.0
-margin_right = 409.0
+margin_left = 301.0
+margin_top = 461.0
+margin_right = 517.0
 margin_bottom = 480.0
 size_flags_horizontal = 4
 size_flags_vertical = 10
 custom_fonts/font = SubResource( 1 )
+text = "Created by Dream Garden
+using MegaManLabs in Godot3"
 align = 1
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
