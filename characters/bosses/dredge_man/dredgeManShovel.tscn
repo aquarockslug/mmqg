@@ -2,7 +2,7 @@
 
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_shovel.png" type="Texture" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man_shovel.gd" type="Script" id=2]
-[ext_resource path="res://characters/bosses/dredge_man/sfx/dredge_shovelfire.ogg" type="AudioStream" id=3]
+[ext_resource path="res://characters/bosses/dredge_man/sfx/dredge_shovelfire.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.5625, 5 )
@@ -52,5 +52,4 @@ autostart = true
 
 [node name="ShovelSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -7.0
 autoplay = true

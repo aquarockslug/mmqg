@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dredge_shovelfire.wav-8c5cf5892ed6fc7798f8fd55314da687.sample"
+
+[deps]
+
+source_file="res://characters/bosses/dredge_man/sfx/dredge_shovelfire.wav"
+dest_files=[ "res://.import/dredge_shovelfire.wav-8c5cf5892ed6fc7798f8fd55314da687.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
