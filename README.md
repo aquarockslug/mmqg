@@ -10,4 +10,3 @@ This is demo 1 which a lot of stuff is VERY early in development and highly subj
 ![mugshot](menus/stage_select/MugshotNimbusman.png)
 ![mugshot](menus/stage_select/MugshotExtinguishwoman.png)
 ![mugshot](menus/stage_select/MugshotRagwomen.png)
-![mugshot](menus/stage_select/MugshotDeceptionwomen.png)
