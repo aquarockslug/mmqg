@@ -9,7 +9,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "intro"
-length = 6.5
+length = 7.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("cards:position")
 tracks/0/interp = 1
@@ -17,10 +17,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 6.5 ),
+"times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 256, 0 ), Vector2( -128, 0 ) ]
+"values": [ Vector2( 256, -408 ), Vector2( 243, 80 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("background_cards:position")
@@ -29,10 +29,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 6.5 ),
+"times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 128, 0 ), Vector2( -96, 0 ) ]
+"values": [ Vector2( 140, -400 ), Vector2( 256, -10 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("TopBorder:position")
@@ -135,14 +135,16 @@ margin_bottom = 644.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="background_cards" type="Sprite" parent="."]
-position = Vector2( -96, 0 )
+position = Vector2( 256, -10 )
+rotation = 1.5708
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 281.332, 386.723, 251.892 )
 
 [node name="cards" type="Sprite" parent="."]
-position = Vector2( -128, 0 )
+position = Vector2( 243, 80 )
+rotation = 1.5708
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
@@ -186,7 +188,7 @@ region_rect = Rect2( 88.562, 877.96, 256.994, 21.0479 )
 
 [node name="BottomBorder" type="Sprite" parent="."]
 visible = false
-position = Vector2( 128, 163 )
+position = Vector2( 127, 163 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 88.4215, 909.483, 257.148, 23.5091 )

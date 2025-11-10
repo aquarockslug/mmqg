@@ -542,6 +542,7 @@ script = ExtResource( 3 )
 
 [node name="EnemyBricky" parent="Sections/DarkPitTop" instance=ExtResource( 33 )]
 position = Vector2( 113, 181 )
+flip_direction = true
 
 [node name="Metallsv" parent="Sections/DarkPitTop" instance=ExtResource( 34 )]
 position = Vector2( 177, 56 )
@@ -1372,7 +1373,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 60, 195 )
+position = Vector2( 5556, 183 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
