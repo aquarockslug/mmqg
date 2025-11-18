@@ -62,4 +62,4 @@ __meta__ = {
 [node name="FillSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
-volume_db = -3.0
+volume_db = -9.0

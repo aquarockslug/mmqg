@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://gui/Ready.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stages/dredge/dredge_man_stage.gd" type="Script" id=2]
@@ -43,6 +43,8 @@
 [ext_resource path="res://stages/assets/sprites/WaterfallSplash.png" type="Texture" id=41]
 [ext_resource path="res://shaders/Clouds.tres" type="Material" id=42]
 [ext_resource path="res://characters/enemies/monopellan/EnemyMonopellan.tscn" type="PackedScene" id=43]
+[ext_resource path="res://stages/dredge/textures/dredge_tiles.png" type="Texture" id=44]
+[ext_resource path="res://characters/enemies/base/sprites/explosions/Explosion.png" type="Texture" id=45]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 31, 56 )
@@ -94,6 +96,64 @@ extents = Vector2( 32, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 77.25, 47.75 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 0, 0, 32, 80 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 45 )
+region = Rect2( 0, 0, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 45 )
+region = Rect2( 60, 0, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 45 )
+region = Rect2( 120, 0, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 45 )
+region = Rect2( 180, 0, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 45 )
+region = Rect2( 240, 0, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 45 )
+region = Rect2( 0, 58, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 45 )
+region = Rect2( 60, 58, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 45 )
+region = Rect2( 120, 58, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 45 )
+region = Rect2( 180, 58, 60, 58 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 45 )
+region = Rect2( 240, 58, 60, 58 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 20 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": false,
+"name": "explode",
+"speed": 18.0
+} ]
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
@@ -1256,7 +1316,7 @@ vframes = 2
 frame = 5
 
 [node name="DredgeMan" parent="Sections/BossRoom" instance=ExtResource( 8 )]
-position = Vector2( 201, 178 )
+position = Vector2( 201, 179 )
 
 [node name="Checkpoint01" parent="Sections/BossRoom" instance=ExtResource( 20 )]
 position = Vector2( -143, 188 )
@@ -1273,6 +1333,11 @@ texture = ExtResource( 24 )
 hframes = 10
 vframes = 2
 frame = 1
+
+[node name="ExplodingBlock" type="AnimatedSprite" parent="Sections/BossRoom"]
+position = Vector2( 200, 15 )
+rotation = 1.5708
+frames = SubResource( 21 )
 
 [node name="Bassroute" parent="Sections" instance=ExtResource( 11 )]
 position = Vector2( 2048, 480 )
@@ -1432,7 +1497,8 @@ volume_db = -2.0
 [node name="BossMusic" type="AudioStreamPlayer" parent="Music"]
 pause_mode = 2
 stream = ExtResource( 31 )
-volume_db = -2.0
+volume_db = -4.0
 
 [node name="StageClear" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 21 )
+volume_db = -2.0

@@ -32,6 +32,8 @@ func _ready() -> void:
 func reset() -> void:
 	$"../DredgeRope".visible = false
 	$"../DredgeBag".visible = false
+	$"../ExplodingBlock".visible = true
+	$"../ExplodingBlock".play("default")
 	$"CharacterSprites/Sprite".visible = false
 	is_restarting = true
 	emit_signal("change_state", "await")
@@ -55,19 +57,19 @@ func intro_rubble(offset: Vector2, anim: String = "rock3") -> void:
 func play_intro_sequence() -> void:
 	# blow up large blocks
 	$SFX/Explosion.play()
-	intro_rubble(Vector2(-18, -150))
-	intro_rubble(Vector2(18, -150))
+	$"../ExplodingBlock".play("explode")
+	intro_rubble(Vector2(-18, -160))
+	intro_rubble(Vector2(18, -160))
 	yield(get_tree().create_timer(0.1), "timeout") # delay to stagger drops
 
 	# more rubble follows
-	intro_rubble(Vector2(18, -175), "random")
-	intro_rubble(Vector2(0, -200), "random")
-	intro_rubble(Vector2(18, -225), "random")
+	intro_rubble(Vector2(0, -180), "random")
+	intro_rubble(Vector2(18, -220), "random")
 
 func on_boss_entered() -> void:
 	play_intro_sequence()
 	Global.get_player().disable_controls(2)
-	yield(get_tree().create_timer(1.5), "timeout") # rubble needs time to drop because physics turn off after this
+	yield(get_tree().create_timer(1.75), "timeout") # rubble needs time to drop because physics turn off after this
 	$StateMachine.initialize($"StateMachine/Ready".get_path())
 
 func _physics_process(delta: float) -> void:
