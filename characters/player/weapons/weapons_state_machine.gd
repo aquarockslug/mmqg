@@ -1,53 +1,53 @@
 extends StateMachine
 
 func _ready() -> void:
-    _init_states_map()
+	_init_states_map()
 
 func change_weapon(name: String) -> void:
-    # Mega Buster (+ 1) is not included in unlocked weapons.
-    if states_map.size() != GameState.unlocked_weapons.size() + 1:
-        _init_states_map()
+	# Mega Buster (+ 1) is not included in unlocked weapons.
+	if states_map.size() != GameState.unlocked_weapons.size() + 1:
+		_init_states_map()
 
-    if name == "weapon_next":
-        _change_state(_get_adjacent_key())
-    elif name == "weapon_previous":
-        _change_state(_get_adjacent_key(true))
-    elif states_map.keys().has(name.substr(7)):  # Remove weapon_ prefix.
-        _change_state(name.substr(7))
-    else:
-        printerr("Failed to change weapon. %s is not a valid weapon name." % name)
+	if name == "weapon_next":
+		_change_state(_get_adjacent_key())
+	elif name == "weapon_previous":
+		_change_state(_get_adjacent_key(true))
+	elif states_map.keys().has(name.substr(7)):  # Remove weapon_ prefix.
+		_change_state(name.substr(7))
+	else:
+		printerr("Failed to change weapon. %s is not a valid weapon name." % name)
 
 func get_weapons_info() -> Dictionary:
-    var weapons_info := {}
-    for key in states_map.keys():
-        if "weapon_energy" in states_map[key] and "color_primary" in states_map[key]:
-            weapons_info[key] = [states_map[key].weapon_energy, states_map[key].color_primary]
+	var weapons_info := {}
+	for key in states_map.keys():
+		if "weapon_energy" in states_map[key] and "color_primary" in states_map[key]:
+			weapons_info[key] = [states_map[key].weapon_energy, states_map[key].color_primary]
 
-    return weapons_info
+	return weapons_info
 
 func _get_adjacent_key(previous: bool = false) -> String:
-    var keys: Array = states_map.keys()
-    var current_key: String
+	var keys: Array = states_map.keys()
+	var current_key: String
 
-    for key in keys:
-        if states_map[key] == current_state:
-            current_key = key
-    
-    var adjacent_index: int = 0
-    var current_index: int = keys.find(current_key)
+	for key in keys:
+		if states_map[key] == current_state:
+			current_key = key
 
-    if current_index < 0:
-        printerr("Failed to map weapon states key to currently equipped weapon state.")
-    elif not previous and current_index == keys.size() - 1:
-        adjacent_index = 0
-    else:
-        adjacent_index = current_index - 1 if previous else current_index + 1
+	var adjacent_index: int = 0
+	var current_index: int = keys.find(current_key)
 
-    return keys[adjacent_index]
+	if current_index < 0:
+		printerr("Failed to map weapon states key to currently equipped weapon state.")
+	elif not previous and current_index == keys.size() - 1:
+		adjacent_index = 0
+	else:
+		adjacent_index = current_index - 1 if previous else current_index + 1
+
+	return keys[adjacent_index]
 
 func _init_states_map() -> void:
-    states_map.clear()
-    states_map["mega_buster"] = $MegaBuster
+	states_map.clear()
+	states_map["mega_buster"] = $MegaBuster
 
-    if GameState.unlocked_weapons.has("electric_ball"):
-        states_map["electric_ball"] = $ElectricBall
+	if GameState.unlocked_weapons.has("electric_ball"):
+		states_map["electric_ball"] = $ElectricBall

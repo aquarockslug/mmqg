@@ -80,7 +80,6 @@ mass = 100.0
 physics_material_override = SubResource( 7 )
 gravity_scale = 10.0
 script = ExtResource( 2 )
-damage = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 8 )

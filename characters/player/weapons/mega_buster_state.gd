@@ -46,7 +46,8 @@ func _get_bullet() -> Node:
 			if owner.name == "ProtoMan":  # Use color swap shader.
 				bullet.get_node("AnimatedSprite").use_parent_material = false
 
-	bullet.position = mega_buster.global_position + Vector2(-3, -2) 
+	mega_buster.position.y = -12
+	bullet.position = owner.global_position + mega_buster.position
 	bullet.direction = owner.get_facing_direction()
 	bullet.add_to_group("BusterProjectilesP%s" % owner.player_number)
 

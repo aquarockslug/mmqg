@@ -17,6 +17,17 @@ func _ready() -> void:
 
 	# pick a random animation to play
 	_anim.play(Array(_anim.get_animation_list()).pick_random())
+	set_physics_process(false)
+
+# the collision shape has to be disabled slightly after the stage collision so it bounces
+func deactivate_collision() -> void: $CollisionShape2D.disabled = true
+
+func fling(power = 1, fling_distance = 200, height = 550) -> void:
+	set_physics_process(true)
+	apply_central_impulse(Vector2(randf() * fling_distance * direction.x, -height * power))
+
+func drop() -> void:
+	set_physics_process(true)
 
 func _camera_exited(): queue_free()
 
@@ -36,9 +47,3 @@ func _physics_process(delta: float) -> void:
 	if bounces >= max_bounces:
 		_area.monitoring = false
 		$CollisionDeactivateTimer.start()
-
-# the collision shape has to be disabled slightly after the stage collision so it bounces
-func deactivate_collision() -> void: $CollisionShape2D.disabled = true
-
-func fling(power = 1, fling_distance = 200, height = 550) -> void:
-	apply_central_impulse(Vector2(randf() * fling_distance * direction.x, -height * power))
