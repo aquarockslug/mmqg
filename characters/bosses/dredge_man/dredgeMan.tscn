@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_man.png" type="Texture" id=2]
@@ -13,13 +13,14 @@
 [ext_resource path="res://effects/effect_spawner/EffectSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://characters/bosses/dredge_man/states/idle.gd" type="Script" id=12]
 [ext_resource path="res://characters/bosses/dredge_man/states/jump.gd" type="Script" id=13]
+[ext_resource path="res://characters/bosses/dredge_man/sfx/dredge_explode.wav" type="AudioStream" id=14]
 [ext_resource path="res://characters/bosses/dredge_man/states/dig.gd" type="Script" id=15]
 [ext_resource path="res://characters/bosses/dredge_man/states/shoot.gd" type="Script" id=17]
 [ext_resource path="res://characters/bosses/dredge_man/states/bomb.gd" type="Script" id=18]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_introanim.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 18.5, 21.75 )
+extents = Vector2( 12, 3 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -95,7 +96,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-length = 3.2
+length = 3.25
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("CharacterSprites/IntroSprite:frame")
@@ -104,7 +105,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.7, 1.9, 2.15, 2.4, 2.55, 2.8, 2.95, 3.25 ),
+"times": PoolRealArray( 0, 1, 1.7, 1.9, 2.2, 2.45, 2.6, 2.85, 3, 3.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 19 ]
@@ -116,7 +117,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1.6, 1.8, 2.15 ),
+"times": PoolRealArray( 0, 0.5, 1.6, 1.8, 2.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -256 ), Vector2( 0, -225 ), Vector2( 0, -130 ), Vector2( 0, -135 ), Vector2( 0, 0 ) ]
@@ -152,7 +153,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 3.2 ),
+"times": PoolRealArray( 0, 3.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -164,7 +165,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 3.2 ),
+"times": PoolRealArray( 0, 3.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -176,7 +177,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 3.1 ),
+"times": PoolRealArray( 3.15 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
@@ -188,7 +189,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 3.2 ),
+"times": PoolRealArray( 0, 3.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -314,17 +315,17 @@ tracks/1/keys = {
 [node name="dredgeMan" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 4
-collision_mask = 3
 script = ExtResource( 1 )
+contact_damage = null
 buster_damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 8.25 )
+position = Vector2( 0, 27.5 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 1, 7 )
@@ -403,6 +404,9 @@ stream = ExtResource( 5 )
 
 [node name="Death" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 6 )
+
+[node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 14 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 7 )

@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	# Reset double jump if enabled.
 	if can_double_jump and is_on_floor():
 		has_in_air_jump = true
-		
+
 func on_restarted() -> void:
 	visible = false
 
@@ -83,6 +83,12 @@ func on_boss_entered() -> void:
 		emit_signal("change_state", "idle")
 	else:
 		emit_signal("change_state", "jump")
+
+func disable_controls(seconds: int) -> void:
+	var c = $Inputs.controller
+	$Inputs.controller = InputHandler.Controller.EMPTY
+	yield(get_tree().create_timer(seconds), "timeout")
+	$Inputs.controller = c
 
 func on_boss_died() -> void:
 	is_invincible = true

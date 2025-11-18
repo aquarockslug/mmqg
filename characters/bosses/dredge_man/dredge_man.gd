@@ -14,8 +14,9 @@ var is_restarting: bool
 onready var _base_width: int = Global.base_size.x
 onready var _sprite: Sprite = $"CharacterSprites/Sprite"
 onready var _animation: AnimationPlayer = $AnimationBase
-onready var life_bar: Control = Global.get_current_stage().get_node(
-	"GUI/MarginContainer/LifeEnergyBar/BossBar")
+onready var life_bar: Control = Global.get_current_stage().get_node("GUI/MarginContainer/LifeEnergyBar/BossBar")
+
+const BigRubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManBigRubble.tscn")
 
 signal change_state(state_name)
 signal hit_points_changed(_hit_points)
@@ -41,9 +42,29 @@ func reset() -> void:
 	_is_blocking = false
 	_is_collidable = true
 
+func intro_rubble(offset: Vector2, anim: String = "rock3") -> void:
+	var rubble := BigRubble.instance()
+	owner.get_parent().add_child(rubble)
+	rubble.global_position = global_position + offset
+	rubble.apply_central_impulse(Vector2(-randf() * 65, 25))
+	rubble.drop(anim) # override the random animation with the large stone block rubble
+
+func play_intro_sequence() -> void:
+	# blow up large blocks
+	$SFX/Explosion.play()
+	intro_rubble(Vector2(-18, -150))
+	intro_rubble(Vector2(18, -150))
+	yield(get_tree().create_timer(0.1), "timeout") # delay to stagger drops
+
+	# more rubble follows
+	intro_rubble(Vector2(18, -175), "random")
+	intro_rubble(Vector2(0, -200), "random")
+	intro_rubble(Vector2(18, -225), "random")
+
 func on_boss_entered() -> void:
-	if Global.player is Player and abs(global_position.x - Global.player.global_position.x) < _base_width / 2:
-		_switch_side()
+	play_intro_sequence()
+	Global.get_player().disable_controls(2)
+	yield(get_tree().create_timer(1.5), "timeout") # rubble needs time to drop because physics turn off after this
 	$StateMachine.initialize($"StateMachine/Ready".get_path())
 
 func _physics_process(delta: float) -> void:
