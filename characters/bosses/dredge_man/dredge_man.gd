@@ -30,6 +30,9 @@ func _ready() -> void:
 	_start_pos = global_position
 
 func reset() -> void:
+	$"../DredgeRope".visible = false
+	$"../DredgeBag".visible = false
+	$"CharacterSprites/Sprite".visible = false
 	is_restarting = true
 	emit_signal("change_state", "await")
 	$StateMachine.set_active(false)

@@ -56,5 +56,5 @@ func _physics_process(delta: float) -> void:
 	if bounces >= max_bounces:
 		_area.monitoring = false
 		# the collision shape has to be disabled slightly after so it bounces
-		yield(get_tree().create_timer(0.2), "timeout")
+		yield(get_tree().create_timer(0.1), "timeout")
 		$CollisionShape2D.disabled = true

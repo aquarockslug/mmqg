@@ -43,6 +43,6 @@ func _on_explode():
 	$Sprite.visible = false
 	$AnimationPlayer.play("explode")
 	_area.scale = Vector2(explosion_scale, explosion_scale)
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield($AnimationPlayer, "animation_finished")
 	queue_free()
 
