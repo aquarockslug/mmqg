@@ -1,12 +1,11 @@
 extends RigidBody2D
 
-export(int) var height := 550
-export(int) var distance := 200
+onready var _anim: AnimationPlayer = $AnimationPlayer
+
 export(int) var damage := 3
 
 var _velocity: Vector2
 var direction := Vector2.LEFT
-var rng = RandomNumberGenerator.new()
 var bounces = 0
 var max_bounces = 2
 
@@ -16,9 +15,8 @@ func _ready() -> void:
 	$CollisionDeactivateTimer.connect("timeout", self, "deactivate_collision")
 	$PreciseVisibilityNotifier2D.connect("camera_exited", self, "_camera_exited")
 
-	rng.randomize()
-	var rock_type = ["rock1", "rock2", "rock3", "rock4"][rng.randi_range(0, 3)]
-	$AnimationPlayer.play(rock_type)
+	# pick a random animation to play
+	_anim.play(Array(_anim.get_animation_list()).pick_random())
 
 func _camera_exited(): queue_free()
 
@@ -42,5 +40,5 @@ func _physics_process(delta: float) -> void:
 # the collision shape has to be disabled slightly after the stage collision so it bounces
 func deactivate_collision() -> void: $CollisionShape2D.disabled = true
 
-func fling(power = 1) -> void:
-	apply_central_impulse(Vector2(randf() * distance * direction.x, -height * power))
+func fling(power = 1, fling_distance = 200, height = 550) -> void:
+	apply_central_impulse(Vector2(randf() * fling_distance * direction.x, -height * power))
