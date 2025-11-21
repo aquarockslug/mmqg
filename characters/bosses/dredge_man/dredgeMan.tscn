@@ -36,10 +36,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ true, false, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CharacterSprites/DredgeToss:visible")
@@ -48,10 +48,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false, true, false ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("CharacterSprites/DredgeToss:frame")
@@ -60,7 +60,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
@@ -76,6 +76,17 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 10 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=42]
@@ -340,7 +351,6 @@ tracks/1/keys = {
 z_index = 1
 collision_layer = 4
 script = ExtResource( 1 )
-contact_damage = null
 buster_damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -381,6 +391,7 @@ texture = ExtResource( 2 )
 flip_h = true
 hframes = 7
 vframes = 4
+frame = 10
 region_enabled = true
 region_rect = Rect2( 0.5, 24.5, 371, 252 )
 region_filter_clip = true
@@ -389,7 +400,7 @@ region_filter_clip = true
 visible = false
 texture = ExtResource( 3 )
 hframes = 3
-frame = 2
+frame = 1
 
 [node name="HitSprite" type="Sprite" parent="CharacterSprites"]
 visible = false
@@ -483,7 +494,11 @@ wait_time = 3.0
 one_shot = true
 
 [node name="TimerDrop" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.4
+one_shot = true
+
+[node name="TimerTurn" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

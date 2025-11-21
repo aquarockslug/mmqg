@@ -8,7 +8,6 @@ func _ready() -> void:
 	_timer_idle_delay.connect("timeout", self, "_on_timeout")
 
 func _enter() -> void:
-	owner.face_player()
 	owner._animation.play("idle")
 	_timer_idle_delay.start()
 
@@ -27,7 +26,9 @@ func _on_timeout() -> void:
 		emit_signal("finished", long_range_state())
 
 func short_range_state() -> String:
+	owner.face_player()
 	return "bomb" if randf() < 0.33 else "dig"
 
 func long_range_state() -> String:
+	owner.face_player()
 	return "shoot" if randf() < 0.33 else "jump"

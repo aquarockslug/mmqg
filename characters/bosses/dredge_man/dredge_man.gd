@@ -23,6 +23,9 @@ signal hit_points_changed(_hit_points)
 signal boss_ready()
 signal boss_died()
 
+func toggle_flip_h() -> void:
+	$Sprite.flip_h = !$Sprite.flip_h
+
 func _ready() -> void:
 	connect("change_state", $StateMachine, "_change_state")
 	connect("hit_points_changed", life_bar, "on_hit_points_changed")
