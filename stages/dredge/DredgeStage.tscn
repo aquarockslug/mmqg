@@ -1317,7 +1317,6 @@ frame = 5
 
 [node name="DredgeMan" parent="Sections/BossRoom" instance=ExtResource( 8 )]
 position = Vector2( 201, 179 )
-contact_damage = 3
 
 [node name="Checkpoint01" parent="Sections/BossRoom" instance=ExtResource( 20 )]
 position = Vector2( -143, 188 )

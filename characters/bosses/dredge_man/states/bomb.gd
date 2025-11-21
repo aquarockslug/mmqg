@@ -21,12 +21,7 @@ func _update(delta: float) -> void:
 
 	if owner.is_on_floor():
 		$"../../CharacterSprites/DredgeToss".flip_h = owner.get_facing_direction().x < 0
-		$"../../CharacterSprites/Sprite".flip_h = owner.get_facing_direction().x < 0
 		emit_signal("finished", "idle")
-
-func _on_turn() -> void:
-	$"../../CharacterSprites/DredgeToss".flip_h = owner.get_facing_direction().x > 0
-	$"../../CharacterSprites/Sprite".flip_h = owner.get_facing_direction().x > 0
 
 # dredge man lets go of the bomb while jumping
 func _on_drop() -> void:

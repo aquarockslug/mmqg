@@ -14,7 +14,6 @@ onready var _sprite := $Sprite
 
 func _ready() -> void:
 	$PreciseVisibilityNotifier2D.connect("camera_exited", self, "_on_camera_exited")
-	set_physics_process(false)
 
 	# pick a random animation to play
 	randomize()
@@ -28,13 +27,11 @@ func _ready() -> void:
 
 func fling(power = 1, fling_distance = 200, height = 550) -> void:
 	_sprite.visible = true
-	set_physics_process(true)
 	apply_central_impulse(Vector2(randf() * fling_distance * direction.x, -height * power))
 
 func drop(new_anim = "random") -> void:
 	if new_anim != "random": _anim.play(new_anim)
 	_sprite.visible = true
-	set_physics_process(true)
 
 func _on_camera_exited():
 	# only free after bouncing so when the starting position is off screen it isnt freed early
