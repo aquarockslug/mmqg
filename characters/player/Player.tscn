@@ -1444,11 +1444,11 @@ position = Vector2( 0, -12 )
 shape = SubResource( 27 )
 
 [node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
-cast_to = Vector2( 0, -14 )
+cast_to = Vector2( 0, -16 )
 
 [node name="StopperRayCast" type="RayCast2D" parent="CollisionShape2D"]
 enabled = true
-cast_to = Vector2( 18, 1 )
+cast_to = Vector2( 17, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 29 )
@@ -1588,6 +1588,6 @@ script = ExtResource( 31 )
 script = ExtResource( 34 )
 
 [node name="MegaBusterPos" type="Position2D" parent="."]
-position = Vector2( 16, -13 )
+position = Vector2( 10, -12 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]

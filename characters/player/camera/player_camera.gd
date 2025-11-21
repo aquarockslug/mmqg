@@ -23,7 +23,6 @@ func _ready() -> void:
 	_boundaries_collision_mask = $MultiplayerBoundaries.collision_mask
 
 func _physics_process(delta: float) -> void:
-	if not Global.players.values(): return
 	for p in Global.players.values():
 		if p.global_position.distance_to(get_camera_screen_center()) > _death_distance:
 			p.die(false)

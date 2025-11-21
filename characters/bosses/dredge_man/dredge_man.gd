@@ -50,12 +50,15 @@ func reset() -> void:
 	_is_blocking = false
 	_is_collidable = true
 
-func intro_rubble(offset: Vector2, anim: String = "rock3") -> void:
+func defer_rubble(offset, anim):
 	var rubble := BigRubble.instance()
 	owner.get_parent().add_child(rubble)
 	rubble.global_position = global_position + offset
 	rubble.apply_central_impulse(Vector2(-randf() * 65, 25))
 	rubble.drop(anim) # override the random animation with the large stone block rubble
+	
+func intro_rubble(offset: Vector2, anim: String = "rock3") -> void:
+	call_deferred("defer_rubble", offset, anim)
 
 func play_intro_sequence() -> void:
 	# blow up large blocks
@@ -82,12 +85,11 @@ func _physics_process(delta: float) -> void:
 				body.on_hit(contact_damage)
 
 func _on_hit(body: PhysicsBody2D) -> void:
-	if is_invincible:
-		body.queue_free()
-		return
-
+	# make sure that the body is a weapon and not the player
 	if body and body.is_in_group("PlayerWeapons"):
-		if _is_blocking:
+		if is_invincible: 
+			body.queue_free()
+		elif _is_blocking:
 			body.reflect()
 		else:
 			is_invincible = true
