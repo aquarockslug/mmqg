@@ -24,7 +24,7 @@ extents = Vector2( 12, 3 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 22, 25.5 )
+extents = Vector2( 15, 21.75 )
 
 [sub_resource type="Animation" id=43]
 resource_name = "bomb"
@@ -362,7 +362,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 1, 7 )
+position = Vector2( 0, 10.75 )
 shape = SubResource( 1 )
 
 [node name="CharacterSprites" type="Node2D" parent="."]
@@ -481,7 +481,7 @@ one_shot = true
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0
-wait_time = 0.25
+wait_time = 0.4
 one_shot = true
 
 [node name="TimerDigSpeed" type="Timer" parent="."]
@@ -503,7 +503,7 @@ one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 0, 22 )
-cast_to = Vector2( 90, 0 )
+cast_to = Vector2( 120, 0 )
 collision_mask = 2
 
 [node name="PositionDig" type="Position2D" parent="."]
