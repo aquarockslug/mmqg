@@ -5,8 +5,8 @@ onready var _state_machine: StateMachine = $"../../StateMachine"
 onready var _walk_duration_timer: Timer = $"../../WalkDurationTimer"
 
 var _velocity: Vector2 = Vector2(0, 0)
-var speed = 1250
-var gravity_scale = 3
+var speed = 1500
+var gravity_scale = 2
 var stuck_time = 0 # the number of _physics_processes spent being stuck
 var turn_threshold = 30 # how long to be stuck before turning
 

@@ -117,3 +117,4 @@ wait_time = 3.0
 autostart = true
 
 [node name="WalkDurationTimer" type="Timer" parent="." index="12"]
+wait_time = 1.5
