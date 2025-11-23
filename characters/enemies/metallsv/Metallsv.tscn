@@ -66,7 +66,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=7]
-radius = 100.0
+radius = 120.0
 
 [node name="Metallsv" instance=ExtResource( 2 )]
 hit_points_max = 1
@@ -93,7 +93,7 @@ anims/walk = SubResource( 4 )
 
 [node name="StateMachine" parent="." index="8"]
 script = ExtResource( 5 )
-start_state = NodePath("Hide")
+start_state = NodePath("Shoot")
 
 [node name="Walk" type="Node" parent="StateMachine" index="1"]
 script = ExtResource( 6 )
@@ -117,4 +117,3 @@ wait_time = 3.0
 autostart = true
 
 [node name="WalkDurationTimer" type="Timer" parent="." index="12"]
-wait_time = 1.5

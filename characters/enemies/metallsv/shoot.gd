@@ -8,14 +8,15 @@ func _ready():
 
 func _enter():
 	owner.is_blocking = false
-	owner.set_flip_direction(Global.get_player().global_position.x > owner.global_position.x)
+	if Global.get_player():
+		owner.set_flip_direction(Global.get_player().global_position.x > owner.global_position.x)
 	$"../../EnemyAnimations".play("shoot")
 	yield(owner.start_yield_timer(SHOOT_DELAY), "timeout")
 
 	if owner.is_dead: return
 
-	shoot()
-
+	call_deferred("shoot")
+	
 func shoot():
 	var bullet_pos: Vector2 = $"../../HitBox".global_position
 	var bullet: Node = Bullet.instance()

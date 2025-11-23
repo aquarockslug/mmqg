@@ -49,7 +49,7 @@
 [ext_resource path="res://characters/player/sprites/mega_man/SlideMask.png" type="Texture" id=48]
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 9.25, 12 )
+extents = Vector2( 7, 11 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "power_charge_lvl1"
@@ -1456,12 +1456,13 @@ use_parent_material = true
 texture = ExtResource( 2 )
 offset = Vector2( 0, -17 )
 hframes = 3
+frame = 5
 
 [node name="SpriteMask" type="Sprite" parent="."]
 pause_mode = 2
 visible = false
 material = ExtResource( 37 )
-texture = ExtResource( 36 )
+texture = ExtResource( 46 )
 offset = Vector2( 0, -7 )
 hframes = 6
 vframes = 3

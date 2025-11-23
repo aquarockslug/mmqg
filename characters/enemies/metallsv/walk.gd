@@ -14,6 +14,7 @@ func _ready():
 	_walk_duration_timer.connect("timeout", self, "_walk_duration_timeout")
 
 func _enter():
+	## owner.set_flip_direction(Global.get_player().global_position.x > owner.global_position.x)
 	$"../../EnemyAnimations".play("walk")
 	owner.is_blocking = false
 	_walk_duration_timer.start()
