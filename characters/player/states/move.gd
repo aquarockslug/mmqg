@@ -3,7 +3,7 @@ extends "on_ground.gd"
 const STALL_FRAME_COUNT: int = 5
 const SHOOT_FRAME_COUNT_MAX: int = 19
 
-export(Vector2) var buster_position := Vector2(17, 0)
+var buster_position := Vector2(17, 0)
 
 var _direction: Vector2
 var _velocity: Vector2

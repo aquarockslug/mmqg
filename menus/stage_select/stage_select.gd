@@ -25,7 +25,7 @@ func _ready() -> void:
 				mugshot.texture = $"Mugshots/MugshotUnavailable".texture
 
 	yield($FadeEffects, "screen_faded_in")
-	$"Buttons/ButtonMidCenter".grab_focus()
+	$"Buttons/ButtonTopLeft".grab_focus()
 	# $"Background/ShopButton".play()
 
 	Global.wide_screen = false
@@ -57,7 +57,7 @@ func _on_focus_entered(index: int, is_mouse: bool) -> void:
 			_buttons[index].grab_focus()
 
 	$MoveCursorSound.play()
-	$"Mugshots/MugshotMidCenter".frame = index
+	#$"Mugshots/MugshotMidCenter".frame = index
 
 func _on_pressed(index: int) -> void:
 	var path: String
@@ -65,19 +65,11 @@ func _on_pressed(index: int) -> void:
 		0:
 			path = stage_top_left
 		1:
-			path = stage_top_center
-		2:
 			path = stage_top_right
-		3:
+		2:
 			path = stage_mid_left
-		5:
+		3:
 			path = stage_mid_right
-		6:
-			path = stage_bottom_left
-		7:
-			path = stage_bottom_center
-		8:
-			path = stage_bottom_right
 
 	if path.empty():
 		return
