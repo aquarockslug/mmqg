@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.5, 3.5 )
 
-[node name="EnemyMetallsvBullet" instance=ExtResource( 2 )]
+[node name="EnemyMonopellanBullet" instance=ExtResource( 2 )]
 
 [node name="Area2D" parent="." index="0"]
 collision_mask = 3
