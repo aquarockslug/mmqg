@@ -165,6 +165,7 @@ func _set_touch_controls() -> void:
 	if (Engine.is_editor_hint() or not has_node("TouchControls")):
 		return
 
-	var state: bool = ProjectSettings.get_setting("custom/gui/touch_controls")
+	var is_mobile = OS.has_feature("mobile") or OS.has_touchscreen_ui_hint() or OS.get_name() in ["Android", "iOS"]
+	var state: bool = ProjectSettings.get_setting("custom/gui/touch_controls") or is_mobile
 	$TouchControls.visible = state
 	$"TouchControls/VirtualJoystick".use_input_actions = state
