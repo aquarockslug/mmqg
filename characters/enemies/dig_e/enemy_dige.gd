@@ -8,7 +8,6 @@ var exploded = false
 
 func _ready() -> void:
 	$Inputs.controller = InputHandler.Controller.AI
-	$Inputs.ai = $AI
 
 	_timer_fuse.connect("timeout", self, "_on_explode")
 	_timer_fuse.start()

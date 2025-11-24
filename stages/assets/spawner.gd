@@ -43,7 +43,7 @@ func _spawn_enemy() -> void:
 		enemy.position = position
 		for key in spawn_info:
 			enemy.set(key, spawn_info[key])
-		get_parent().add_child(enemy)
+		get_parent().call_deferred("add_child", enemy)
 		enemy.connect("queued_free", self, "on_queued_free", [enemy.enemy_name])
 		GameState.increase_enemy_count(enemy.enemy_name)
 
