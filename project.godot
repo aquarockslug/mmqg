@@ -97,7 +97,7 @@ ProjectSettingsInfo="*res://scripts/project_settings.gd"
 
 [custom]
 
-startup/entry_game_scene.debug="res://menus/stage_select/StageSelect.tscn"
+startup/entry_game_scene.debug="res://menus/TitleScreen.tscn"
 rendering/filter=0
 
 [debug]
