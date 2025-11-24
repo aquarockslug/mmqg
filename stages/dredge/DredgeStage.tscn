@@ -1438,7 +1438,7 @@ position = Vector2( 1, 0 )
 player_target_node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 60, 207 )
+position = Vector2( 62, 208 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -1492,13 +1492,13 @@ script = ExtResource( 6 )
 [node name="BGM" type="AudioStreamPlayer" parent="Music"]
 pause_mode = 2
 stream = ExtResource( 21 )
-volume_db = -2.0
+volume_db = -4.0
 
 [node name="BossMusic" type="AudioStreamPlayer" parent="Music"]
 pause_mode = 2
 stream = ExtResource( 31 )
-volume_db = -4.0
+volume_db = -6.0
 
 [node name="StageClear" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 21 )
-volume_db = -2.0
+volume_db = -4.0

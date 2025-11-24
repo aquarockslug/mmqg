@@ -214,13 +214,15 @@ frames = SubResource( 5 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -2.0
+volume_db = -4.0
 
 [node name="MoveCursorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -2.0
 
 [node name="StageSelectedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = -2.0
 
 [node name="Buttons" type="Control" parent="."]
 anchor_left = 0.5
