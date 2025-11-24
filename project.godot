@@ -77,6 +77,7 @@ _global_script_class_icons={
 "TileMapExtended": "",
 "VirtualJoystick": ""
 }
+custom/=null
 
 [application]
 
@@ -84,7 +85,7 @@ config/name="Mega Man & Bass Queen's Gambit"
 config/description="Take on the role of Mega man or Bass and defeat Queen's forces, challenging 10 new robot masters and eventually the queen herself!"
 run/main_scene="res://general/Screen.tscn"
 boot_splash/show_image=false
-boot_splash/fullsize=false
+boot_splash/image="res://menus/TitleLogo.png"
 boot_splash/bg_color=Color( 0.901961, 0.105882, 0.360784, 1 )
 
 [autoload]
@@ -97,6 +98,7 @@ ProjectSettingsInfo="*res://scripts/project_settings.gd"
 [custom]
 
 startup/entry_game_scene.debug="res://menus/stage_select/StageSelect.tscn"
+rendering/filter=0
 
 [debug]
 
@@ -115,6 +117,10 @@ window/dpi/allow_hidpi=true
 window/handheld/orientation="sensor_landscape"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+
+[global]
+
+custom=false
 
 [importer_defaults]
 
