@@ -14,7 +14,7 @@ func _enter() -> void:
 	break_propeller()
 
 func _on_animation_finished(anim_name: String) -> void:
-	if anim_name == "death": owner.queue_free()
+	if anim_name == "death": owner.call_deferred("queue_free")
 
 func break_propeller():
 	prop = Propeller.instance()

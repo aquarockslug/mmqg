@@ -56,4 +56,4 @@ func _after_animation(anim_name):
 	if water_animations.has(anim_name):
 		emit_signal("change_state", "idle")
 
-	if anim_name == "death": queue_free()
+	if anim_name == "death": call_deferred("queue_free")
