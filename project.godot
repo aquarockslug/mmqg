@@ -97,7 +97,7 @@ ProjectSettingsInfo="*res://scripts/project_settings.gd"
 [custom]
 
 startup/entry_game_scene.debug="res://menus/TitleScreen.tscn"
-rendering/filter=0
+startup/entry_game_scene="res://menus/TitleScreen.tscn"
 
 [debug]
 
