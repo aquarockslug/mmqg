@@ -93,7 +93,7 @@ anims/walk = SubResource( 4 )
 
 [node name="StateMachine" parent="." index="8"]
 script = ExtResource( 5 )
-start_state = NodePath("Shoot")
+start_state = NodePath("Hide")
 
 [node name="Walk" type="Node" parent="StateMachine" index="1"]
 script = ExtResource( 6 )
