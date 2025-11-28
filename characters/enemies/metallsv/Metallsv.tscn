@@ -113,7 +113,6 @@ shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="." index="11"]
 process_mode = 0
-wait_time = 3.0
-autostart = true
+wait_time = 2.0
 
 [node name="WalkDurationTimer" type="Timer" parent="." index="12"]

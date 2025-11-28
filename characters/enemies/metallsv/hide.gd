@@ -9,10 +9,12 @@ func _ready():
 	$"../../ShootArea".connect("body_exited", self, "_shoot_area_exited")
 
 func _enter():
+	$"../../Timer".start()
 	$"../../EnemyAnimations".play("hide")
 	owner.is_blocking = true
 
 func _ready_to_shoot():
+	$"../../Timer".stop()
 	if player_in_range:
 		emit_signal("finished", "shoot")
 

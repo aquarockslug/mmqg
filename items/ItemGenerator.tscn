@@ -4,3 +4,4 @@
 
 [node name="ItemGenerator" type="Node2D"]
 script = ExtResource( 1 )
+weight_extra_life = 5
