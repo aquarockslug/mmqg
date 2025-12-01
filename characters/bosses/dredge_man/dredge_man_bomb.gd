@@ -4,6 +4,7 @@ onready var _timer_fuse: Timer = $TimerBombFuse
 onready var _area := $Area2D
 
 var rng = RandomNumberGenerator.new()
+var drop_rubble = false
 
 export(int) var damage := 2
 export(int) var explosion_frame_count := 10
@@ -50,9 +51,10 @@ func _on_explode():
 
 	yield($AnimationPlayer, "animation_finished")
 
-	var big_rubble = preload("res://characters/bosses/dredge_man/dredgeManBigRubble.tscn").instance()
-	get_parent().add_child(big_rubble)
-	big_rubble.global_position = global_position + Vector2(rng.randi_range(-50, 50), -145)
+	if (drop_rubble):
+		var big_rubble = preload("res://characters/bosses/dredge_man/dredgeManBigRubble.tscn").instance()
+		get_parent().add_child(big_rubble)
+		big_rubble.global_position = global_position + Vector2(rng.randi_range(-50, 50), -145)
 
 	queue_free()
 
