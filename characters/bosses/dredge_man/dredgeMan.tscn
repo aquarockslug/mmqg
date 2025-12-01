@@ -36,10 +36,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CharacterSprites/DredgeToss:visible")
@@ -48,10 +48,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ true, false ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("CharacterSprites/DredgeToss:frame")
@@ -60,7 +60,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2, 0.3, 0.4 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
@@ -72,20 +72,9 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 10 ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = false
-tracks/4/keys = {
 "times": PoolRealArray(  ),
 "transitions": PoolRealArray(  ),
+"update": 1,
 "values": [  ]
 }
 
@@ -249,7 +238,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=41]
 resource_name = "jump"
-length = 0.4
+length = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("CharacterSprites/Sprite:frame")
 tracks/0/interp = 1
@@ -257,7 +246,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 10, 11 ]
@@ -387,6 +376,7 @@ vframes = 2
 frame = 17
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
+visible = false
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 7
@@ -397,10 +387,8 @@ region_rect = Rect2( 0.5, 24.5, 371, 252 )
 region_filter_clip = true
 
 [node name="DredgeToss" type="Sprite" parent="CharacterSprites"]
-visible = false
 texture = ExtResource( 3 )
 hframes = 3
-frame = 1
 
 [node name="HitSprite" type="Sprite" parent="CharacterSprites"]
 visible = false

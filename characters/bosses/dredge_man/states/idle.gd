@@ -13,7 +13,7 @@ func _enter() -> void:
 
 func _update(delta: float) -> void:
 	owner.move_and_slide(
-		Vector2.DOWN * Constants.GRAVITY * idle_fall_speed, 
+		Vector2.DOWN * Constants.GRAVITY * idle_fall_speed,
 		Constants.FLOOR_NORMAL
 		)
 
@@ -27,8 +27,8 @@ func _on_timeout() -> void:
 
 func short_range_state() -> String:
 	owner.face_player()
-	return "bomb" if randf() < 0.25 else "dig"
+	return "bomb" if randf() < 0.15 else "dig"
 
 func long_range_state() -> String:
 	owner.face_player()
-	return "jump" if randf() < 0.25 else "shoot"
+	return "jump" if randf() < 0.30 else "shoot"
