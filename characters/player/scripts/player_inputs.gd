@@ -40,7 +40,7 @@ func send(command: String) -> void:
 		_get_state()._handle_command(command)
 
 func _is_mobile_device() -> bool:
-	return OS.has_feature("mobile") or OS.has_touchscreen_ui_hint() or OS.get_name() in ["Android", "iOS"]
+	return OS.has_feature("mobile") or OS.get_name() in ["Android", "iOS"]
 
 func _get_state() -> State:
 	return $"../StateMachine".current_state

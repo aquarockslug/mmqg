@@ -55,7 +55,7 @@ func _ready() -> void:
 			get_tree().quit() # Prevent changing the game entry point in release builds via config overrides.
 
 	# Check if running on mobile device and skip to dredge intro
-	var is_mobile = OS.has_feature("mobile") or OS.has_touchscreen_ui_hint() or OS.get_name() in ["Android", "iOS"]
+	var is_mobile = OS.has_feature("mobile") or OS.get_name() in ["Android", "iOS"]
 	if is_mobile:
 		switch_scene("res://stages/dredge/IntroDredgeStage.tscn")
 	else:
@@ -170,7 +170,7 @@ func _set_touch_controls() -> void:
 	if (Engine.is_editor_hint() or not has_node("TouchControls")):
 		return
 
-	var is_mobile = OS.has_feature("mobile") or OS.has_touchscreen_ui_hint() or OS.get_name() in ["Android", "iOS"]
+	var is_mobile = OS.has_feature("mobile") or OS.get_name() in ["Android", "iOS"]
 	var state: bool = ProjectSettings.get_setting("custom/gui/touch_controls") or is_mobile
 	$TouchControls.visible = state
 	$"TouchControls/VirtualJoystick".use_input_actions = state
