@@ -104,14 +104,6 @@ func _take_damage(damage: int) -> void:
 	if _hit_points < 1:
 		die()
 
-func _switch_side() -> void:
-	global_position.x -= (global_position - \
-			Global.get_current_stage().get_current_camera().get_camera_screen_center()).x * 2
-	if get_facing_direction() == Vector2.RIGHT:
-		set_facing_direction(Vector2.LEFT)
-	else:
-		set_facing_direction(Vector2.RIGHT)
-
 func die() -> void:
 	is_dead = true
 	visible = false
@@ -128,3 +120,7 @@ func get_facing_direction() -> Vector2:
 func face_player() -> void:
 	if Global.player is Player:
 		set_facing_direction(Vector2(sign(Global.player.global_position.x - global_position.x), 0))
+
+func face_center() -> void:
+	if Global.player is Player:
+		set_facing_direction(Vector2(sign(Global.get_current_stage().get_current_camera().get_camera_screen_center().x - global_position.x), 0))

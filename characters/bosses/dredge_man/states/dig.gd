@@ -7,7 +7,7 @@ func _ready() -> void:
 	_timer_duration.connect("timeout", self, "_on_timeout")
 
 func _enter() -> void:
-	owner.face_player()
+	owner.face_center()
 	owner._animation.play("dig")
 
 	scatter_count = scatter_count + 1

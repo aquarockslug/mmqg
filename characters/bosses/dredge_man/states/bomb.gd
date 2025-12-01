@@ -3,7 +3,7 @@ extends "common.gd"
 onready var _timer_drop: Timer = $"../../TimerDrop"
 onready var _timer_turn: Timer = $"../../TimerTurn"
 export(int) var jump_speed := -450
-export(int) var horizontal_speed := 150
+export(int) var horizontal_speed := 125
 
 var landing = false
 
@@ -12,6 +12,7 @@ func _ready() -> void:
 	_timer_turn.connect("timeout", self, "_on_turn")
 
 func _enter() -> void:
+	owner.face_center()
 	landing = false
 	velocity.x = 0
 	owner._animation.play("jump")

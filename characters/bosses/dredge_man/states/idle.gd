@@ -26,9 +26,7 @@ func _on_timeout() -> void:
 		emit_signal("finished", long_range_state())
 
 func short_range_state() -> String:
-	owner.face_player()
-	return "bomb" if randf() < 0.15 else "dig"
+	return "bomb" if randf() < 0.25 else "dig"
 
 func long_range_state() -> String:
-	owner.face_player()
-	return "jump" if randf() < 0.30 else "shoot"
+	return "jump" if randf() < 0.25 else "shoot"

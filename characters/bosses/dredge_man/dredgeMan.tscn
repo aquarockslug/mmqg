@@ -387,6 +387,7 @@ region_rect = Rect2( 0.5, 24.5, 371, 252 )
 region_filter_clip = true
 
 [node name="DredgeToss" type="Sprite" parent="CharacterSprites"]
+visible = false
 texture = ExtResource( 3 )
 hframes = 3
 
@@ -491,7 +492,7 @@ one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 0, 22 )
-cast_to = Vector2( 120, 0 )
+cast_to = Vector2( 100, 0 )
 collision_mask = 2
 
 [node name="PositionDig" type="Position2D" parent="."]

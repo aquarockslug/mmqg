@@ -6,7 +6,7 @@ export(int) var horizontal_speed := 50
 var landing = false
 
 func _enter() -> void:
-	landing = false
+	owner.face_player()
 	velocity.x = 0
 	owner._animation.play("jump")
 
@@ -26,6 +26,8 @@ func _update(delta: float) -> void:
 	if owner.is_on_floor() and landing: _on_landing()
 
 func _on_landing():
+		landing = false
+
 		# show crouch frame for a short time
 		owner._sprite.frame = 10
 		yield(get_tree().create_timer(0.1), "timeout")
