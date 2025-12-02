@@ -1326,15 +1326,22 @@ position = Vector2( 41.75, -29.25 )
 shape = SubResource( 3 )
 
 [node name="DredgeRope" type="Sprite" parent="Sections/BossRoom"]
-visible = false
-position = Vector2( 189, 48 )
+position = Vector2( 189, 49 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 24 )
 hframes = 10
 vframes = 2
 frame = 1
 
+[node name="RopeSprite2" type="Sprite" parent="Sections/BossRoom/DredgeRope"]
+position = Vector2( 0.4, -61.15 )
+texture = ExtResource( 24 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0.282291, 52.4696, 61.6596 )
+
 [node name="ExplodingBlock" type="AnimatedSprite" parent="Sections/BossRoom"]
+visible = false
 position = Vector2( 200, 15 )
 rotation = 1.5708
 frames = SubResource( 21 )
