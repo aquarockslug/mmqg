@@ -14,13 +14,17 @@ var is_restarting: bool
 onready var _base_width: int = Global.base_size.x
 onready var _sprite: Sprite = $"CharacterSprites/Sprite"
 onready var _animation: AnimationPlayer = $AnimationBase
-onready var life_bar: Control = Global.get_current_stage().get_node(
-	"GUI/MarginContainer/LifeEnergyBar/BossBar")
+onready var life_bar: Control = Global.get_current_stage().get_node("GUI/MarginContainer/LifeEnergyBar/BossBar")
+
+const BigRubble: Resource = preload("res://characters/bosses/dredge_man/dredgeManBigRubble.tscn")
 
 signal change_state(state_name)
 signal hit_points_changed(_hit_points)
 signal boss_ready()
 signal boss_died()
+
+func toggle_flip_h() -> void:
+	$Sprite.flip_h = !$Sprite.flip_h
 
 func _ready() -> void:
 	connect("change_state", $StateMachine, "_change_state")
@@ -29,6 +33,11 @@ func _ready() -> void:
 	_start_pos = global_position
 
 func reset() -> void:
+	$"../DredgeRope".visible = false
+	$"../DredgeBag".visible = false
+	$"../ExplodingBlock".visible = true
+	$"../ExplodingBlock".play("default")
+	$"CharacterSprites/Sprite".visible = false
 	is_restarting = true
 	emit_signal("change_state", "await")
 	$StateMachine.set_active(false)
@@ -41,9 +50,32 @@ func reset() -> void:
 	_is_blocking = false
 	_is_collidable = true
 
+func defer_rubble(offset, anim):
+	var rubble := BigRubble.instance()
+	owner.get_parent().add_child(rubble)
+	rubble.global_position = global_position + offset
+	rubble.apply_central_impulse(Vector2(-randf() * 65, 25))
+	rubble.drop(anim) # override the random animation with the large stone block rubble
+	
+func intro_rubble(offset: Vector2, anim: String = "rock3") -> void:
+	call_deferred("defer_rubble", offset, anim)
+
+func play_intro_sequence() -> void:
+	# blow up large blocks
+	$SFX/Explosion.play()
+	$"../ExplodingBlock".play("explode")
+	intro_rubble(Vector2(-18, -160))
+	intro_rubble(Vector2(18, -160))
+	yield(get_tree().create_timer(0.1), "timeout") # delay to stagger drops
+
+	# more rubble follows
+	intro_rubble(Vector2(0, -180), "random")
+	intro_rubble(Vector2(18, -220), "random")
+
 func on_boss_entered() -> void:
-	if Global.player is Player and abs(global_position.x - Global.player.global_position.x) < _base_width / 2:
-		_switch_side()
+	play_intro_sequence()
+	Global.get_player().disable_controls(2)
+	yield(get_tree().create_timer(1.75), "timeout") # rubble needs time to drop because physics turn off after this
 	$StateMachine.initialize($"StateMachine/Ready".get_path())
 
 func _physics_process(delta: float) -> void:
@@ -53,12 +85,11 @@ func _physics_process(delta: float) -> void:
 				body.on_hit(contact_damage)
 
 func _on_hit(body: PhysicsBody2D) -> void:
-	if is_invincible:
-		body.queue_free()
-		return
-
+	# make sure that the body is a weapon and not the player
 	if body and body.is_in_group("PlayerWeapons"):
-		if _is_blocking:
+		if is_invincible: 
+			body.queue_free()
+		elif _is_blocking:
 			body.reflect()
 		else:
 			is_invincible = true
@@ -72,14 +103,6 @@ func _take_damage(damage: int) -> void:
 	emit_signal("hit_points_changed", _hit_points)
 	if _hit_points < 1:
 		die()
-
-func _switch_side() -> void:
-	global_position.x -= (global_position - \
-			Global.get_current_stage().get_current_camera().get_camera_screen_center()).x * 2
-	if get_facing_direction() == Vector2.RIGHT:
-		set_facing_direction(Vector2.LEFT)
-	else:
-		set_facing_direction(Vector2.RIGHT)
 
 func die() -> void:
 	is_dead = true
@@ -97,3 +120,7 @@ func get_facing_direction() -> Vector2:
 func face_player() -> void:
 	if Global.player is Player:
 		set_facing_direction(Vector2(sign(Global.player.global_position.x - global_position.x), 0))
+
+func face_center() -> void:
+	if Global.player is Player:
+		set_facing_direction(Vector2(sign(Global.get_current_stage().get_current_camera().get_camera_screen_center().x - global_position.x), 0))

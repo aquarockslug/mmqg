@@ -13,7 +13,7 @@ export(Array, String) var ladder_identifiers := ["ladder"]
 
 # Time constants in seconds.
 const START_DELAY: float = 2.0
-const DEATH_DELAY: float = 3.0
+const DEATH_DELAY: float = 2.0
 const BLACK_SCREEN_DELAY: float = 0.5
 const FADE_IN_DURATION: float = 0.5
 const FADE_OUT_DURATION: float = 1.5

@@ -3,7 +3,7 @@ extends Control
 
 # Do not set these values below 0.035. Otherwise sound might occasionally not play at all.
 # Related to https://github.com/godotengine/godot/issues/37148
-const FILL_DELAY: float = 0.05
+const FILL_DELAY: float = 0.035
 const FILL_DELAY_NON_PAUSING: float = 0.035
 
 export(String) var bar_name := ""

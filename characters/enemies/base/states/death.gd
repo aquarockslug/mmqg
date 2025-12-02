@@ -9,4 +9,4 @@ func _enter() -> void:
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "death":
 		_item_generator.drop_item()
-		owner.queue_free()
+		owner.call_deferred("queue_free")

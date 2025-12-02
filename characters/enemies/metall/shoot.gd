@@ -15,17 +15,17 @@ func _enter() -> void:
 	var bullet: Node = Bullet.instance()
 	bullet.position = bullet_pos
 	bullet.direction = owner.get_facing_direction()
-	Global.get_current_stage().add_child(bullet)
+	Global.get_current_stage().call_deferred("add_child", bullet)
 
 	bullet = Bullet.instance()
 	bullet.position = bullet_pos
 	bullet.direction = Vector2.DOWN + owner.get_facing_direction()
-	Global.get_current_stage().add_child(bullet)
+	Global.get_current_stage().call_deferred("add_child", bullet)
 
 	bullet = Bullet.instance()
 	bullet.position = bullet_pos
 	bullet.direction = Vector2.UP + owner.get_facing_direction()
-	Global.get_current_stage().add_child(bullet)
+	Global.get_current_stage().call_deferred("add_child", bullet)
 
 func _update(delta: float) -> void:
 	get_parent().velocity.y = \

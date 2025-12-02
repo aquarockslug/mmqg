@@ -50,7 +50,7 @@ func on_body_entered(body: PhysicsBody2D) -> void:
         $Area2D.set_deferred("monitoring", false)
 
         if not respawns_on_restart:
-            queue_free()
+            call_deferred("queue_free")
 
 # Virutal method. Override in actual item for desired effect.
 func _on_picked_up_effect(body: Player) -> void:
@@ -58,4 +58,4 @@ func _on_picked_up_effect(body: Player) -> void:
 
 func _on_anim_finished(anim_name: String) -> void:
     if anim_name == "disappear":
-        queue_free()
+        call_deferred("queue_free")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://characters/bosses/dredge_man/dredge_man.gd" type="Script" id=1]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_man.png" type="Texture" id=2]
@@ -13,17 +13,18 @@
 [ext_resource path="res://effects/effect_spawner/EffectSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://characters/bosses/dredge_man/states/idle.gd" type="Script" id=12]
 [ext_resource path="res://characters/bosses/dredge_man/states/jump.gd" type="Script" id=13]
+[ext_resource path="res://characters/bosses/dredge_man/sfx/dredge_explode.wav" type="AudioStream" id=14]
 [ext_resource path="res://characters/bosses/dredge_man/states/dig.gd" type="Script" id=15]
 [ext_resource path="res://characters/bosses/dredge_man/states/shoot.gd" type="Script" id=17]
 [ext_resource path="res://characters/bosses/dredge_man/states/bomb.gd" type="Script" id=18]
 [ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_introanim.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 18.5, 21.75 )
+extents = Vector2( 12, 3 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 22, 25.5 )
+extents = Vector2( 15, 21.75 )
 
 [sub_resource type="Animation" id=43]
 resource_name = "bomb"
@@ -35,7 +36,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.8 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -47,7 +48,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.8 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -59,7 +60,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
@@ -71,10 +72,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ 10 ]
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=42]
@@ -95,7 +96,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-length = 3.2
+length = 3.25
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("CharacterSprites/IntroSprite:frame")
@@ -104,7 +105,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.6, 1.9, 2.1, 2.4, 2.55, 2.8, 2.95, 3.3 ),
+"times": PoolRealArray( 0, 1, 1.7, 1.9, 2.2, 2.45, 2.6, 2.85, 3, 3.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 19 ]
@@ -116,10 +117,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1.6, 2.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1.6, 1.8, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -256 ), Vector2( 0, -225 ), Vector2( 0, -140 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -256 ), Vector2( 0, -225 ), Vector2( 0, -130 ), Vector2( 0, -135 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("CharacterSprites/RopeSprite:frame")
@@ -143,7 +144,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -10, -190 ), Vector2( -10, -130 ) ]
+"values": [ Vector2( -11, -190 ), Vector2( -11, -130 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("CharacterSprites/RopeSprite:visible")
@@ -152,7 +153,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 3.2 ),
+"times": PoolRealArray( 0, 3.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -164,10 +165,58 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 3.2 ),
+"times": PoolRealArray( 0, 3.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CharacterSprites/Sprite:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CharacterSprites/Sprite:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CharacterSprites/HitSprite:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CharacterSprites/DredgeToss:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -189,7 +238,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=41]
 resource_name = "jump"
-length = 0.4
+length = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("CharacterSprites/Sprite:frame")
 tracks/0/interp = 1
@@ -197,7 +246,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 10, 11 ]
@@ -290,12 +339,11 @@ tracks/1/keys = {
 [node name="dredgeMan" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 4
-collision_mask = 3
 script = ExtResource( 1 )
 buster_damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 8.25 )
+position = Vector2( 0, 25.5 )
 shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -303,28 +351,36 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 1, 7 )
+position = Vector2( 0, 10.75 )
 shape = SubResource( 1 )
 
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="RopeSprite" type="Sprite" parent="CharacterSprites"]
 visible = false
-position = Vector2( -10, -130 )
+position = Vector2( -11, -190 )
 texture = ExtResource( 19 )
 flip_h = true
 hframes = 10
 vframes = 2
-frame = 1
+frame = 4
+
+[node name="RopeSprite2" type="Sprite" parent="CharacterSprites/RopeSprite"]
+position = Vector2( 0.75, -63 )
+texture = ExtResource( 19 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0.282291, 52.4696, 61.6596 )
 
 [node name="IntroSprite" type="Sprite" parent="CharacterSprites"]
 visible = false
+position = Vector2( 0, -256 )
 texture = ExtResource( 19 )
-offset = Vector2( 6, -2 )
+offset = Vector2( 5, -2 )
 flip_h = true
 hframes = 10
 vframes = 2
-frame = 15
+frame = 9
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
 visible = false
@@ -380,6 +436,9 @@ stream = ExtResource( 5 )
 [node name="Death" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 6 )
 
+[node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 14 )
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 7 )
 start_state = NodePath("Await")
@@ -418,6 +477,7 @@ one_shot = true
 
 [node name="TimerIdleDelay" type="Timer" parent="."]
 process_mode = 0
+wait_time = 0.4
 one_shot = true
 
 [node name="TimerDigSpeed" type="Timer" parent="."]
@@ -430,16 +490,20 @@ wait_time = 3.0
 one_shot = true
 
 [node name="TimerDrop" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.4
+one_shot = true
+
+[node name="TimerTurn" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 0, 22 )
-cast_to = Vector2( 90, 0 )
+cast_to = Vector2( 100, 0 )
 collision_mask = 2
 
 [node name="PositionDig" type="Position2D" parent="."]
-position = Vector2( 18, 25 )
+position = Vector2( 18, 27 )
 
 [node name="PositionShoot" type="Position2D" parent="."]
 position = Vector2( 18, 5 )

@@ -3,11 +3,10 @@ extends "common.gd"
 onready var _animations: AnimationPlayer = $"../../AnimationBase"
 
 func _enter() -> void:
+	_animations.play("drop_in")
 	owner.set_facing_direction(Vector2.LEFT)
-	$"../../CharacterSprites/Sprite".visible = false
 	get_tree().paused = true
 	get_tree().set_group("BossDoors", "locked", true)
-	_animations.play("drop_in")
 	yield(_animations, "animation_finished")
 	$"../../../DredgeRope".visible = true
 	$"../../../DredgeBag".visible = true

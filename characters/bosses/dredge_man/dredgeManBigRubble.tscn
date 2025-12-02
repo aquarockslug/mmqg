@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://stages/assets/Rubble.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/bosses/dredge_man/sprites/dredge_big_rubble.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 18, 10 )
+
+[node name="BigRubble" instance=ExtResource( 1 )]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -1, 3 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( -1, 3 )
+shape = SubResource( 10 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 2 )
+offset = Vector2( -1, 0 )
+hframes = 4
+frame = 3

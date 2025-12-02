@@ -46,8 +46,8 @@ func _replace_with_spawner() -> void:
 	spawner.spawn_info = spawn_info
 	spawner.spawn_count_max = spawn_count_max
 	spawner.spawn_timer = spawn_timer
-	get_parent().add_child(spawner)
-	queue_free()
+	get_parent().call_deferred("add_child", spawner)
+	call_deferred("queue_free")
 
 func _physics_process(delta: float) -> void:
 	if _player_collision_area:

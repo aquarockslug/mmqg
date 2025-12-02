@@ -54,7 +54,12 @@ func _ready() -> void:
 			push_error("Release build entry game scene 'Title Screen' may not be changed.")
 			get_tree().quit() # Prevent changing the game entry point in release builds via config overrides.
 
-	switch_scene(ProjectSettings.get_setting("custom/startup/entry_game_scene"))
+	# Check if running on mobile device and skip to dredge intro
+	var is_mobile = OS.has_feature("mobile") or OS.get_name() in ["Android", "iOS"]
+	if is_mobile:
+		switch_scene("res://stages/dredge/IntroDredgeStage.tscn")
+	else:
+		switch_scene(ProjectSettings.get_setting("custom/startup/entry_game_scene"))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("action_screenshot"):
@@ -165,6 +170,7 @@ func _set_touch_controls() -> void:
 	if (Engine.is_editor_hint() or not has_node("TouchControls")):
 		return
 
-	var state: bool = ProjectSettings.get_setting("custom/gui/touch_controls")
+	var is_mobile = OS.has_feature("mobile") or OS.get_name() in ["Android", "iOS"]
+	var state: bool = ProjectSettings.get_setting("custom/gui/touch_controls") or is_mobile
 	$TouchControls.visible = state
 	$"TouchControls/VirtualJoystick".use_input_actions = state

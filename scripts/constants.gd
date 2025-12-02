@@ -2,7 +2,7 @@ extends Node
 
 # Game base sizes.
 const WIDTH: int = 256
-const HEIGHT: int = 224
+const HEIGHT: int = 240
 const WIDTH_WIDE: int = 384
 const HEIGHT_WIDE: int = 240
 const TILE_SIZE := Vector2(16, 16)

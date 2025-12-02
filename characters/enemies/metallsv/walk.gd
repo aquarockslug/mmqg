@@ -5,8 +5,8 @@ onready var _state_machine: StateMachine = $"../../StateMachine"
 onready var _walk_duration_timer: Timer = $"../../WalkDurationTimer"
 
 var _velocity: Vector2 = Vector2(0, 0)
-var speed = 1250
-var gravity_scale = 3
+var speed = 1500
+var gravity_scale = 2
 var stuck_time = 0 # the number of _physics_processes spent being stuck
 var turn_threshold = 30 # how long to be stuck before turning
 
@@ -14,6 +14,7 @@ func _ready():
 	_walk_duration_timer.connect("timeout", self, "_walk_duration_timeout")
 
 func _enter():
+	## owner.set_flip_direction(Global.get_player().global_position.x > owner.global_position.x)
 	$"../../EnemyAnimations".play("walk")
 	owner.is_blocking = false
 	_walk_duration_timer.start()
