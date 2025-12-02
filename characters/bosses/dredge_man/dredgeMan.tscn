@@ -358,22 +358,29 @@ shape = SubResource( 1 )
 
 [node name="RopeSprite" type="Sprite" parent="CharacterSprites"]
 visible = false
-position = Vector2( -11, -130 )
+position = Vector2( -11, -190 )
 texture = ExtResource( 19 )
 flip_h = true
 hframes = 10
 vframes = 2
-frame = 1
+frame = 4
+
+[node name="RopeSprite2" type="Sprite" parent="CharacterSprites/RopeSprite"]
+position = Vector2( 0.75, -63 )
+texture = ExtResource( 19 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0.282291, 52.4696, 61.6596 )
 
 [node name="IntroSprite" type="Sprite" parent="CharacterSprites"]
 visible = false
-position = Vector2( 0, 1 )
+position = Vector2( 0, -256 )
 texture = ExtResource( 19 )
 offset = Vector2( 5, -2 )
 flip_h = true
 hframes = 10
 vframes = 2
-frame = 17
+frame = 9
 
 [node name="Sprite" type="Sprite" parent="CharacterSprites"]
 visible = false
@@ -381,7 +388,6 @@ texture = ExtResource( 2 )
 flip_h = true
 hframes = 7
 vframes = 4
-frame = 10
 region_enabled = true
 region_rect = Rect2( 0.5, 24.5, 371, 252 )
 region_filter_clip = true
@@ -390,6 +396,7 @@ region_filter_clip = true
 visible = false
 texture = ExtResource( 3 )
 hframes = 3
+frame = 2
 
 [node name="HitSprite" type="Sprite" parent="CharacterSprites"]
 visible = false
